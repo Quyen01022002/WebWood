@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/images/favicon/android-chrome-192x192.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <title>Furniture | Minimalist</title>
+  </head>
+  <body>
+    <div class="containers">
+      <!-- Start header -->
+      <div class="header-pre-wrapper">
+        <header class="header is--fixed">
+          <div class="wrapper header-wrapper">
+            <div class="header-logo">
+              <img
+                src="/assets/images/header/header-logo.svg"
+                alt="header-logo"
+                class="header-logo__img"
+              />
+            </div>
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Home</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Product</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">About us</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Recruitment</a>
+                </li>
+              </ul>
+              <div class="header-search">
+                <button class="header-search__btn">
+                  <img
+                    src="/assets/images/header/search.svg"
+                    alt="search-icon"
+                    class="header-search__img"
+                  />
+                </button>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="header-search__input"
+                  name="search"
+                  id="search"
+                />
+              </div>
+            </nav>
+            <div class="header-group">
+              <div class="header-group__btn">
+                <a href="#" title="favorites" class="header-group__link">
+                  <img src="/assets/images/header/favorite.svg" alt="" />
+                </a>
+              </div>
+              <div class="header-group__btn">
+                <a href="#" title="Bag item: " class="header-group__link">
+                  <div class="header-group__bag">
+                    <img src="/assets/images/header/bag.svg" alt="" />
+                    <span>9+</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="header-login">
+              <a href="#" class="header-login__link">
+                <span class="header-login__text">Join us</span>
+              </a>
+              <span class="header-login__divider">|</span>
+              <a href="#" class="header-login__link">
+                <span class="header-login__text">Sign in</span>
+              </a>
+            </div>
+            <div class="header-profile">
+              <div class="header-profile__wrapper">
+                <div href="#" class="header-profile__content">
+                  <a href="" class="header-profile__link">
+                    <p class="header-profile__name">Phan Nghi</p>
+                    <img
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
+                      alt=""
+                      class="header-profile__img"
+                      width="30px"
+                      height="30px"
+                      style="border-radius: 100%"
+                    />
+                  </a>
+                  <div class="header-profile__dropdown">
+                    <div class="header-dropdown__content">
+                      <nav class="header-dropdown__nav">
+                        <ul class="header-dropdown__list">
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Profile</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link">Order</a>
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Favorite</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Settings</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link">Logout</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <!-- End header -->
+
+      <div class="wall">
+        <div class="wrapper wall-wrapper">
+          <!-- Start wall-header -->
+          <div class="wall-header">
+            <h1 class="wall-header__title">
+              List products
+              <span class="wall-header__item_count"> (442) </span>
+            </h1>
+            <nav class="wall-header__nav">
+              <div class="wall-header__filter">
+                <span>Hide Filter</span>
+                <img
+                  src="/assets/images/wall/wall-header/filter.png"
+                  alt=""
+                  class="wall-header__filter_img w-24 h-24"
+                />
+              </div>
+              <div class="wall-header__sort">
+                <div class="wall-sort__select">
+                  <span class="wall-sort__text dropdown__btn-text"
+                    >Sort By</span
+                  >
+                  <img
+                    src="/assets/images/wall/wall-header/sortby.svg"
+                    alt=""
+                    class="dropdown-icon"
+                  />
+                  <span class="dropdown-btn__selected-text"></span>
+                </div>
+                <div class="wall-header__dropdown">
+                  <div class="wall-dropdown__list" role="menu">
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="feartured"
+                    >
+                      Fearture
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="newest"
+                    >
+                      Newest
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="priceDesc"
+                    >
+                      Price: High-Low
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="priceAsc"
+                    >
+                      Price: Low-High
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <!-- End wall-header -->
+
+          <!-- Start wall content -->
+          <div class="wall-content">
+            <div class="slidebar">
+              <div class="slidebar-wrapper">
+                <div class="slidebar__category">
+                  <ul class="slidebar__category-list">
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Table</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Chair</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Lamp</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Wardrobe</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Bed</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link">Carpet</a>
+                    </li>
+                    <li class="slidebar__category-item">
+                      <a href="#" class="slidebar__category-link"
+                        >Accessories</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="slidebar__price">
+                  <div class="slidebar__price-select">
+                    <h2 class="slidebar__price-title">Shop by Price</h2>
+                    <img
+                      src="/assets/images/wall/wall-header/sortby.svg"
+                      alt=""
+                      class="dropdown-icon"
+                    />
+                  </div>
+                  <ul class="slidebar__price-list">
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="under-1m"
+                      />
+                      <label for="under-1m" class="slidebar__price-label"
+                        >Under 1.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="1m-2m"
+                      />
+                      <label for="1m-2m" class="slidebar__price-label"
+                        >1.000.000đ - 2.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="2m-5m"
+                      />
+                      <label for="2m-5m" class="slidebar__price-label"
+                        >2.000.000đ - 5.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="over-5m"
+                      />
+                      <label for="over-5m" class="slidebar__price-label"
+                        >Over 5.000.000đ</label
+                      >
+                    </div>
+                  </ul>
+                </div>
+                <div class="slidebar__color"></div>
+              </div>
+            </div>
+            <div class="product-grid">
+              <div class="product-grid__wrapper">
+                <div class="product-grid__list">
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/arai chairs.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew">New product</div>
+                        <div class="product-grid__name">Arai Chairs</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/viality.png "
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Laica Chairs</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>15</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/basil chair.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew">New product</div>
+                        <div class="product-grid__name">Basil Chairs</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/table Ikea.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Table Ikea</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Praesentium quae facere
+                          eum provident ducimus recusandae tempora architecto.
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>5</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/mesa table.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Table Ikea</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>5</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/lampwhite.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Table Ikea</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>5</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/tablegreen.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Table Ikea</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>5</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="/assets/images/wall/product-grid/tablebrown.png"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew"></div>
+                        <div class="product-grid__name">Table Ikea</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">1 Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>1.009.000</span>
+                        </div>
+                        <div class="product-grid__discount">
+                          <span>5</span>
+                          % Off
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End wall content -->
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/index.js"></script>
+  </body>
+</html>

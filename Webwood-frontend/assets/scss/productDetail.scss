@@ -1,0 +1,294 @@
+$primary-color: white;
+$black-text: #111;
+$gray-text: #757575;
+$gray-1: #f5f5f5;
+$gray-2: #e5e5e5;
+$new-text: #9e3500;
+$accent-text: #ff5000;
+$discount-text: #38b524;
+$default-font: "Be Vietnam Pro", sans-serif;
+
+@mixin object-fit($object-fit) {
+    width: 100%;
+    height: 100%;
+    object-fit: $object-fit;
+}
+// Start header
+.header {
+    width: 100%;
+    height: 6rem;
+    background-color: $primary-color;
+    z-index: 8;
+    &-pre-wrapper {
+        width: 100%;
+    }
+    &.is--fixed {
+        position: fixed;
+        top: 0;
+    }
+    &-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-logo {
+        width: 6rem;
+        height: 6rem;
+        margin-right: 23rem;
+        &__img {
+            @include object-fit(cover);
+        }
+    }
+    &-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        &__list {
+            display: flex;
+            align-items: center;
+            gap: 4.3rem;
+            text-align: center;
+        }
+    }
+    &-search {
+        max-width: 18rem;
+        position: relative;
+        &__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 8px 8px;
+            border-radius: 100rem;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+        }
+        &__input {
+            width: 100%;
+            background-color: $gray-1;
+            padding: 1rem;
+            padding-right: 2rem;
+            border-radius: 10rem;
+            padding-left: 4.5rem;
+            font-size: 16px;
+            font-weight: 300;
+            border: none;
+            outline: none;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+            &:focus {
+                background-color: $gray-1;
+            }
+            &::-webkit-input-placeholder {
+                font-weight: 500;
+                color: #ccc;
+            }
+            &::-moz-placeholder {
+                font-weight: 500;
+                color: #ccc;
+            }
+        }
+    }
+    &-group {
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        &__btn {
+            padding: 6px;
+            margin-right: 1.2rem;
+            border-radius: 100rem;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+        }
+        &__bag {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            img {
+                @include object-fit(cover);
+            }
+            span {
+                font-size: 9px;
+                font-weight: 500;
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, -65%);
+            }
+        }
+    }
+    &-login {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &__link {
+            font-size: 14px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+    &-profile {
+        display: none;
+    }
+}
+// End header
+.product {
+    &-pre-wrapper {
+        margin-top: 10rem;
+    }
+    &-container {
+        margin-bottom: 2rem;
+    }
+    &-content {
+        max-width: 28.3rem;
+    }
+    &-image {
+        &__list {
+            margin-top: 3rem;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        &__item {
+            width: calc(33.3333% - 1.5rem);
+            height: 75px;
+        }
+    }
+    &-name {
+        font-size: 2.7rem;
+    }
+    &-main-image {
+        height: 53.6rem;
+    }
+    &-desc {
+        padding-block: 1.5rem 3rem;
+        color: $gray-text;
+        text-align: left;
+    }
+    &-size {
+        &__list {
+            padding-top: 1rem;
+            color: $gray-text;
+        }
+    }
+    &-right__wrapper {
+        width: 100%;
+    }
+    &-price {
+        line-height: 1.8;
+        padding-block: 1rem;
+    }
+    &-rating {
+        width: 100%;
+        &__link {
+            &:hover {
+                color: $black-text;
+            }
+        }
+        &__wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        &__average-stars {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        &__average {
+            margin-right: 1.5rem;
+        }
+        &__stars {
+            width: 11rem;
+            display: flex;
+            gap: 3px;
+            justify-content: space-between;
+        }
+        &__star {
+            width: calc(20% - 2.4px);
+        }
+    }
+    &-quantity {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        &__title {
+            padding-bottom: 1rem;
+        }
+        &__group {
+            display: flex;
+            gap: 6px;
+        }
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3.1rem;
+            height: 2.1rem;
+            border-radius: 3px;
+            background-color: black;
+            cursor: pointer;
+            user-select: none;
+        }
+        &__input {
+            width: 2.7rem;
+            height: 2.1rem;
+            outline: none;
+            border: none;
+            text-align: center;
+        }
+    }
+    &-color {
+        padding-bottom: 2rem;
+        &__group {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1.5rem;
+        }
+        &_item {
+            width: calc(25% - 1rem);
+            height: 70px;
+            cursor: pointer;
+        }
+    }
+    &-action {
+        padding-top: 3rem;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .header {
+        &-wrapper {
+            padding: 0 9rem 0 0;
+        }
+    }
+}
+@media screen and (min-width: 1400px) {
+    .header {
+        &-logo {
+            margin-right: 30rem;
+        }
+        &-nav {
+            gap: 4rem;
+        }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .header {
+        &.is--fixed {
+            left: 0;
+        }
+        &-wrapper {
+            padding: 0;
+        }
+    }
+}

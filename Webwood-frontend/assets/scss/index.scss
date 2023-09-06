@@ -1,0 +1,424 @@
+$primary-color: white;
+$black-text: #111;
+$gray-text: #757575;
+$gray-1: #f5f5f5;
+$gray-2: #e5e5e5;
+$new-text: #9e3500;
+$discount-text: #38b524;
+$default-font: "Be Vietnam Pro", sans-serif;
+
+@mixin object-fit($object-fit) {
+    width: 100%;
+    height: 100%;
+    object-fit: $object-fit;
+}
+@keyframes slidebar-appear {
+    0% {
+        margin-left: -21rem;
+        visibility: visible;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+.containers {
+    padding: 0 5rem 10rem 4rem;
+}
+// Start header
+.header {
+    width: 100%;
+    height: 6rem;
+    background-color: $primary-color;
+    z-index: 8;
+    &-pre-wrapper{
+        width: 100%;
+    }
+    &.is--fixed {
+        position: fixed;
+        top: 0;
+    }
+    &-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-logo {
+        width: 6rem;
+        height: 6rem;
+        margin-right: 23rem;
+        &__img {
+            @include object-fit(cover);
+        }
+    }
+    &-nav {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        &__list {
+            display: flex;
+            align-items: center;
+            gap: 4.3rem;
+            text-align: center;
+        }
+    }
+    &-search {
+        max-width: 18rem;
+        position: relative;
+        &__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 8px 8px;
+            border-radius: 100rem;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+        }
+        &__input {
+            width: 100%;
+            background-color: $gray-1;
+            padding: 1rem;
+            padding-right: 2rem;
+            border-radius: 10rem;
+            padding-left: 4.5rem;
+            font-size: 16px;
+            font-weight: 300;
+            border: none;
+            outline: none;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+            &:focus {
+                background-color: $gray-1;
+            }
+            &::-webkit-input-placeholder {
+                font-weight: 500;
+                color: #ccc;
+            }
+            &::-moz-placeholder {
+                font-weight: 500;
+                color: #ccc;
+            }
+        }
+    }
+    &-group {
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        &__btn {
+            padding: 6px;
+            margin-right: 1.2rem;
+            border-radius: 100rem;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: $gray-2;
+            }
+        }
+        &__bag {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            img {
+                @include object-fit(cover);
+            }
+            span {
+                font-size: 9px;
+                font-weight: 500;
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                transform: translate(-50%, -65%);
+            }
+        }
+    }
+    &-login {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        &__link {
+            font-size: 14px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+    &-profile {
+        display: none;
+    }
+}
+// End header
+
+.wall {
+    margin-top: 6rem;
+    &-wrapper {
+        width: 100%;
+    }
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        padding-top: 1rem;
+        padding-bottom: 2.5rem;
+        position: sticky;
+        top: 6rem;
+        z-index: 9;
+        &__title {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        &__nav {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            cursor: pointer;
+        }
+        &__filter {
+            display: flex;
+            align-items: center;
+        }
+        &__sort {
+            position: relative;
+        }
+        &__dropdown {
+            position: absolute;
+            display: none;
+        }
+    }
+    &-content {
+        display: grid;
+        $column: 4;
+        grid-template-columns: repeat($column, 1fr);
+    }
+
+    &-sort {
+        &__select {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+}
+.slidebar {
+    width: 21rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 12rem;
+    user-select: none;
+    &-wrapper {
+        width: 100%;
+        padding: 0 3rem 1rem 1rem;
+
+        & > div:not(:last-child) {
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #ccc;
+        }
+        & > div:not(:first-child) {
+            padding-top: 1.5rem;
+        }
+    }
+    &__category {
+        &-item:not(:last-child) {
+            padding-bottom: 2rem;
+        }
+
+        li a {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    &__price {
+        &-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding-bottom: 3rem;
+        }
+        &-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        &-item {
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            user-select: none;
+            &:hover {
+                color: $gray-text;
+            }
+            input {
+                margin-right: 6px;
+                display: inline-block;
+                display: none;
+                &:checked + .slidebar__price-label::after {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &:checked + .slidebar__price-label::before {
+                    background-color: $black-text;
+                }
+            }
+        }
+        &-label {
+            font-size: 1.5rem;
+            text-align: left;
+            font-weight: 400;
+            line-height: 1.5;
+            padding-left: 3rem;
+            display: inline-block;
+            word-break: break-word;
+            white-space: normal;
+            cursor: pointer;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background-color: transparent;
+                left: 0;
+                transition: all 0.25s ease;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                left: 0.35rem;
+                width: 1.2rem;
+                height: 0.5rem;
+                transform: rotate(-45deg);
+                border-left: 2.2px solid white;
+                border-bottom: 2.2px solid white;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.2s linear;
+            }
+        }
+    }
+    // Custom thanh trượt
+    &::-webkit-scrollbar {
+        width: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-moz-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 1rem;
+    }
+
+    &::-moz-scrollbar-corner {
+        background-color: transparent;
+    }
+}
+.product-grid {
+    padding-bottom: 10rem;
+    grid-column: 2 / 5;
+    &__list {
+        display: grid;
+        $column: 3;
+        grid-template-columns: repeat($column, 1fr);
+        gap: 2rem;
+    }
+    &__item {
+        padding-bottom: 3rem;
+        background-color: white;
+        cursor: pointer;
+    }
+    &__top {
+        height: 315px;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__content {
+        height: calc(100% - 315px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        padding-top: 1rem;
+    }
+    &__name,
+    &__isNew,
+    &__price,
+    &__discount {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    &__name {
+        line-height: 1.6;
+    }
+    &__isNew {
+        color: $new-text;
+        line-height: 1.86;
+    }
+    &__desc,
+    &__color_count {
+        color: $gray-text;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    &__desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+    }
+    &__price {
+        margin-top: 2rem;
+        margin-bottom: 5px;
+    }
+    &__discount {
+        color: $discount-text;
+    }
+}
+@media screen and (min-width: 960px) {
+    .header{
+        &-wrapper{
+            padding: 0 9rem 0 0;
+        }
+    }
+}
+@media screen and (min-width: 1366px) {
+    .header {
+        &-logo {
+            margin-right: 37rem;
+        }
+        &-nav {
+            gap: 4rem;
+        }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .header{
+        &.is--fixed{
+            left: 0;
+        }
+        &-wrapper{
+            padding: 0;
+        }
+    }
+}
