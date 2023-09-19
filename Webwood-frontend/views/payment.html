@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/images/favicon/android-chrome-192x192.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/payment.css" />
+    <title>Payment | Minimalist</title>
+  </head>
+  <body>
+    <!-- Start header -->
+    <div class="container container-padding">
+      <div class="header-pre-wrapper">
+        <header class="header is--fixed">
+          <div class="wrapper header-wrapper">
+            <div class="header-logo">
+              <img
+                src="/assets/images/header/header-logo.svg"
+                alt="header-logo"
+                class="header-logo__img"
+              />
+            </div>
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Home</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Product</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">About us</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="#">Recruitment</a>
+                </li>
+              </ul>
+              <div class="header-search">
+                <button class="header-search__btn">
+                  <img
+                    src="/assets/images/header/search.svg"
+                    alt="search-icon"
+                    class="header-search__img"
+                  />
+                </button>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="header-search__input"
+                  name="search"
+                  id="search"
+                />
+              </div>
+            </nav>
+            <div class="header-group">
+              <div class="header-group__btn">
+                <a href="#" title="favorites" class="header-group__link">
+                  <img src="/assets/images/header/favorite.svg" alt="" />
+                </a>
+              </div>
+              <div class="header-group__btn">
+                <a href="#" title="Bag item: " class="header-group__link">
+                  <div class="header-group__bag">
+                    <img src="/assets/images/header/bag.svg" alt="" />
+                    <span>9+</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="header-login">
+              <a href="#" class="header-login__link">
+                <span class="header-login__text">Join us</span>
+              </a>
+              <span class="header-login__divider">|</span>
+              <a href="#" class="header-login__link">
+                <span class="header-login__text">Sign in</span>
+              </a>
+            </div>
+            <div class="header-profile">
+              <div class="header-profile__wrapper">
+                <div href="#" class="header-profile__content">
+                  <a href="" class="header-profile__link">
+                    <p class="header-profile__name">Phan Nghi</p>
+                    <img
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
+                      alt=""
+                      class="header-profile__img"
+                      width="30px"
+                      height="30px"
+                      style="border-radius: 100%"
+                    />
+                  </a>
+                  <div class="header-profile__dropdown">
+                    <div class="header-dropdown__content">
+                      <nav class="header-dropdown__nav">
+                        <ul class="header-dropdown__list">
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Profile</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link">Order</a>
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Favorite</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link"
+                              >Settings</a
+                            >
+                          </li>
+                          <li class="header-dropdown__item">
+                            <a href="#" class="header-dropdown__link">Logout</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <!-- End header -->
+    <div class="payment">
+      <div class="content">
+        <div class="wrap">
+          <div class="banner">
+            <a href="#" class="a-dark d-inline-block pb-3">
+              <h1 class="text-dark">Minimalist Store</h1>
+            </a>
+          </div>
+          <div class="sidebar">
+            <div class="sidebar-content">
+              <div class="summary-wrapper">
+                <div class="summary-order">
+                  <div class="summary-title">
+                    <h2>Order Summary</h2>
+                    <h2 class="d-lg-none">$1.500</h2>
+                  </div>
+                  <div class="summary-subtotal summary-text-gray">
+                    <h4>Subtotal</h4>
+                    <h4>$1.500</h4>
+                  </div>
+                  <div class="summary-subtotal summary-text-gray">
+                    <h4>Delivery/Shipping</h4>
+                    <h4>$15</h4>
+                  </div>
+                  <hr class="summary-divider mt-1" />
+                  <div class="summary-total fw-5">
+                    <h3 class="fw-4">Total</h3>
+                    <h3 class="summary-total-value">$1.515</h3>
+                  </div>
+                  <hr class="summary-divider" />
+                  <div class="mt-3 summary-note">
+                    (The total reflects the price of your order, including all
+                    duties and taxes)
+                  </div>
+                  <div class="summary-time-delivery">
+                    Arrives Mon, 27 Mar - Wed, 12 Apr
+                  </div>
+                  <div class="summary-product">
+                    <div class="summary-product-wrapper">
+                      <div class="summary-product-list">
+                        <div class="product-item">
+                          <div class="product-image">
+                            <div class="product-thumbnail">
+                              <div class="product-thumbnail-wrapper">
+                                <img
+                                  src="/assets/images/productDetail/garava white 1.png"
+                                  alt=""
+                                  class="product-thumbnail-image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="product-desc">
+                            <div class="product-desc-title">
+                              <h4>Grava Chair</h4>
+                            </div>
+                            <div class="product-desc-info">
+                              <div
+                                class="product-desc-color pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Color:</h5>
+                                <h5>White</h5>
+                              </div>
+                              <div
+                                class="product-desc-quantity pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Quantity:</h5>
+                                <h5>1</h5>
+                              </div>
+                              <div
+                                class="product-desc-price pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Price</h5>
+                                <h5>$1.500</h5>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-item">
+                          <div class="product-image">
+                            <div class="product-thumbnail">
+                              <div class="product-thumbnail-wrapper">
+                                <img
+                                  src="https://kpopnews.atsit.in/vi/wp-content/uploads/2022/02/nmixx-sullyoon-gianh-duoc-nhieu-loi-khen-ngoi-bat-chap-nhung-binh-luan-trai-chieu-ve-lan-ra-mat-cua-nhom-nhac-nu-day-la-ly-do-tai-sao.jpg"
+                                  alt=""
+                                  class="product-thumbnail-image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="product-desc">
+                            <div class="product-desc-title">
+                              <h4>Grava Chair</h4>
+                            </div>
+                            <div class="product-desc-info">
+                              <div
+                                class="product-desc-color pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Color:</h5>
+                                <h5>White</h5>
+                              </div>
+                              <div
+                                class="product-desc-quantity pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Quantity:</h5>
+                                <h5>1</h5>
+                              </div>
+                              <div
+                                class="product-desc-price pb-2 product-desc-flex"
+                              >
+                                <h5 class="text-gray fz-14">Price</h5>
+                                <h5>$1.500</h5>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="main">
+            <div
+              class="main-section section-current"
+              id="delivery-info-section"
+            >
+              <div class="main-section-wrapper">
+                <div class="main-header">
+                  <a href="#" class="a-dark d-inline-block pb-3">
+                    <h1 class="text-dark">Minimalist Store</h1>
+                  </a>
+                  <ul class="nav-state">
+                    <li class="nav-state-item">
+                      <a href="bag.html" class="a-dark">Your Bag</a>
+                    </li>
+                    <li class="nav-state-item nav-state-item-current">
+                      Shipping information
+                    </li>
+                    <li class="nav-state-item">Payment method</li>
+                  </ul>
+                </div>
+                <div class="main-content">
+                  <div class="step">
+                    <div class="step-sections">
+                      <div class="section">
+                        <div class="section-select">
+                          <p class="section-content-title">
+                            How would you like to get your order?
+                          </p>
+                          <div class="section-select-group">
+                            <div class="section-radio">
+                              <input
+                                type="radio"
+                                name="shipping"
+                                id="deliver_home"
+                                class="section-radio__input"
+                                value=""
+                                checked
+                              />
+                              <label
+                                for="deliver_home"
+                                class="section-radio__label ps-4 d-flex align-items-center"
+                              >
+                                <img
+                                  src="/assets/images/payment/delivery-home.svg"
+                                  alt=""
+                                  width="24px"
+                                  height="21px"
+                                  class="d-inline-block me-4"
+                                />
+                                <span> Deliver it</span>
+                              </label>
+                            </div>
+                            <div class="section-radio">
+                              <input
+                                type="radio"
+                                name="shipping"
+                                id="deliver_store"
+                                class="section-radio__input"
+                                value=""
+                              />
+                              <label
+                                for="deliver_store"
+                                class="section-radio__label ps-4 d-flex align-items-center"
+                              >
+                                <img
+                                  src="/assets/images/payment/shop.png"
+                                  alt=""
+                                  width="24px"
+                                  height="21px"
+                                  class="d-inline-block me-4"
+                                />
+                                <span> Pick up at store </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="section-content">
+                          <h3 class="section-content-title">
+                            Enter your name and address:
+                          </h3>
+                          <div class="section-formfield">
+                            <form
+                              action="#"
+                              class="section-form-group"
+                              accept-charset="UTF-8"
+                            >
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <input
+                                    type="text"
+                                    class="section-form-input"
+                                    id="customer_first_name"
+                                    placeholder=" "
+                                    autocomplete="off"
+                                    required
+                                  />
+                                  <label
+                                    for="customer_first_name"
+                                    class="section-form-label"
+                                    >First name</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <input
+                                    type="text"
+                                    class="section-form-input"
+                                    id="customer_last_name"
+                                    placeholder=" "
+                                    autocomplete="off"
+                                    required
+                                  />
+                                  <label
+                                    for="customer_last_name"
+                                    class="section-form-label"
+                                    >Last name</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <select
+                                    class="section-form-input"
+                                    name="customer_shipping_country"
+                                    id="customer_shipping_province"
+                                  >
+                                    <option data-code="null" value="null">
+                                      Province/Municipality
+                                    </option>
+                                    <option data-code="" value="">
+                                      Hồ Chí Minh
+                                    </option>
+                                    <option data-code="" value="">
+                                      Hà Nội
+                                    </option>
+                                    <option data-code="" value="">
+                                      Đà Nẵng
+                                    </option>
+                                    <option data-code="" value="">
+                                      An Giang
+                                    </option>
+                                  </select>
+                                  <label
+                                    for="customer_last_name"
+                                    class="section-form-label"
+                                    >Province</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <select
+                                    class="section-form-input"
+                                    name="customer_shipping_country"
+                                    id="customer_shipping_district"
+                                  >
+                                    <option data-code="null" value="null">
+                                      District/Town
+                                    </option>
+                                    <option data-code="" value="">
+                                      Huyện Bình Chánh
+                                    </option>
+                                    <option data-code="" value="">
+                                      Thành phố Thủ Đức
+                                    </option>
+                                    <option data-code="" value="">
+                                      Quận 1
+                                    </option>
+                                    <option data-code="" value="">
+                                      Quận 2
+                                    </option>
+                                    <option data-code="" value="">
+                                      Quận 10
+                                    </option>
+                                  </select>
+                                  <label
+                                    for="customer_last_name"
+                                    class="section-form-label"
+                                    >District</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <select
+                                    class="section-form-input"
+                                    name="customer_shipping_country"
+                                    id="customer_shipping_commune"
+                                  >
+                                    <option data-code="null" value="null">
+                                      Commune/Ward
+                                    </option>
+                                    <option data-code="" value="">
+                                      Phường Trường Thọ
+                                    </option>
+                                    <option data-code="" value="">
+                                      Phường Linh Chiểu
+                                    </option>
+                                    <option data-code="" value="">
+                                      Phường Linh Tây
+                                    </option>
+                                    <option data-code="" value="">
+                                      Phường Linh Xuân
+                                    </option>
+                                    <option data-code="" value="">
+                                      Phường Linh Trung
+                                    </option>
+                                  </select>
+                                  <label
+                                    for="customer_last_name"
+                                    class="section-form-label"
+                                    >Commune</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="section-form">
+                                <div class="section-form-wrapper">
+                                  <input
+                                    type="text"
+                                    class="section-form-input"
+                                    id="customer_address_detail"
+                                    placeholder=" "
+                                    autocomplete="off"
+                                    required
+                                  />
+                                  <label
+                                    for="customer_first_name"
+                                    class="section-form-label"
+                                    >Address details</label
+                                  >
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="section-content">
+                          <h3 class="section-content-title">
+                            What's your contact information?
+                          </h3>
+                          <div class="section-formfield">
+                            <form
+                              action="#"
+                              class="section-form-group"
+                              accept-charset="UTF-8"
+                            ></form>
+                            <div class="section-form">
+                              <div class="section-form-wrapper">
+                                <input
+                                  type="email"
+                                  class="section-form-input"
+                                  id="customer_first_name"
+                                  placeholder=" "
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label
+                                  for="customer_first_name"
+                                  class="section-form-label"
+                                  >Email</label
+                                >
+                              </div>
+                            </div>
+                            <div class="section-form">
+                              <div class="section-form-wrapper">
+                                <input
+                                  type="tel"
+                                  class="section-form-input"
+                                  id="customer_last_name"
+                                  placeholder=" "
+                                  autocomplete="off"
+                                  required
+                                />
+                                <label
+                                  for="customer_last_name"
+                                  class="section-form-label"
+                                  >Phone Number</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="step-footer">
+                      <form
+                        action="#"
+                        class="step-footer-form step-btn-active"
+                        id="continue-payment-section"
+                        method="post"
+                      >
+                        <button
+                          type="submit"
+                          class="btn btn-dark step-footer-btn"
+                        >
+                          <span class="fz-16">Continue</span>
+                        </button>
+                      </form>
+                      <a
+                        href="bag.html"
+                        class="a-dark step-footer-previous-link"
+                        >Your bag</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="main-section" id="payment-method-section">
+              <div class="main-section-wrapper">
+                <div class="main-header">
+                  <a href="#" class="a-dark d-inline-block pb-3">
+                    <h1 class="text-dark">Minimalist Store</h1>
+                  </a>
+                  <ul class="nav-state">
+                    <li class="nav-state-item">
+                      <a href="bag.html" class="a-dark">Your Bag</a>
+                    </li>
+                    <li class="nav-state-item">Shipping information</li>
+                    <li class="nav-state-item nav-state-item-current">
+                      Payment method
+                    </li>
+                  </ul>
+                </div>
+                <div class="main-content">
+                  <div class="step">
+                    <div class="step-section">
+                      <div class="shipping">
+                        <div class="shipping-wrapper">
+                          <div class="shipping-header">
+                            <h2>Your Shipping Infomation</h2>
+                          </div>
+                          <div class="shipping-info">
+                            <div class="shipping-address">
+                              <div class="shipping-address-district">
+                                <p>Ho Chi Minh City</p>
+                              </div>
+                              <div class="shipping-address-specific">
+                                2118 Thornridge Cir. Syracuse, Connecticut 35624
+                              </div>
+                            </div>
+                            <div class="shipping-name">
+                              <p class="fw-6">Tran Buu Quyen master Nodejs</p>
+                            </div>
+                            <div class="shipping-email">
+                              <p>michelle.rivera@example.com</p>
+                            </div>
+                            <div class="shipping-phone">
+                              <p>0738 716 030</p>
+                            </div>
+                          </div>
+                          <div
+                            class="shipping-price d-flex align-items-baseline"
+                          >
+                            <h3 class="fw-5">Price shipping:</h3>
+                            <h3 class="fw-5">$15</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-gray fz-14" style="line-height: 1.6">
+                        Please make 100% sure the information you fill in above
+                        is correct and pay close attention to your phone. The
+                        order processing department will call to confirm the
+                        order within 24 hours and proceed to send the goods
+                        after successful confirmation. If you call 3 times and
+                        do not answer, the order will be automatically canceled.
+                      </p>
+                    </div>
+                    <div class="step-section">
+                      <div class="payment-method">
+                        <div class="section-select-group d-block">
+                          <div class="section-radio w-100 mb-4">
+                            <input
+                              type="radio"
+                              name="payment-radio-method"
+                              id="payment-on-delivery"
+                              class="section-radio__input"
+                              value="payment-on-delivery"
+                              checked
+                            />
+                            <label
+                              for="payment-on-delivery"
+                              class="section-radio__label ps-4 d-flex align-items-center"
+                            >
+                              <img
+                                src="/assets/images/payment/delivery-home.svg"
+                                alt=""
+                                width="24px"
+                                height="21px"
+                                class="d-inline-block"
+                              />
+                              <span> Payment on delivery</span>
+                            </label>
+                          </div>
+                          <div class="section-radio w-100 mb-4">
+                            <input
+                              type="radio"
+                              name="payment-radio-method"
+                              id="vnpay-payment"
+                              class="section-radio__input"
+                              value="vnpay-payment"
+                            />
+                            <label
+                              for="vnpay-payment"
+                              class="section-radio__label ps-4 d-flex align-items-center"
+                            >
+                              <img
+                                src="/assets/images/payment/Icon-VNPAY-QR.jpg"
+                                alt=""
+                                width="26px"
+                                height="21px"
+                                class="d-inline-block"
+                              />
+                              <span> Pay with VNPAY </span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="step-footer">
+                      <form
+                        action="#"
+                        class="step-footer-form step-btn-active"
+                        id="continue-delivery"
+                        method="post"
+                      >
+                        <button
+                          type="submit"
+                          class="btn btn-dark step-footer-btn"
+                        >
+                          <span class="fz-16">Order</span>
+                        </button>
+                      </form>
+                      <form
+                        action="#"
+                        class="step-footer-form"
+                        id="continue-vnpay"
+                        method="post"
+                      >
+                        <button
+                          type="submit"
+                          class="btn btn-dark step-footer-btn"
+                        >
+                          <span
+                            class="d-flex justify-content-center align-items-center"
+                          >
+                            <p class="fz-15 me-2">Continue to</p>
+                            <span class="fst-italic fw-bolder fz-16"
+                              >VNPAY</span
+                            ></span
+                          >
+                        </button>
+                      </form>
+                      <a
+                        href="#"
+                        class="a-dark step-footer-previous-link"
+                        id="back-to-delivery-info"
+                        >Back</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/payment.js"></script>
+  </body>
+</html>
