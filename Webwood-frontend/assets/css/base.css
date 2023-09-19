@@ -5,12 +5,13 @@ html {
   --primary-color: white;
   --black-text: #111;
   --gray-text: #757575;
+  --gray-1: #f5f5f5;
   --gray-2: #e5e5e5;
+  --gray-3:#8d8d8d;
   --new-text: #9e3500;
   --accent-text: #ff5000;
   --discoount-text: #38b524;
   --default-font: "Be Vietnam Pro", sans-serif;
-  --gray-1: #f5f5f5;
   --selection: #a174ff;
 }
 ::-moz-selection {
@@ -25,15 +26,23 @@ a {
   text-decoration: none;
   color: var(--black-text);
 }
-.login a:hover,
-.signup a:hover{
+a:hover{
   color: var(--black-text);
+}
+
+.a-dark{
+  color: var(--black-text);
+}
+.a-dark:hover{
+  color: var(--black-text);
+  opacity: 0.8;
 }
 input,
 select,
 textarea {
   background-color: transparent;
   outline: none;
+  border: none;
   font-family: var(--default-font);
 }
 body {
