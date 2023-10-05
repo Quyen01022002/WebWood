@@ -181,6 +181,7 @@ body {
   height: 6rem;
   background-color: white;
   z-index: 8;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 .header-pre-wrapper {
   width: 100%;
@@ -188,6 +189,7 @@ body {
 .header.is--fixed {
   position: fixed;
   top: 0;
+  left: 0;
 }
 .header-wrapper {
   width: 100%;
@@ -198,7 +200,7 @@ body {
 .header-logo {
   width: 6rem;
   height: 6rem;
-  margin-right: 23rem;
+  margin-right: 21rem;
 }
 .header-logo__img {
   width: 100%;
@@ -309,7 +311,7 @@ body {
 
 @media screen and (min-width: 960px) {
   .header-wrapper {
-    padding: 0 12rem 0 0;
+    padding: 0 5rem 0 5rem;
   }
 }
 @media screen and (min-width: 1200px) {
