@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/images/favicon/android-chrome-192x192.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/profile.css" />
+    <title>Account</title>
+  </head>
+  <body id="profile-user">
+    <!-- Start header -->
+    <div class="container container-padding home">
+      <div class="header-pre-wrapper">
+        <header class="header is--fixed">
+          <div class="wrapper header-wrapper">
+            <div class="header-logo">
+              <img
+                src="/assets/images/header/header-logo.svg"
+                alt="header-logo"
+                class="header-logo__img"
+              />
+            </div>
+            <div class="header-right">
+              <div
+                id="menu-btn"
+                class="menu-bar-btn"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#header-sidebar"
+              >
+                <button class="top-button">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </div>
+              <nav class="header-nav">
+                <ul class="header-nav__list">
+                  <li class="header-nav__item">
+                    <a class="header-nav__link" href="#">Home</a>
+                  </li>
+                  <li class="header-nav__item">
+                    <a class="header-nav__link" href="#">Product</a>
+                  </li>
+                  <li class="header-nav__item">
+                    <a class="header-nav__link" href="#">About us</a>
+                  </li>
+                </ul>
+                <div class="header-search">
+                  <button class="header-search__btn">
+                    <img
+                      src="/assets/images/header/search.svg"
+                      alt="search-icon"
+                      class="header-search__img"
+                    />
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="header-search__input"
+                    name="search"
+                    id="search"
+                  />
+                </div>
+              </nav>
+              <div class="header-group">
+                <div class="header-group__btn favorites">
+                  <a href="#" title="favorites" class="header-group__link">
+                    <img src="/assets/images/header/favorite.svg" alt="" />
+                  </a>
+                </div>
+                <div class="header-group__btn">
+                  <a href="#" title="Bag item: " class="header-group__link">
+                    <div class="header-group__bag">
+                      <img src="/assets/images/header/bag.svg" alt="" />
+                      <span>9+</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="header-login">
+                <div
+                  class="header-group__btn d-flex justify-content-center align-items-center"
+                >
+                  <a
+                    href="login.html"
+                    title="login"
+                    class="header-group__link d-inline-block"
+                    style="width: 2.7rem; height: 2.7rem"
+                  >
+                    <img
+                      src="/assets/images/header/person.png"
+                      alt=""
+                      class="obj-cover"
+                      class="pre-avatar"
+                    />
+                    <img src="" alt="Avatar" class="avatar-account" />
+                  </a>
+                </div>
+              </div>
+              <div class="header-profile">
+                <div class="header-profile__wrapper">
+                  <div href="#" class="header-profile__content">
+                    <a href="" class="header-profile__link">
+                      <p class="header-profile__name">Phan Nghi</p>
+                      <img
+                        src="/assets/images/header/avatar/sulyyoon.jpg"
+                        alt=""
+                        class="header-profile__img"
+                        width="30px"
+                        height="30px"
+                        style="border-radius: 100%"
+                      />
+                    </a>
+                    <div class="header-profile__dropdown">
+                      <div class="header-dropdown__content">
+                        <nav class="header-dropdown__nav">
+                          <ul class="header-dropdown__list">
+                            <li class="header-dropdown__item">
+                              <a href="#" class="header-dropdown__link"
+                                >Profile</a
+                              >
+                            </li>
+                            <li class="header-dropdown__item">
+                              <a href="#" class="header-dropdown__link"
+                                >Order</a
+                              >
+                            </li>
+                            <li class="header-dropdown__item">
+                              <a href="#" class="header-dropdown__link"
+                                >Favorite</a
+                              >
+                            </li>
+                            <li class="header-dropdown__item">
+                              <a href="#" class="header-dropdown__link"
+                                >Settings</a
+                              >
+                            </li>
+                            <li class="header-dropdown__item">
+                              <a href="#" class="header-dropdown__link"
+                                >Logout</a
+                              >
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="offcanvas offcanvas-end offcanvas-lg"
+              id="header-sidebar"
+            >
+              <div class="offcanvas-header">
+                <div class="d-flex gap-4 align-items-center">
+                  <img
+                    src="/assets/images/header/avatar/sulyyoon.jpg"
+                    alt=""
+                    class="header-profile__img"
+                    width="40px"
+                    height="40px"
+                    style="border-radius: 100%; object-fit: cover"
+                  />
+                  <h3 class="offcanvas-title">Hi, Phan</h3>
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="sidebar-list">
+                  <div class="sidebar-item">
+                    <a href="index.html" class="sidebar-link">Product</a>
+                  </div>
+                  <div class="sidebar-item">
+                    <a href="home.html" class="sidebar-link">Home</a>
+                  </div>
+                </div>
+                <button
+                  class="btn-base btn-solid mt-4"
+                  type="button"
+                  style="
+                    width: 10rem;
+                    padding: 0.5rem;
+                    height: 3.5rem;
+                    border-radius: 10rem;
+                  "
+                >
+                  <a href="login.html" class="text-white fz-16">Sign in</a>
+                </button>
+                <div class="sidebar-group">
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/favorite.svg" alt="" />
+                      </div>
+                      <p>Favorites</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="bag.html" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/bag.svg" alt="" />
+                      </div>
+                      <p>Bags</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img
+                          src="/assets/images/payment/delivery-home.svg"
+                          alt=""
+                        />
+                      </div>
+                      <p>Orders</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/help.png" alt="" />
+                      </div>
+                      <p>Help</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+    <!-- End header -->
+
+    <div class="container">
+      <div class="wrap">
+        <div class="content">
+          <div class="grid-content">
+            <!-- Start aside -->
+            <aside class="aside">
+              <div class="top">
+                <div class="aside-avatar">
+                  <a href="#" class="aside-img-link d-block">
+                    <img
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
+                      class="aside-img obj-cover"
+                      alt=""
+                    />
+                  </a>
+                  <h4 class="aside-name-customer lh-base ms-2">PhanPhucNghi</h4>
+                </div>
+                <div class="close-btn" id="close-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </div>
+              </div>
+              <div class="sidebar" id="profile-sidebar">
+                <ul class="sidebar-list">
+                  <li class="sidebar-item">
+                    <a href="#my-account" class="sidebar-link">My account</a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="#change-password"
+                      class="sidebar-link"
+                      data-target="#change-password"
+                      >Change password</a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="#addresses" class="sidebar-link">Addresses</a>
+                  </li>
+                  <li class="sidebar-item active">
+                    <a href="#orders" class="sidebar-link">Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <!-- End aside -->
+
+            <!-- Start main -->
+            <main>
+              <div class="section-wrap">
+                <!-- Start my account -->
+                <section id="my-account" class="section">
+                  <div class="section-title">
+                    <h2 class="lh-base">My profile</h2>
+                    <p class="text-gray">
+                      Set up your Milist profile and more.
+                    </p>
+                  </div>
+                  <div class="section-content grid-row">
+                    <div class="left">
+                      <div class="form-group">
+                        <form action="#" method="">
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_name"
+                                class="form-label required"
+                                >Name</label
+                              >
+                              <input
+                                autocomplete="name"
+                                class="form-input"
+                                type="text"
+                                value="PhanPhucNghi"
+                                name="profile[name]"
+                                id="profile_name"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_email"
+                                class="form-label required"
+                                >Email</label
+                              >
+                              <input
+                                autocomplete="email"
+                                class="form-input"
+                                type="text"
+                                value="phanphucnghi9a3thcspt2002@gmail.com"
+                                name="profile[email]"
+                                id="profile_email"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset" style="position: relative">
+                              <label
+                                for="profile_password"
+                                class="form-label required"
+                                >Password</label
+                              >
+                              <input
+                                autocomplete="password"
+                                class="form-input"
+                                type="password"
+                                value="1234567"
+                                name="profile[password]"
+                                id="profile_password"
+                              />
+                              <img
+                                src="/assets/images/show-password.svg"
+                                class="icon-show-password"
+                                id="btn-toggle"
+                                onclick="showPassword()"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_phone"
+                                class="form-label required"
+                                >Phone</label
+                              >
+                              <input
+                                autocomplete="phone"
+                                class="form-input"
+                                type="phone"
+                                value="09881271826"
+                                name="profile[phone]"
+                                id="profile_phone"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label for="" class="form-label required"
+                                >Gender</label
+                              >
+                              <div class="fieldset-radio-wrap">
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="male"
+                                    checked
+                                  />
+                                  <label for="male" class="form-label-radio"
+                                    >Male</label
+                                  >
+                                </div>
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="female"
+                                  />
+                                  <label for="female" class="form-label-radio"
+                                    >Female</label
+                                  >
+                                </div>
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="other"
+                                  />
+                                  <label for="other" class="form-label-radio"
+                                    >Other</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset date">
+                              <label
+                                for="profile_birthday"
+                                class="form-label required"
+                                >Date of birth</label
+                              >
+                              <div class="date">
+                                <input
+                                  class="form-input"
+                                  type="date"
+                                  value="2002-01-01"
+                                  name="profile[birthday]"
+                                  id="profile_birthday"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="right">
+                      <div class="avatar-preview">
+                        <div class="avatar-wrap">
+                          <div class="avatar-display">
+                            <img
+                              src="https://cdn-icons-png.flaticon.com/512/4322/4322991.png"
+                              alt=""
+                              class="uploaded-image obj-cover"
+                              id="selected-image"
+                            />
+                          </div>
+                          <form
+                            action="#"
+                            method="post"
+                            enctype="multipart/form-data"
+                          >
+                            <div class="form-wrap d-flex">
+                              <div class="avatar-upload btn-base btn-white">
+                                <input
+                                  type="file"
+                                  class="avatar-upload-input"
+                                  name="image"
+                                  id="image"
+                                  accept="image/*"
+                                />
+                                <label for="image" class="avatar-upload-label"
+                                  >Edit picture</label
+                                >
+                              </div>
+                              <input
+                                type="submit"
+                                value="Delete"
+                                class="btn-delete btn-base btn-solid"
+                              />
+                            </div>
+                          </form>
+                          <div class="mt-0">
+                            <p class="text-gray fz-14">
+                              File size: maximum 1 MB
+                            </p>
+                            <p class="text-gray fz-14">
+                              File extension: .JPEG, .PNG
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section-footer">
+                    <form action="#" method="post">
+                      <button class="btn-base btn-solid btn-save">
+                        <span class="fz-15">Save</span>
+                      </button>
+                    </form>
+                  </div>
+                </section>
+                <!-- End my account -->
+
+                <!--Start change password -->
+                <section id="change-password" class="section">
+                  <div
+                    class="d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <div class="mw-45">
+                      <div class="section-title">
+                        <h2 class="lh-base">Change password</h2>
+                        <p class="text-gray">
+                          Enter your current and new password.
+                        </p>
+                      </div>
+                      <div class="section-content">
+                        <div class="form-group">
+                          <form action="#" method="">
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_password"
+                                  class="form-label required"
+                                  >Current Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[password]"
+                                  id="profile_password"
+                                />
+                              </div>
+                            </div>
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_new-password"
+                                  class="form-label required"
+                                  >New Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[new-password]"
+                                  id="profile_new-password"
+                                />
+                              </div>
+                            </div>
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_confirm-new-password"
+                                  class="form-label required"
+                                  >Confirm New Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[confirm-new-password]"
+                                  id="profile_confirm-new-password"
+                                />
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="mt-5">
+                          <p class="text-gray">Password requirements:</p>
+                          <p class="text-gray">Minimum of 8 characters</p>
+                          <p class="text-gray">
+                            Uppercase, lowercase letters and one number
+                          </p>
+                        </div>
+                      </div>
+                      <div class="section-footer">
+                        <form action="#" method="post">
+                          <button class="btn-base btn-solid btn-save">
+                            <span class="fz-15">Save</span>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!--End change password -->
+
+                <!-- Start addresses -->
+                <section id="addresses" class="section px-5">
+                  <div class="section-title">
+                    <h2 class="lh-base">My Addresses</h2>
+                    <button class="btn btn-danger btn-add-address">
+                      <i class="fa-solid fa-plus btn-add-address-icon"></i>
+                      <span class="btn-add-address-text">Add New Address</span>
+                    </button>
+                  </div>
+                  <hr class="divider w-100" />
+                  <div class="section-content">
+                    <h3 class="d-block fw-4">Address</h3>
+                    <div class="address-wrap">
+                      <ul class="address-list">
+                        <li class="address-item default">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">Phan Phuc Nghi</h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 937235273</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                Xóm 4, thôn cảnh an 2
+                              </div>
+                              <div class="address-text">
+                                Xã Phước Thành, Huyện Tuy Phước, Bình Định
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button class="btn btn-light address-btn-default">
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                        <li class="address-item">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">
+                                  Cristiano Ronaldo
+                                </h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 908625483</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                45/3, Cách mạng tháng Tám
+                              </div>
+                              <div class="address-text">
+                                Phường 10, quận 3, tp. Hồ Chí Minh
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button class="btn btn-light address-btn-default">
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                        <li class="address-item">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">Sơn Tùng MTP</h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 908625483</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                45/3, Cách mạng tháng Tám
+                              </div>
+                              <div class="address-text">
+                                Phường 10, quận 3, tp. Hồ Chí Minh
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button
+                                class="btn btn-light address-btn-default active"
+                              >
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <!-- End addresses -->
+
+                <!-- Start Order -->
+                <section id="orders" class="section active">
+                  <div class="section-content">
+                    <div class="order-container">
+                      <div class="order-tabs">
+                        <a href="#" class="order-tab-item" aria-selected="true">
+                          <span class="text-truncated">All</span>
+                        </a>
+                        <a href="#" class="order-tab-item" aria-selected="false">
+                          <span class="text-truncated">To Pay</span>
+                        </a>
+                        <a href="#" class="order-tab-item" aria-selected="false">
+                          <span class="text-truncated">To Ship</span>
+                        </a>
+                        <a href="#" class="order-tab-item" aria-selected="false">
+                          <span class="text-truncated">To Received</span>
+                        </a>
+                        <a href="#" class="order-tab-item" aria-selected="false">
+                          <span class="text-truncated">Completed</span>
+                        </a>
+                        <a href="#" class="order-tab-item" aria-selected="false">
+                          <span class="text-truncated">Canceled</span>
+                        </a>
+                      </div>
+                      <div class="order-content">
+                        <div class="order-list">
+                          <div class="order-item">
+                            <div class="order-item-content">
+                              <div class="order-item-top">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!-- End Order -->
+              </div>
+            </main>
+            <!-- End main -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start modal -->
+
+    <!-- Add, Edit Adress -->
+    <div id="add-address-modal" class="modal-address">
+      <div class="modal-container animate-top">
+        <div class="modal-body">
+          <h2 class="modal-header-title">New address</h2>
+          <div class="modal-form-group form-group">
+            <form action="#" method="">
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-full-name" class="form-label"
+                    >Full Name</label
+                  >
+                  <input
+                    class="form-input"
+                    type="text"
+                    value=""
+                    name="modal-full-name"
+                    id="modal-full-name"
+                  />
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">Phone</label>
+                  <input
+                    class="form-input"
+                    type="phone"
+                    value=""
+                    name="modal-full-name"
+                    id="modal-phone"
+                  />
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    Province/City</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">Province/City</option>
+                    <option data-code="" value="">Hồ Chí Minh</option>
+                    <option data-code="" value="">Hà Nội</option>
+                    <option data-code="" value="">Đà Nẵng</option>
+                  </select>
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    District/Town</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">District/Town</option>
+                    <option data-code="" value="">Huyện Bình Chánh</option>
+                    <option data-code="" value="">Thành phố Thủ Đức</option>
+                    <option data-code="" value="">Quận 1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    Commune/Ward</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">Commune/Ward</option>
+                    <option data-code="" value="">Phường Trường Thọ</option>
+                    <option data-code="" value="">Phường Linh Chiểu</option>
+                    <option data-code="" value="">Phường Linh Tây</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-form-action">
+            <form action="#" method="">
+              <button class="btn btn-light btn-cancel close">
+                <span class="text-gray fz-15">Cancel</span>
+              </button>
+              <button class="btn btn-primary btn-submit">
+                <span class="fz-15">Submit</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yes, No Modal -->
+    <div class="modal animate-scale-up" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Delete Address?</h3>
+          </div>
+
+          <div class="modal-footer">
+            <div class="modal-form-action mt-0">
+              <form action="#" method="">
+                <button
+                  class="btn btn-light btn-cancel"
+                  data-bs-dismiss="modal"
+                >
+                  <span class="text-gray fz-15">Cancel</span>
+                </button>
+                <button
+                  class="btn btn-primary btn-accept-delete"
+                  data-bs-dismiss="modal"
+                >
+                  <span class="fz-15">Delete</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+    <script>
+      const passwordInput = document.querySelector("#profile_password");
+      const btnToggle = document.getElementById("btn-toggle");
+      let show = false;
+
+      const showPassword = () => {
+        if (show) {
+          passwordInput.type = "password";
+          btnToggle.src = "/assets/images/show-password.svg";
+        } else {
+          passwordInput.type = "text";
+          btnToggle.src = "/assets/images/hide-password.svg";
+        }
+        show = !show;
+      };
+    </script>
+    <script src="/assets/js/profile.js"></script>
+  </body>
+</html>
