@@ -26,7 +26,6 @@ $default-font: "Be Vietnam Pro", sans-serif;
 }
 
 .wall {
-    margin-top: 6rem;
     &-wrapper {
         width: 100%;
     }
@@ -37,9 +36,12 @@ $default-font: "Be Vietnam Pro", sans-serif;
         background-color: white;
         padding-top: 1rem;
         padding-bottom: 2.5rem;
-        position: sticky;
-        top: 6rem;
-        z-index: 9;
+        transition: top .3s;
+        &.header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
         &__title {
             font-size: 2rem;
             font-weight: 500;
@@ -78,11 +80,12 @@ $default-font: "Be Vietnam Pro", sans-serif;
 }
 .slidebar {
     width: 21rem;
-    max-height: 70vh;
+    max-height: 80vh;
     overflow-y: auto;
     position: sticky;
-    top: 12rem;
+    top: 6rem;
     user-select: none;
+    transition: all .2s;
     &-wrapper {
         width: 100%;
         padding: 0 3rem 1rem 1rem;

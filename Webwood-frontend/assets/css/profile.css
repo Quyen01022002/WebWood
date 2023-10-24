@@ -90,6 +90,10 @@
   background-color: rgba(17, 17, 17, 0.8);
 }
 
+body {
+  background-color: #f5f5f5;
+}
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
@@ -98,6 +102,10 @@
   width: 80%;
   margin: 3rem 0;
   color: #8d8d8d;
+}
+
+.divide {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
 .mw-45 {
@@ -179,7 +187,6 @@
   margin-top: 3rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  background-color: white;
 }
 .aside .sidebar-list {
   display: flex;
@@ -206,7 +213,7 @@ main .section.active {
 }
 main .section-wrap {
   padding: 0;
-  background-color: white;
+  background-color: #f5f5f5;
   border-radius: 5px;
 }
 main .section#addresses .btn-add-address {
@@ -460,7 +467,7 @@ main .section-footer {
 }
 
 section#orders {
-  background-color: #fff;
+  background-color: #f5f5f5;
 }
 section#orders .order-tabs {
   width: 100%;
@@ -471,7 +478,7 @@ section#orders .order-tabs {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #f5f5f5;
+  background: #fff;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -483,7 +490,6 @@ section#orders .order-tab-item {
   line-height: 19px;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
-  background: #fff;
   border-bottom: 2px solid rgba(0, 0, 0, 0.09);
   display: flex;
   flex: 1;
@@ -497,6 +503,99 @@ section#orders .order-tab-item[aria-selected=true] {
 }
 section#orders .order-tab-item[aria-selected=false] {
   color: #757575;
+}
+section#orders .order-item {
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  background-color: #fff;
+}
+section#orders .order-item-wrap {
+  padding: 2.4rem 2.4rem 1.2rem;
+}
+section#orders .order-item-top {
+  padding-bottom: 1rem;
+}
+section#orders .order-product-item {
+  display: flex;
+  word-wrap: break-word;
+  padding: 1.2rem 0;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: #111;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+section#orders .order-product-item:first-child {
+  padding-bottom: 0;
+}
+section#orders .order-product-left {
+  display: flex;
+  align-items: flex-start;
+  padding-right: 1.2rem;
+  flex: 1;
+  flex-wrap: nowrap;
+  word-wrap: break-word;
+}
+section#orders .order-product-image {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #e1e1e1;
+  background: #e1e1e1;
+}
+section#orders .order-product-info {
+  padding-left: 1.2rem;
+  flex-direction: column;
+}
+section#orders .order-product-name {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 0 0 5px;
+  font-size: 16px;
+  line-height: 22px;
+  max-height: 48px;
+}
+section#orders .order-product-variation {
+  margin-bottom: 5px;
+  color: #757575;
+  font-size: 1.4rem;
+}
+section#orders .order-product-quantity {
+  font-size: 1.4rem;
+}
+section#orders .order-total {
+  padding-top: 2rem;
+  padding-bottom: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+section#orders .order-total-value {
+  font-size: 2.2rem;
+  margin-left: 1rem;
+}
+section#orders .order-action {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+section#orders .order-action-group {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+}
+section#orders .order-state {
+  line-height: 24px;
+  color: #111;
+  font-size: 1.4rem;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 1200px) {

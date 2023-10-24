@@ -1,5 +1,7 @@
 @import "colorBase", "color", "modal";
-
+body{
+    background-color: #f5f5f5;
+}
 .material-symbols-outlined {
     font-variation-settings:
         "FILL" 0,
@@ -11,6 +13,9 @@
     width: 80%;
     margin: 3rem 0;
     color: $gray-3;
+}
+.divide {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 .mw-45 {
     max-width: 45rem;
@@ -88,7 +93,6 @@
         margin-top: 3rem;
         padding-left: 0.75rem;
         padding-right: 0.75rem;
-        background-color: white;
         &-list {
             display: flex;
             flex-direction: column;
@@ -118,7 +122,7 @@ main {
         }
         &-wrap {
             padding: 0;
-            background-color: white;
+            background-color: #f5f5f5;
             // box-shadow: 0px 0px 0px 1px rgba(17, 17, 17, 0.539);
             border-radius: 5px;
         }
@@ -385,7 +389,7 @@ main {
 }
 section {
     &#orders {
-        background-color: #fff;
+        background-color: #f5f5f5;
         & .order {
             &-tabs {
                 width: 100%;
@@ -396,9 +400,10 @@ section {
                 position: sticky;
                 top: 0;
                 z-index: 10;
-                background: #f5f5f5;
+                background: #fff;
                 border-top-left-radius: 2px;
                 border-top-right-radius: 2px;
+                // box-shadow: 0 0 0 2px #f5f5f5;
             }
             &-tab-item {
                 cursor: pointer;
@@ -408,7 +413,6 @@ section {
                 line-height: 19px;
                 text-align: center;
                 color: rgba(0, 0, 0, 0.8);
-                background: #fff;
                 border-bottom: 2px solid rgba(0, 0, 0, 0.09);
                 display: flex;
                 flex: 1;
@@ -416,12 +420,107 @@ section {
                 align-items: center;
                 justify-content: center;
                 transition: color 0.2s;
-                &[aria-selected="true"]{
+                &[aria-selected="true"] {
                     color: $black-text;
                 }
-                &[aria-selected="false"]{
+                &[aria-selected="false"] {
                     color: $gray-text;
                 }
+            }
+            &-item {
+                margin: 1.5rem 0;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+                border-radius: 4px;
+                background-color: #fff;
+                &-wrap{
+                    padding: 2.4rem 2.4rem 1.2rem ;
+                }
+                &-top {
+                    padding-bottom: 1rem;
+                }
+            }
+            &-product {
+                &-item {
+                    display: flex;
+                    word-wrap: break-word;
+                    padding: 1.2rem 0;
+                    align-items: center;
+                    flex-wrap: nowrap;
+                    color: $black-text;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    &:first-child{
+                        padding-bottom: 0;
+                    }
+                }
+                &-left {
+                    display: flex;
+                    align-items: flex-start;
+                    padding-right: 1.2rem;
+                    flex: 1;
+                    flex-wrap: nowrap;
+                    word-wrap: break-word;
+                }
+                &-image {
+                    width: 8rem;
+                    height: 8rem;
+                    object-fit: cover;
+                    flex-shrink: 0;
+                    border: 1px solid #e1e1e1;
+                    background: #e1e1e1;
+                }
+                &-info{
+                    padding-left: 1.2rem;
+                    flex-direction: column;
+                }
+                &-name{
+                    overflow: hidden;
+                    display: -webkit-box;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    margin: 0 0 5px;
+                    font-size: 16px;
+                    line-height: 22px;
+                    max-height: 48px;
+                }
+                &-variation{
+                    margin-bottom: 5px;
+                    color: $gray-text;
+                    font-size: 1.4rem;
+                }
+                &-quantity{
+                    font-size: 1.4rem;
+                }
+            }
+            &-total{
+                padding-top: 2rem;
+                padding-bottom: 1.2rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                &-value{
+                    font-size: 2.2rem;
+                    margin-left: 1rem;
+                } 
+            }
+            &-action{
+                padding-top: 1.2rem;
+                padding-bottom: 1.2rem;
+                &-group{
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    gap: 2rem;
+                }
+            }
+            &-state {
+                line-height: 24px;
+                color: $black-text;
+                font-size: 1.4rem;
+                text-align: right;
+                text-transform: uppercase;
+                white-space: nowrap;
             }
         }
     }
