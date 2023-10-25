@@ -91,7 +91,7 @@
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 .material-symbols-outlined {
@@ -213,7 +213,7 @@ main .section.active {
 }
 main .section-wrap {
   padding: 0;
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-radius: 5px;
 }
 main .section#addresses .btn-add-address {
@@ -477,10 +477,11 @@ section#orders .order-tabs {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
   background: #fff;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  transition: top 0.3s;
 }
 section#orders .order-tab-item {
   cursor: pointer;
@@ -496,13 +497,32 @@ section#orders .order-tab-item {
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
 }
 section#orders .order-tab-item[aria-selected=true] {
   color: #111;
 }
 section#orders .order-tab-item[aria-selected=false] {
   color: #757575;
+}
+section#orders .order-tab-item:hover {
+  color: #111;
+  border-color: rgba(54, 57, 73, 0.326);
+}
+section#orders .order-tab-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: #111;
+  transition: all 0.3s ease;
+}
+section#orders .order-content {
+  display: none;
+}
+section#orders .order-content.active {
+  display: block;
 }
 section#orders .order-item {
   margin: 1.5rem 0;
@@ -512,6 +532,17 @@ section#orders .order-item {
 }
 section#orders .order-item-wrap {
   padding: 2.4rem 2.4rem 1.2rem;
+}
+section#orders .order-item-wrap.no-orders {
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+section#orders .order-item-wrap.no-orders span {
+  font-size: 5.3rem;
 }
 section#orders .order-item-top {
   padding-bottom: 1rem;

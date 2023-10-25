@@ -1,6 +1,6 @@
 @import "colorBase", "color", "modal";
 body{
-    background-color: #f5f5f5;
+    background-color: #fff;
 }
 .material-symbols-outlined {
     font-variation-settings:
@@ -122,7 +122,7 @@ main {
         }
         &-wrap {
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #fff;
             // box-shadow: 0px 0px 0px 1px rgba(17, 17, 17, 0.539);
             border-radius: 5px;
         }
@@ -399,11 +399,11 @@ section {
                 position: -webkit-sticky;
                 position: sticky;
                 top: 0;
-                z-index: 10;
+                z-index: 5;
                 background: #fff;
                 border-top-left-radius: 2px;
                 border-top-right-radius: 2px;
-                // box-shadow: 0 0 0 2px #f5f5f5;
+                transition: top .3s;
             }
             &-tab-item {
                 cursor: pointer;
@@ -419,12 +419,31 @@ section {
                 overflow: hidden;
                 align-items: center;
                 justify-content: center;
-                transition: color 0.2s;
+                transition: all 0.3s ease;
                 &[aria-selected="true"] {
                     color: $black-text;
                 }
                 &[aria-selected="false"] {
                     color: $gray-text;
+                }
+                &:hover{
+                    color: $black-text;
+                    border-color: rgba(54, 57, 73, 0.326);
+                }
+            }
+            &-tab-line{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2.5px;
+                background-color: $black-text;
+                transition: all 0.3s ease;
+            }
+            &-content{
+                display: none;
+                &.active{
+                    display: block;
                 }
             }
             &-item {
@@ -434,11 +453,22 @@ section {
                 background-color: #fff;
                 &-wrap{
                     padding: 2.4rem 2.4rem 1.2rem ;
+                    &.no-orders{
+                        height: 25rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                        & span{
+                            font-size: 5.3rem;
+                        }
+                    }
                 }
                 &-top {
                     padding-bottom: 1rem;
                 }
-            }
+            }           
             &-product {
                 &-item {
                     display: flex;
