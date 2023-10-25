@@ -3,7 +3,6 @@ const $$ = document.querySelectorAll.bind(document)
 
 const sections = $$('.section')
 const sidebarItems = $$('#profile-sidebar .sidebar-item')
-const body = $('#profile-user')
 
 const addressItems = $$('.address-item')
 const btnSetDefaults = $$('.address-btn-default')
@@ -28,7 +27,7 @@ sidebarItems.forEach((sidebar, index) => {
         this.classList.add('active')
         section.classList.add('active')
 
-        body.scrollIntoView({ behavior: "smooth" });
+        document.body.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 });
 
@@ -72,8 +71,4 @@ btnEditAddress.forEach((btn, index) => {
 
         modal.scrollIntoView({ behavior: "smooth" })
     }
-    // btnDelete.onclick = function() {
-    //     addressItem.remove()
-    // }
-    // console.log(addressItem)
 })

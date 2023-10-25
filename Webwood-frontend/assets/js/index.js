@@ -1,15 +1,16 @@
-// const header1 = document.querySelector('.header');
+// const wallHeader =  document.querySelector(".wall-header")
+// const slideBar =  document.querySelector(".slidebar")
+// var prev = window.scrollY;
 
-// let lastScrollTop = 0;
-
-// window.addEventListener('scroll', () => {
-//     const currentScrollTop = window.scrollY;
-
-//     if (currentScrollTop > lastScrollTop) {
-//         header1.classList.add('is--hidden');
+// window.onscroll = function () {
+//     var current = window.scrollY;
+//     if (prev > current) {
+//         wallHeader.style.top = "60px"
+//         slideBar.style.top = "120px"
 //     } else {
-//         header1.classList.remove('is--hidden');
+//         wallHeader.classList.add("header-sticky")
+//         wallHeader.style.top = "0"
+//         slideBar.style.top = "60px"
 //     }
-
-//     lastScrollTop = currentScrollTop;
-// });
+//     prev = current;
+// }
