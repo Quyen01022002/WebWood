@@ -300,7 +300,7 @@
               </div>
               <div class="sidebar" id="profile-sidebar">
                 <ul class="sidebar-list">
-                  <li class="sidebar-item">
+                  <li class="sidebar-item active">
                     <a href="#my-account" class="sidebar-link">My account</a>
                   </li>
                   <li class="sidebar-item">
@@ -314,7 +314,7 @@
                   <li class="sidebar-item">
                     <a href="#addresses" class="sidebar-link">Addresses</a>
                   </li>
-                  <li class="sidebar-item active">
+                  <li class="sidebar-item">
                     <a href="#orders" class="sidebar-link">Orders</a>
                   </li>
                 </ul>
@@ -326,7 +326,7 @@
             <main>
               <div class="section-wrap">
                 <!-- Start my account -->
-                <section id="my-account" class="section">
+                <section id="my-account" class="section active">
                   <div class="section-title">
                     <h2 class="lh-base">My profile</h2>
                     <p class="text-gray">
@@ -772,8 +772,11 @@
                 <!-- End addresses -->
 
                 <!-- Start Order -->
-                <section id="orders" class="section active">
-                  <div class="section-content">
+                <section id="orders" class="section">
+                  <div
+                    class="section-content step-section active"
+                    id="customer-order-history"
+                  >
                     <div class="order-container">
                       <div class="order-tabs">
                         <a
@@ -834,7 +837,7 @@
                                 <p class="order-state">Completed</p>
                               </div>
                               <div class="divide"></div>
-                              <a href="#" class="order-link">
+                              <a href="" class="order-link">
                                 <div>
                                   <div class="order-product-item">
                                     <div class="order-product-left">
@@ -995,84 +998,11 @@
                       <div class="order-content" id="to-pay-orders">
                         <div class="order-list">
                           <div class="order-item">
-                            <div class="order-item-wrap">
-                              <div class="order-item-top">
-                                <p class="order-state">Completed</p>
-                              </div>
-                              <div class="divide"></div>
-                              <a href="#" class="order-link">
-                                <div>
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >Nike AF1 G.Dragon</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: White
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x1
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>1,200$</span>
-                                    </div>
-                                  </div>
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >Nike AF1 G.Dragon</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: White
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x1
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>1,200$</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </a>
-                              <div class="divide"></div>
-                              <div class="order-total">
-                                <p class="fz-14">Order Total:</p>
-                                <div class="order-total-value">1,200$</div>
-                              </div>
-                              <div class="order-action">
-                                <div class="order-action-group">
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--primary"
-                                    >
-                                      Received
-                                    </button>
-                                  </div>
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--secondary"
-                                    >
-                                      Contact Seller
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
                             </div>
                           </div>
                         </div>
@@ -1092,84 +1022,11 @@
                       <div class="order-content" id="to-received-orders">
                         <div class="order-list">
                           <div class="order-item">
-                            <div class="order-item-wrap">
-                              <div class="order-item-top">
-                                <p class="order-state">Completed</p>
-                              </div>
-                              <div class="divide"></div>
-                              <a href="#" class="order-link">
-                                <div>
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >Nike AF1 G.Dragon</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: White
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x1
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>1,200$</span>
-                                    </div>
-                                  </div>
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >Nike AF1 G.Dragon</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: White
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x1
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>1,200$</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </a>
-                              <div class="divide"></div>
-                              <div class="order-total">
-                                <p class="fz-14">Order Total:</p>
-                                <div class="order-total-value">1,200$</div>
-                              </div>
-                              <div class="order-action">
-                                <div class="order-action-group">
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--primary"
-                                    >
-                                      Received
-                                    </button>
-                                  </div>
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--secondary"
-                                    >
-                                      Contact Seller
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
                             </div>
                           </div>
                         </div>
@@ -1200,6 +1057,179 @@
                       </div>
                     </div>
                   </div>
+
+                  <!--Start Order Detail -->
+                  <div
+                    class="section-content step-section"
+                    id="customer-order-detail"
+                    style="background-color: #fff"
+                  >
+                    <div class="order-detail" id="order-detail">
+                      <div class="order-detail-container">
+                        <div class="order-detail-top">
+                          <a href="#" class="back">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                            Back
+                          </a>
+                          <div>
+                            <h3 class="order-detail-id">
+                              ORDER ID. <span>231010</span>
+                            </h3>
+                            <div class="divide-vertical"></div>
+                            <p class="order-detail-state">Completed</p>
+                          </div>
+                        </div>
+                        <div class="order-detail-content">
+                          <div class="order-detail-grid">
+                            <div class="order-detail-item">
+                              <div class="order-item-wrap">
+                                <div class="divide"></div>
+                                <a href="#" class="order-link">
+                                  <div>
+                                    <div class="order-product-item">
+                                      <div class="order-product-left">
+                                        <img
+                                          src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
+                                          alt=""
+                                          class="order-product-image"
+                                        />
+                                        <div class="order-product-info">
+                                          <span class="order-product-name"
+                                            >Nike AF1 G.Dragon</span
+                                          >
+                                          <div class="order-product-variation">
+                                            Variation: White
+                                          </div>
+                                          <div class="order-product-quantity">
+                                            x1
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="order-price">
+                                        <span>1,200$</span>
+                                      </div>
+                                    </div>
+                                    <div class="order-product-item">
+                                      <div class="order-product-left">
+                                        <img
+                                          src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
+                                          alt=""
+                                          class="order-product-image"
+                                        />
+                                        <div class="order-product-info">
+                                          <span class="order-product-name"
+                                            >Nike AF1 G.Dragon</span
+                                          >
+                                          <div class="order-product-variation">
+                                            Variation: White
+                                          </div>
+                                          <div class="order-product-quantity">
+                                            x1
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="order-price">
+                                        <span>1,200$</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </a>
+                                <div class="divide"></div>
+                                <div class="summary-order-wrap">
+                                  <div class="summary-order">
+                                    <div
+                                      class="summary-subtotal summary-text-gray"
+                                    >
+                                      <h4>Subtotal</h4>
+                                      <h4>$2.400</h4>
+                                    </div>
+                                    <div
+                                      class="summary-subtotal summary-text-gray"
+                                    >
+                                      <h4>Delivery/Shipping</h4>
+                                      <h4>$15</h4>
+                                    </div>
+                                    <hr class="summary-divider mt-1" />
+                                    <div class="summary-total fw-5">
+                                      <h3 class="summary-text-gray">Total</h3>
+                                      <h3 class="summary-total-value">
+                                        $2.415
+                                      </h3>
+                                    </div>
+                                    <hr class="summary-divider" />
+                                    <div
+                                      class="summary-payment summary-text-gray"
+                                    >
+                                      <h4 class="fw-4">Payment method</h4>
+                                      <h4 class="fw-4 summary-payment-value">
+                                        Thanh toán VNPAY
+                                      </h4>
+                                    </div>
+                                  </div>
+                                  <div class="order-action">
+                                    <div class="order-action-group">
+                                      <div class="order-action-item">
+                                        <button
+                                          class="stardust-button stardust-button--primary"
+                                        >
+                                          Received
+                                        </button>
+                                      </div>
+                                      <div class="order-action-item">
+                                        <button
+                                          class="stardust-button stardust-button--secondary"
+                                        >
+                                          Contact Seller
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="order-detail-contact">
+                              <div class="shipping">
+                                <div class="shipping-wrapper">
+                                  <div class="shipping-header">
+                                    <h2 class="text-dark">
+                                      Contact Infomation
+                                    </h2>
+                                  </div>
+                                  <div class="shipping-info">
+                                    <div class="shipping-address">
+                                      <div class="shipping-address-district">
+                                        <p class="text-truncated">
+                                          Ho Chi Minh City
+                                        </p>
+                                      </div>
+                                      <div class="shipping-address-specific">
+                                        2118 Thornridge Cir. Syracuse,
+                                        Connecticut 35624
+                                      </div>
+                                    </div>
+                                    <div class="shipping-name">
+                                      <p class="fw-6 text-truncated">
+                                        Tran Buu Quyen master Nodejs
+                                      </p>
+                                    </div>
+                                    <div class="shipping-email">
+                                      <p class="text-truncated">
+                                        michelle.rivera@example.com
+                                      </p>
+                                    </div>
+                                    <div class="shipping-phone">
+                                      <p>0738 716 030</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End Order Detail -->
                 </section>
                 <!-- End Order -->
               </div>
@@ -1349,5 +1379,6 @@
     <script src="/assets/js/profile.js"></script>
     <script src="/common/user/header.js"></script>
     <script src="/assets/js/order.js"></script>
+    <script src="/assets/js/orderDetail.js"></script>
   </body>
 </html>
