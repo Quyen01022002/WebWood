@@ -104,6 +104,12 @@ body {
   color: #8d8d8d;
 }
 
+.divide-vertical {
+  border-left: 1.5px solid #111;
+  width: 1.5px;
+  height: 2rem;
+}
+
 .divide {
   border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
@@ -315,6 +321,12 @@ main .section .address-btn-default:hover {
   cursor: pointer;
   background-color: #edf2fb;
 }
+main .step-section {
+  display: none;
+}
+main .step-section.active {
+  display: block;
+}
 main .section-content.grid-row {
   display: grid;
   grid-template-columns: 45rem auto;
@@ -469,7 +481,7 @@ main .section-footer {
 section#orders {
   background-color: #f5f5f5;
 }
-section#orders .order-tabs {
+section .order-tabs {
   width: 100%;
   margin-bottom: 12px;
   display: flex;
@@ -483,7 +495,7 @@ section#orders .order-tabs {
   border-top-right-radius: 2px;
   transition: top 0.3s;
 }
-section#orders .order-tab-item {
+section .order-tab-item {
   cursor: pointer;
   user-select: none;
   padding: 16px 0;
@@ -499,17 +511,17 @@ section#orders .order-tab-item {
   justify-content: center;
   transition: all 0.3s ease;
 }
-section#orders .order-tab-item[aria-selected=true] {
+section .order-tab-item[aria-selected=true] {
   color: #111;
 }
-section#orders .order-tab-item[aria-selected=false] {
+section .order-tab-item[aria-selected=false] {
   color: #757575;
 }
-section#orders .order-tab-item:hover {
+section .order-tab-item:hover {
   color: #111;
   border-color: rgba(54, 57, 73, 0.326);
 }
-section#orders .order-tab-line {
+section .order-tab-line {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -518,22 +530,22 @@ section#orders .order-tab-line {
   background-color: #111;
   transition: all 0.3s ease;
 }
-section#orders .order-content {
+section .order-content {
   display: none;
 }
-section#orders .order-content.active {
+section .order-content.active {
   display: block;
 }
-section#orders .order-item {
+section .order-item {
   margin: 1.5rem 0;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   background-color: #fff;
 }
-section#orders .order-item-wrap {
+section .order-item-wrap {
   padding: 2.4rem 2.4rem 1.2rem;
 }
-section#orders .order-item-wrap.no-orders {
+section .order-item-wrap.no-orders {
   height: 25rem;
   display: flex;
   flex-direction: column;
@@ -541,13 +553,13 @@ section#orders .order-item-wrap.no-orders {
   justify-content: center;
   gap: 0.5rem;
 }
-section#orders .order-item-wrap.no-orders span {
+section .order-item-wrap.no-orders span {
   font-size: 5.3rem;
 }
-section#orders .order-item-top {
+section .order-item-top {
   padding-bottom: 1rem;
 }
-section#orders .order-product-item {
+section .order-product-item {
   display: flex;
   word-wrap: break-word;
   padding: 1.2rem 0;
@@ -557,10 +569,10 @@ section#orders .order-product-item {
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-section#orders .order-product-item:first-child {
+section .order-product-item:first-child {
   padding-bottom: 0;
 }
-section#orders .order-product-left {
+section .order-product-left {
   display: flex;
   align-items: flex-start;
   padding-right: 1.2rem;
@@ -568,7 +580,7 @@ section#orders .order-product-left {
   flex-wrap: nowrap;
   word-wrap: break-word;
 }
-section#orders .order-product-image {
+section .order-product-image {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
@@ -576,11 +588,11 @@ section#orders .order-product-image {
   border: 1px solid #e1e1e1;
   background: #e1e1e1;
 }
-section#orders .order-product-info {
+section .order-product-info {
   padding-left: 1.2rem;
   flex-direction: column;
 }
-section#orders .order-product-name {
+section .order-product-name {
   overflow: hidden;
   display: -webkit-box;
   text-overflow: ellipsis;
@@ -591,42 +603,144 @@ section#orders .order-product-name {
   line-height: 22px;
   max-height: 48px;
 }
-section#orders .order-product-variation {
+section .order-product-variation {
   margin-bottom: 5px;
   color: #757575;
   font-size: 1.4rem;
 }
-section#orders .order-product-quantity {
+section .order-product-quantity {
   font-size: 1.4rem;
 }
-section#orders .order-total {
+section .order-total {
   padding-top: 2rem;
   padding-bottom: 1.2rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-section#orders .order-total-value {
+section .order-total-value {
   font-size: 2.2rem;
   margin-left: 1rem;
 }
-section#orders .order-action {
+section .order-action {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
 }
-section#orders .order-action-group {
+section .order-action-group {
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 2rem;
 }
-section#orders .order-state {
+section .order-state {
   line-height: 24px;
   color: #111;
   font-size: 1.4rem;
   text-align: right;
   text-transform: uppercase;
   white-space: nowrap;
+}
+section .order-detail-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 0 1.2rem;
+}
+section .order-detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.4rem;
+}
+section .order-detail-top div:nth-child(2) {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+section .order-detail-top .back {
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+section .order-detail-top .back i {
+  margin-right: 1rem;
+}
+section .order-detail-id, section .order-detail-state {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #111;
+}
+section .order-detail-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 42rem auto;
+}
+section .order-detail-contact {
+  margin-top: 2.4rem;
+  padding-left: 5rem;
+  max-width: 45rem;
+}
+section .order-detail .shipping {
+  color: #757575;
+  width: 100%;
+  line-height: 1.75;
+}
+section .order-detail .shipping-header {
+  margin-bottom: 1.5rem;
+}
+section .order-detail .shipping-address-specific {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+section .order-detail .shipping-name {
+  margin: 0.5rem 0;
+}
+
+.summary-order {
+  padding-bottom: 2.5rem;
+  width: 100%;
+}
+.summary-order-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-top: 2rem;
+  width: 100%;
+}
+.summary-text-gray {
+  color: #8d8d8d;
+  font-weight: 400;
+}
+.summary-subtotal {
+  padding-bottom: 2rem;
+}
+.summary-subtotal h4 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.summary-subtotal, .summary-total, .summary-title, .summary-payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.summary-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+.summary-total-value {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.summary-divider {
+  width: 100%;
+  margin: 2rem 0;
+  color: #757575;
 }
 
 @media screen and (min-width: 1200px) {
