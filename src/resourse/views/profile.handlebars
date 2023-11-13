@@ -1,0 +1,1077 @@
+
+    <title>Account</title>
+    <div class="container">
+      <div class="wrap">
+        <div class="content">
+          <div class="grid-content">
+            <!-- Start aside -->
+            <aside class="aside">
+              <div class="top">
+                <div class="aside-avatar">
+                  <a href="#" class="aside-img-link d-block">
+                    <img
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
+                      class="aside-img obj-cover"
+                      alt=""
+                    />
+                  </a>
+                  <h4 class="aside-name-customer lh-base ms-2">PhanPhucNghi</h4>
+                </div>
+                <div class="close-btn" id="close-btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </div>
+              </div>
+              <div class="sidebar" id="profile-sidebar">
+                <ul class="sidebar-list">
+                  <li class="sidebar-item active">
+                    <a href="#my-account" class="sidebar-link">My account</a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="#change-password"
+                      class="sidebar-link"
+                      data-target="#change-password"
+                      >Change password</a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="#addresses" class="sidebar-link">Addresses</a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="#orders" class="sidebar-link">Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <!-- End aside -->
+
+            <!-- Start main -->
+            <main>
+              <div class="section-wrap">
+                <!-- Start my account -->
+                <section id="my-account" class="section active">
+                  <div class="section-title">
+                    <h2 class="lh-base">My profile</h2>
+                    <p class="text-gray">
+                      Set up your Milist profile and more.
+                    </p>
+                  </div>
+                  <div class="section-content grid-row">
+                    <div class="left">
+                      <div class="form-group">
+                        <form action="#" method="">
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_name"
+                                class="form-label required"
+                                >Name</label
+                              >
+                              <input
+                                autocomplete="name"
+                                class="form-input"
+                                type="text"
+                                value={{user.name}}
+                                name="profile[name]"
+                                id="profile_name"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_email"
+                                class="form-label required"
+                                >Email</label
+                              >
+                              <input
+                                autocomplete="email"
+                                class="form-input"
+                                type="text"
+                                value={{user.email}}
+                                name="profile[email]"
+                                id="profile_email"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset" style="position: relative">
+                              <label
+                                for="profile_password"
+                                class="form-label required"
+                                >Password</label
+                              >
+                              <input
+                                autocomplete="password"
+                                class="form-input"
+                                type="password"
+                                value={{user.password}}
+                                name="profile[password]"
+                                id="profile_password"
+                              />
+                              <img
+                                src="/assets/images/show-password.svg"
+                                class="icon-show-password"
+                                id="btn-toggle"
+                                onclick="showPassword()"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label
+                                for="profile_phone"
+                                class="form-label required"
+                                >Phone</label
+                              >
+                              <input
+                                autocomplete="phone"
+                                class="form-input"
+                                type="phone"
+                                value={{user.phone}}
+                                name="profile[phone]"
+                                id="profile_phone"
+                              />
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset">
+                              <label for="" class="form-label required"
+                                >Gender</label
+                              >
+                              <div class="fieldset-radio-wrap">
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="male"
+                                    checked
+                                  />
+                                  <label for="male" class="form-label-radio"
+                                    >Male</label
+                                  >
+                                </div>
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="female"
+                                  />
+                                  <label for="female" class="form-label-radio"
+                                    >Female</label
+                                  >
+                                </div>
+                                <div class="fieldset-radio">
+                                  <input
+                                    class="form-input"
+                                    type="radio"
+                                    value=""
+                                    name="profile[gender]"
+                                    id="other"
+                                  />
+                                  <label for="other" class="form-label-radio"
+                                    >Other</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="formfield">
+                            <div class="fieldset date">
+                              <label
+                                for="profile_birthday"
+                                class="form-label required"
+                                >Date of birth</label
+                              >
+                              <div class="date">
+                                <input
+                                  class="form-input"
+                                  type="date"
+                                  value="2002-01-01"
+                                  name="profile[birthday]"
+                                  id="profile_birthday"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="right">
+                      <div class="avatar-preview">
+                        <div class="avatar-wrap">
+                          <div class="image-container">
+                            <img
+                              src={{user.avatar}}
+                              alt=""
+                              class="uploaded-image obj-cover"
+                              id="displayed-image"
+                            />
+                          </div>
+                         <!-- HTML -->
+                        <form action="/profile" method="post" enctype="multipart/form-data">
+                          <div class="form-wrap d-flex">
+                            <div class="avatar-upload btn-base btn-white">
+                              <input type="file" class="avatar-upload-input" name="image" id="image" accept="image/*" onchange="displaySelectedImage()" />
+
+                              <label for="image" class="avatar-upload-label">Edit picture</label>
+                            </div>
+                       
+                            <input
+                              type="submit"
+                              value="Update Post"
+                              class="btn-delete btn-base btn-solid"
+                            />
+                          </div>
+                        </form>
+
+                          <div class="mt-0">
+                            <p class="text-gray fz-14">
+                              File size: maximum 1 MB
+                            </p>
+                            <p class="text-gray fz-14">
+                              File extension: .JPEG, .PNG
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section-footer">
+                    <form action="#" method="post">
+                      <button class="btn-base btn-solid btn-save">
+                        <span class="fz-15">Save</span>
+                      </button>
+                    </form>
+                  </div>
+                </section>
+                <!-- End my account -->
+
+                <!--Start change password -->
+                <section id="change-password" class="section">
+                  <div
+                    class="d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <div class="mw-45">
+                      <div class="section-title">
+                        <h2 class="lh-base">Change password</h2>
+                        <p class="text-gray">
+                          Enter your current and new password.
+                        </p>
+                      </div>
+                      <div class="section-content">
+                        <div class="form-group">
+                          <form action="#" method="">
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_password"
+                                  class="form-label required"
+                                  >Current Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[password]"
+                                  id="profile_password"
+                                />
+                              </div>
+                            </div>
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_new-password"
+                                  class="form-label required"
+                                  >New Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[new-password]"
+                                  id="profile_new-password"
+                                />
+                              </div>
+                            </div>
+                            <div class="formfield">
+                              <div class="fieldset">
+                                <label
+                                  for="profile_confirm-new-password"
+                                  class="form-label required"
+                                  >Confirm New Password</label
+                                >
+                                <input
+                                  autocomplete="password"
+                                  class="form-input"
+                                  type="password"
+                                  value=""
+                                  name="profile[confirm-new-password]"
+                                  id="profile_confirm-new-password"
+                                />
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="mt-5">
+                          <p class="text-gray">Password requirements:</p>
+                          <p class="text-gray">Minimum of 8 characters</p>
+                          <p class="text-gray">
+                            Uppercase, lowercase letters and one number
+                          </p>
+                        </div>
+                      </div>
+                      <div class="section-footer">
+                        <form action="#" method="post">
+                          <button class="btn-base btn-solid btn-save">
+                            <span class="fz-15">Save</span>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!--End change password -->
+
+                <!-- Start addresses -->
+                <section id="addresses" class="section px-5">
+                  <div class="section-title">
+                    <h2 class="lh-base">My Addresses</h2>
+                    <button class="btn btn-danger btn-add-address">
+                      <i class="fa-solid fa-plus btn-add-address-icon"></i>
+                      <span class="btn-add-address-text">Add New Address</span>
+                    </button>
+                  </div>
+                  <hr class="divider w-100" />
+                  <div class="section-content">
+                    <h3 class="d-block fw-4">Address</h3>
+                    <div class="address-wrap">
+                      <ul class="address-list">
+                        <li class="address-item default">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">Phan Phuc Nghi</h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 937235273</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                Xóm 4, thôn cảnh an 2
+                              </div>
+                              <div class="address-text">
+                                Xã Phước Thành, Huyện Tuy Phước, Bình Định
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button class="btn btn-light address-btn-default">
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                        <li class="address-item">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">
+                                  Cristiano Ronaldo
+                                </h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 908625483</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                45/3, Cách mạng tháng Tám
+                              </div>
+                              <div class="address-text">
+                                Phường 10, quận 3, tp. Hồ Chí Minh
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button class="btn btn-light address-btn-default">
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                        <li class="address-item">
+                          <div class="address-item-wrap">
+                            <div class="address-left">
+                              <div class="address-top">
+                                <h3 class="address-top-name">Sơn Tùng MTP</h3>
+                                <div class="address-divide"></div>
+                                <span class="address-text"
+                                  >(+84) 908625483</span
+                                >
+                              </div>
+                              <div class="address-text">
+                                45/3, Cách mạng tháng Tám
+                              </div>
+                              <div class="address-text">
+                                Phường 10, quận 3, tp. Hồ Chí Minh
+                              </div>
+                            </div>
+                            <div class="address-right">
+                              <div class="address-action">
+                                <a
+                                  href="#"
+                                  class="btn-edit-address text-primary fz-14"
+                                  >Edit</a
+                                >
+                                <a
+                                  href="#"
+                                  class="btn-delete-address text-primary fz-14"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#myModal"
+                                  >Delete</a
+                                >
+                              </div>
+                              <button
+                                class="btn btn-light address-btn-default active"
+                              >
+                                <span class="fz-14">Set as default</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="address-default">
+                            <span class="address-default-text"> Default </span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <!-- End addresses -->
+
+                <!-- Start Order -->
+                <section id="orders" class="section">
+                  <div
+                    class="section-content step-section active"
+                    id="customer-order-history"
+                  >
+                    <div class="order-container">
+                      <div class="order-tabs">
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-all"
+                          aria-selected="true"
+                        >
+                          <span class="text-truncated">All</span>
+                        </a>
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-to-pay"
+                          aria-selected="false"
+                        >
+                          <span class="text-truncated">To Pay</span>
+                        </a>
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-to-ship"
+                          aria-selected="false"
+                        >
+                          <span class="text-truncated">To Ship</span>
+                        </a>
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-to-received"
+                          aria-selected="false"
+                        >
+                          <span class="text-truncated">To Received</span>
+                        </a>
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-completed"
+                          aria-selected="false"
+                        >
+                          <span class="text-truncated">Completed</span>
+                        </a>
+                        <a
+                          href="#"
+                          class="order-tab-item"
+                          id="tab-cancelled"
+                          aria-selected="false"
+                        >
+                          <span class="text-truncated">Cancelled</span>
+                        </a>
+                        <div class="order-tab-line"></div>
+                      </div>
+                      <div class="order-content active" id="all-orders">
+                        <div class="order-list">
+                          {{#each orders}}
+                          <div class="order-item">
+                            <div class="order-item-wrap">
+                              <div class="order-item-top">
+                                <p class="order-state">{{this.Status}}</p>
+                              </div>
+                              <div class="divide"></div>
+                              <a href="/profile/{{this._id}}" class="order-link">
+                                <div>
+                                  {{#each this.products}}
+                                  <div class="order-product-item">
+                                    <div class="order-product-left">
+                                      <img
+                                        src={{this.images}}
+                                        alt=""
+                                        class="order-product-image"
+                                      />
+                                      <div class="order-product-info">
+                                        <span class="order-product-name"
+                                          >{{this.name}}</span
+                                        >
+                                        <div class="order-product-variation">
+                                          Variation: {{this.color}}
+                                        </div>
+                                        <div class="order-product-quantity">
+                                          x{{this.quantity}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="order-price">
+                                      <span>{{this.price}}</span>
+                                    </div>
+                                  </div>
+                                  {{/each}}
+                               
+                                </div>
+                              </a>
+                              <div class="divide"></div>
+                              <div class="order-total">
+                                <p class="fz-14">Order Total:</p>
+                                <div class="order-total-value">{{this.Total}}</div>
+                              </div>
+                              <div class="order-action">
+                                <div class="order-action-group">
+                                  <div class="order-action-item">
+                                    <button
+                                      class="stardust-button stardust-button--primary"
+                                    >
+                                      Received
+                                    </button>
+                                  </div>
+                                  <div class="order-action-item">
+                                    <button
+                                      class="stardust-button stardust-button--secondary"
+                                    >
+                                      Contact Seller
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        {{/each}}
+                        </div>
+                      </div>
+                      <div class="order-content" id="to-pay-orders">
+                        <div class="order-list">
+                          <div class="order-item">
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="order-content" id="to-ship-orders">
+                         <div class="order-list">
+                          {{#each ordersToship}}
+                          <div class="order-item">
+                            <div class="order-item-wrap">
+                              <div class="order-item-top">
+                                <p class="order-state">{{this.Status}}</p>
+                              </div>
+                              <div class="divide"></div>
+                              <a href="" class="order-link">
+                                <div>
+                                  {{#each this.products}}
+                                  <div class="order-product-item">
+                                    <div class="order-product-left">
+                                      <img
+                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
+                                        alt=""
+                                        class="order-product-image"
+                                      />
+                                      <div class="order-product-info">
+                                        <span class="order-product-name"
+                                          >Nike AF1 G.Dragon</span
+                                        >
+                                        <div class="order-product-variation">
+                                          Variation: {{this.color}}
+                                        </div>
+                                        <div class="order-product-quantity">
+                                          x{{this.quantity}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="order-price">
+                                      <span>{{this.price}}</span>
+                                    </div>
+                                  </div>
+                                  {{/each}}
+                               
+                                </div>
+                              </a>
+                              <div class="divide"></div>
+                              <div class="order-total">
+                                <p class="fz-14">Order Total:</p>
+                                <div class="order-total-value">{{this.Total}}</div>
+                              </div>
+                              <div class="order-action">
+                                <div class="order-action-group">
+                                  <div class="order-action-item">
+                                    <button
+                                      class="stardust-button stardust-button--primary"
+                                    >
+                                      Received
+                                    </button>
+                                  </div>
+                                  <div class="order-action-item">
+                                    <button
+                                      class="stardust-button stardust-button--secondary"
+                                    >
+                                      Contact Seller
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        {{/each}}
+                        </div>
+                      </div>
+                      <div class="order-content" id="to-received-orders">
+                        <div class="order-list">
+                          <div class="order-item">
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="order-content" id="completed-orders">
+                        <div class="order-list">
+                          <div class="order-item">
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="order-content" id="cancelled-orders">
+                        <div class="order-list">
+                          <div class="order-item">
+                            <div class="order-item-wrap no-orders">
+                              <span class="material-symbols-outlined text-gray">
+                                list_alt
+                              </span>
+                              <h4 class="fw-4 text-gray">No orders yet</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Start Order Detail -->
+                  <div
+                    class="section-content step-section"
+                    id="customer-order-detail"
+                    style="background-color: #fff"
+                  >
+                    <div class="order-detail" id="order-detail">
+                      <div class="order-detail-container">
+                        <div class="order-detail-top">
+                          <a href="#" class="back">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                            Back
+                          </a>
+                          <div>
+                            <h3 class="order-detail-id">
+                              ORDER ID. <span>231010</span>
+                            </h3>
+                            <div class="divide-vertical"></div>
+                            <p class="order-detail-state">Completed</p>
+                          </div>
+                        </div>
+                        <div class="order-detail-content">
+                          <div class="order-detail-grid">
+                            <div class="order-detail-item">
+                              <div class="order-item-wrap">
+                                <div class="divide"></div>
+                                <a href="#" class="order-link">
+                                  <div>
+                                    <div class="order-product-item">
+                                      <div class="order-product-left">
+                                        <img
+                                          src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
+                                          alt=""
+                                          class="order-product-image"
+                                        />
+                                        <div class="order-product-info">
+                                          <span class="order-product-name"
+                                            >Nike AF1 G.Dragon</span
+                                          >
+                                          <div class="order-product-variation">
+                                            Variation: White
+                                          </div>
+                                          <div class="order-product-quantity">
+                                            x1
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="order-price">
+                                        <span>1,200$</span>
+                                      </div>
+                                    </div>
+                                    <div class="order-product-item">
+                                      <div class="order-product-left">
+                                        <img
+                                          src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
+                                          alt=""
+                                          class="order-product-image"
+                                        />
+                                        <div class="order-product-info">
+                                          <span class="order-product-name"
+                                            >Nike AF1 G.Dragon</span
+                                          >
+                                          <div class="order-product-variation">
+                                            Variation: White
+                                          </div>
+                                          <div class="order-product-quantity">
+                                            x1
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="order-price">
+                                        <span>1,200$</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </a>
+                                <div class="divide"></div>
+                                <div class="summary-order-wrap">
+                                  <div class="summary-order">
+                                    <div
+                                      class="summary-subtotal summary-text-gray"
+                                    >
+                                      <h4>Subtotal</h4>
+                                      <h4>$2.400</h4>
+                                    </div>
+                                    <div
+                                      class="summary-subtotal summary-text-gray"
+                                    >
+                                      <h4>Delivery/Shipping</h4>
+                                      <h4>$15</h4>
+                                    </div>
+                                    <hr class="summary-divider mt-1" />
+                                    <div class="summary-total fw-5">
+                                      <h3 class="summary-text-gray">Total</h3>
+                                      <h3 class="summary-total-value">
+                                        $2.415
+                                      </h3>
+                                    </div>
+                                    <hr class="summary-divider" />
+                                    <div
+                                      class="summary-payment summary-text-gray"
+                                    >
+                                      <h4 class="fw-4">Payment method</h4>
+                                      <h4 class="fw-4 summary-payment-value">
+                                        Thanh toán VNPAY
+                                      </h4>
+                                    </div>
+                                  </div>
+                                  <div class="order-action">
+                                    <div class="order-action-group">
+                                      <div class="order-action-item">
+                                        <button
+                                          class="stardust-button stardust-button--primary"
+                                        >
+                                          Received
+                                        </button>
+                                      </div>
+                                      <div class="order-action-item">
+                                        <button
+                                          class="stardust-button stardust-button--secondary"
+                                        >
+                                          Contact Seller
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="order-detail-contact">
+                              <div class="shipping">
+                                <div class="shipping-wrapper">
+                                  <div class="shipping-header">
+                                    <h2 class="text-dark">
+                                      Contact Infomation
+                                    </h2>
+                                  </div>
+                                  <div class="shipping-info">
+                                    <div class="shipping-address">
+                                      <div class="shipping-address-district">
+                                        <p class="text-truncated">
+                                          Ho Chi Minh City
+                                        </p>
+                                      </div>
+                                      <div class="shipping-address-specific">
+                                        2118 Thornridge Cir. Syracuse,
+                                        Connecticut 35624
+                                      </div>
+                                    </div>
+                                    <div class="shipping-name">
+                                      <p class="fw-6 text-truncated">
+                                        Tran Buu Quyen master Nodejs
+                                      </p>
+                                    </div>
+                                    <div class="shipping-email">
+                                      <p class="text-truncated">
+                                        michelle.rivera@example.com
+                                      </p>
+                                    </div>
+                                    <div class="shipping-phone">
+                                      <p>0738 716 030</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--End Order Detail -->
+                </section>
+                <!-- End Order -->
+              </div>
+            </main>
+            <!-- End main -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start modal -->
+
+    <!-- Add, Edit Adress -->
+    <div id="add-address-modal" class="modal-address">
+      <div class="modal-container animate-top">
+        <div class="modal-body">
+          <h2 class="modal-header-title">New address</h2>
+          <div class="modal-form-group form-group">
+            <form action="#" method="">
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-full-name" class="form-label"
+                    >Full Name</label
+                  >
+                  <input
+                    class="form-input"
+                    type="text"
+                    value=""
+                    name="modal-full-name"
+                    id="modal-full-name"
+                  />
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">Phone</label>
+                  <input
+                    class="form-input"
+                    type="phone"
+                    value=""
+                    name="modal-full-name"
+                    id="modal-phone"
+                  />
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    Province/City</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">Province/City</option>
+                    <option data-code="" value="">Hồ Chí Minh</option>
+                    <option data-code="" value="">Hà Nội</option>
+                    <option data-code="" value="">Đà Nẵng</option>
+                  </select>
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    District/Town</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">District/Town</option>
+                    <option data-code="" value="">Huyện Bình Chánh</option>
+                    <option data-code="" value="">Thành phố Thủ Đức</option>
+                    <option data-code="" value="">Quận 1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="formfield">
+                <div class="fieldset">
+                  <label for="modal-phone" class="form-label">
+                    Commune/Ward</label
+                  >
+                  <select class="form-input-select">
+                    <option data-code="null" value="null">Commune/Ward</option>
+                    <option data-code="" value="">Phường Trường Thọ</option>
+                    <option data-code="" value="">Phường Linh Chiểu</option>
+                    <option data-code="" value="">Phường Linh Tây</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-form-action">
+            <form action="#" method="">
+              <button class="btn btn-light btn-cancel close">
+                <span class="text-gray fz-15">Cancel</span>
+              </button>
+              <button class="btn btn-primary btn-submit">
+                <span class="fz-15">Submit</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yes, No Modal -->
+    <div class="modal animate-scale-up" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Delete Address?</h3>
+          </div>
+
+          <div class="modal-footer">
+            <div class="modal-form-action mt-0">
+              <form action="#" method="">
+                <button
+                  class="btn btn-light btn-cancel"
+                  data-bs-dismiss="modal"
+                >
+                  <span class="text-gray fz-15">Cancel</span>
+                </button>
+                <button
+                  class="btn btn-primary btn-accept-delete"
+                  data-bs-dismiss="modal"
+                >
+                  <span class="fz-15">Delete</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+    <script>
+      const passwordInput = document.querySelector("#profile_password");
+      const btnToggle = document.getElementById("btn-toggle");
+      let show = false;
+
+      const showPassword = () => {
+        if (show) {
+          passwordInput.type = "password";
+          btnToggle.src = "/assets/images/show-password.svg";
+        } else {
+          passwordInput.type = "text";
+          btnToggle.src = "/assets/images/hide-password.svg";
+        }
+        show = !show;
+      };
+    </script>
+    <script src="/js/profile.js">
+    </script>
+    <script src="/common/user/header.js"></script>
+    <script src="/js/order.js"></script>
+    <script src="/js/orderDetail.js"></script>
+    <!-- HTML & JavaScript -->
+ <script>
+    function displaySelectedImage() {
+      var input = document.getElementById('image');
+      var urlImg = document.getElementById('urlImg');
+      var displayedImage = document.getElementById('displayed-image');
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          // Lấy liên kết đến hình ảnh từ e.target.result
+          var imageLink = e.target.result;
+
+          // Hiển thị hình ảnh trên thẻ img
+          displayedImage.src = imageLink;
+          urlImg.value=imageLink;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      } 
+    }
+  </script>
