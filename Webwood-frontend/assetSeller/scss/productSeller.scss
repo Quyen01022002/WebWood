@@ -1,0 +1,9 @@
+@import "color", "colorBase";
+.table{
+    &-product-img{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 0;
+        flex-shrink: 0;
+    }
+}

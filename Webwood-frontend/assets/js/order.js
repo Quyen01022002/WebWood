@@ -3,6 +3,8 @@ const orderContents = $$('.order-content')
 const tabActive = $('.order-tab-item[aria-selected="true"]')
 const line = $('.order-tab-line')
 
+console.log([tabActive])
+console.log(tabActive.offsetWidth)
 line.style.left = tabActive.offsetLeft + 'px'
 line.style.width = tabActive.offsetWidth + 'px'
 
@@ -11,7 +13,7 @@ tabItems.forEach((element, index) => {
     element.onclick = function (event) {
         const isSelected = this.getAttribute('aria-selected') === 'true'
         if (isSelected) {
-            event.preventDefault();
+            // event.preventDefault();
         }
         else{
             $('.order-tab-item[aria-selected="true"]').setAttribute('aria-selected', "false")

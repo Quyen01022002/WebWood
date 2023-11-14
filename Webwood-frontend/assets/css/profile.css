@@ -497,6 +497,7 @@ section .order-tabs {
 }
 section .order-tab-item {
   cursor: pointer;
+  min-width: 8rem;
   user-select: none;
   padding: 16px 0;
   font-size: 16px;

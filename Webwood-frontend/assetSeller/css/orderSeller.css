@@ -1,0 +1,304 @@
+table#table {
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 100%;
+  padding: 2.52rem;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-collapse: collapse;
+}
+table#table thead {
+  background-color: #bfd7ff;
+}
+table#table thead th {
+  padding: 1rem;
+}
+table#table tbody td {
+  max-height: 3.8rem;
+  border-bottom: 1px solid rgba(132, 139, 200, 0.18);
+  color: #677483;
+  padding: 1rem 0;
+}
+table#table tbody td:first-child {
+  padding-left: 1rem;
+}
+table#table tbody tr:last-child td {
+  border-bottom: none;
+}
+table#table tbody tr {
+  cursor: default;
+  transition: all 0.25s ease;
+}
+table#table tbody tr.active {
+  background-color: #ccdbfd;
+}
+table#table tbody tr.active:hover {
+  background-color: #ccdbfd;
+}
+table#table tbody tr:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+}
+
+.table-title {
+  color: #363949;
+}
+.table-detail:hover {
+  color: #7380ec;
+  text-decoration: underline;
+}
+.table-date {
+  max-width: 16rem;
+}
+.table-date p {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-address {
+  max-width: 15rem;
+}
+.table-customer-name {
+  display: flex;
+  gap: 1rem;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+}
+.table-customer-name p,
+.table-customer-name span {
+  max-width: 16rem;
+  color: #111;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table-customer-avatar {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.table-dropdown-list {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+}
+.table-dropdown-list li:not(:last-child) {
+  padding-bottom: 0.6rem;
+}
+.table-dropdown-link {
+  font-size: 1.5rem;
+  transition: all 0.25s ease;
+}
+.table-dropdown-link:hover.primary {
+  background-color: rgba(29, 211, 176, 0.3);
+  color: #1dd3b0;
+  border-radius: 6px;
+}
+.table-dropdown-link:hover.danger {
+  background-color: rgba(255, 119, 130, 0.3);
+  color: #ff7782;
+  border-radius: 6px;
+}
+.table-dropdown-icon {
+  margin-right: 0.6rem;
+}
+.table-dropdown-text {
+  display: inline-block;
+  color: #363949;
+}
+.table-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.table-action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  padding: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.table-action-btn:hover {
+  background-color: rgba(117, 117, 117, 0.15);
+}
+.table-action-icon {
+  font-size: 1.8rem;
+}
+.table-span-time {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #757575;
+}
+.table-status {
+  font-weight: 500;
+}
+.table-status.active {
+  color: #3ec87c;
+}
+.table-status.disable {
+  color: #ff7782;
+}
+
+@media screen and (max-width: 1280px) {
+  .table-wrapper {
+    max-width: 96vw;
+    overflow-x: auto;
+  }
+}
+.header-seller {
+  background-color: white;
+}
+
+.order-wrapper {
+  margin-top: 11rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1rem;
+}
+.order-show {
+  padding-left: 0.5rem;
+  gap: 1rem;
+  align-items: center;
+}
+.order-show-select {
+  padding: 0.5rem 0.5rem;
+  background-color: rgba(132, 139, 200, 0.18);
+  border-radius: 5px;
+}
+.order-accept:hover {
+  background-color: rgba(62, 200, 124, 0.263);
+}
+.order-cancel:hover {
+  background-color: rgba(255, 119, 130, 0.265);
+}
+.order-search-btn {
+  height: 4rem;
+  background-color: white;
+  border: 1px solid #7380ec;
+  transition: all 0.3s ease;
+}
+.order-search-btn span {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.order-search-btn:hover {
+  background-color: #7380ec;
+  color: white;
+}
+
+.page-item.active .page-link {
+  background-color: #7380ec;
+  border-color: transparent;
+}
+.page-link {
+  color: #7380ec;
+  padding: 0.5rem 1rem;
+}
+
+.formfield-group.search {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  align-items: end;
+}
+.formfield-group.search .formfield {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 20rem;
+}
+.formfield-group.search .formfield label {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.formfield-group.search .formfield input,
+.formfield-group.search .formfield select {
+  height: 4.2rem;
+  background-color: rgba(132, 139, 200, 0.18);
+  border-radius: 0.56rem;
+  padding: 0.9rem 1.8rem;
+  color: #363949;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+.formfield-group.search .formfield input:hover,
+.formfield-group.search .formfield select:hover {
+  border: 1.3px solid #7380ec;
+}
+.formfield-group.search .formfield input::-webkit-input-placeholder,
+.formfield-group.search .formfield ::-moz-placeholder {
+  font-size: 1.5rem;
+  text-align: left;
+  font-weight: 300;
+}
+.formfield-group.search .formfield-price {
+  width: 14rem;
+}
+
+@media screen and (min-width: 1280px) {
+  .grid-wrapper {
+    grid-template-columns: 21rem 1fr;
+    gap: 0;
+  }
+  aside .top {
+    justify-content: space-between;
+  }
+  aside .logo-title {
+    display: inline-block;
+  }
+  aside .sidebar h3 {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .grid-wrapper {
+    grid-template-columns: 10.8rem 1fr;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .header-seller {
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #fff;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 1.4rem 2.4rem rgba(132, 139, 200, 0.18);
+    border-radius: 0;
+  }
+  .header-seller .menu-bar-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 2rem;
+  }
+  .header-seller .menu-bar-btn:hover {
+    background-color: rgba(132, 139, 200, 0.18);
+  }
+  .order-wrapper {
+    padding-inline: 0;
+  }
+}
+
+/*# sourceMappingURL=orderSeller.css.map */

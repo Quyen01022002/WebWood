@@ -51,6 +51,7 @@
     <title>Home | Admin Site</title>
   </head>
   <body>
+    <div id="scrollTop-btn"></div>
     <div class="wrapper">
       <div class="grid-wrapper">
         <!-- Start aside -->
@@ -131,308 +132,361 @@
         <!-- End aside -->
 
         <!-- Start main -->
-        <main>
-          <h1 class="fw-6">Dashboard</h1>
-          <div class="d-flex justify-content-start">
-            <div class="date">
-              <input type="date" class="text-center" />
+        <main id="home">
+          <div class="mt-5">
+            <h1 class="fw-6">Dashboard</h1>
+            <div class="d-flex justify-content-start">
+              <div class="date">
+                <input type="date" class="text-center" />
+              </div>
             </div>
-          </div>
-          <div class="card-list">
-            <div class="card-item">
-              <span class="material-symbols-outlined card-icon sales"
-                >analytics</span
-              >
-              <div class="card-content">
-                <div class="card-left">
-                  <h3 class="card-title">Total Sales</h3>
-                  <h1 class="card-value">$25,024</h1>
-                </div>
-                <div class="card-progress sales">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="card-progress-number">
-                    <p>81%</p>
+            <div class="card-list">
+              <div class="card-item">
+                <span class="material-symbols-outlined card-icon sales"
+                  >analytics</span
+                >
+                <div class="card-content">
+                  <div class="card-left">
+                    <h3 class="card-title">Total Sales</h3>
+                    <h1 class="card-value">$25,024</h1>
+                  </div>
+                  <div class="card-progress sales">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="card-progress-number">
+                      <p>81%</p>
+                    </div>
                   </div>
                 </div>
+                <small class="text-muted">Last 24 hours</small>
               </div>
-              <small class="text-muted">Last 24 hours</small>
-            </div>
-            <div class="card-item">
-              <span class="material-symbols-outlined card-icon expenses"
-                >bar_chart</span
-              >
-              <div class="card-content">
-                <div class="card-left">
-                  <h3 class="card-title">Total Expenses</h3>
-                  <h1 class="card-value">$38,572</h1>
-                </div>
-                <div class="card-progress expenses">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="card-progress-number">
-                    <p>72%</p>
+              <div class="card-item">
+                <span class="material-symbols-outlined card-icon expenses"
+                  >bar_chart</span
+                >
+                <div class="card-content">
+                  <div class="card-left">
+                    <h3 class="card-title">Total Expenses</h3>
+                    <h1 class="card-value">$38,572</h1>
+                  </div>
+                  <div class="card-progress expenses">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="card-progress-number">
+                      <p>72%</p>
+                    </div>
                   </div>
                 </div>
+                <small class="text-muted">Last 24 hours</small>
               </div>
-              <small class="text-muted">Last 24 hours</small>
-            </div>
-            <div class="card-item">
-              <span class="material-symbols-outlined card-icon incomes"
-                >stacked_line_chart</span
-              >
-              <div class="card-content">
-                <div class="card-left">
-                  <h3 class="card-title">Total Incomes</h3>
-                  <h1 class="card-value">$66,023</h1>
-                </div>
-                <div class="card-progress incomes">
-                  <svg>
-                    <circle cx="38" cy="38" r="36"></circle>
-                  </svg>
-                  <div class="card-progress-number">
-                    <p>56%</p>
+              <div class="card-item">
+                <span class="material-symbols-outlined card-icon incomes"
+                  >stacked_line_chart</span
+                >
+                <div class="card-content">
+                  <div class="card-left">
+                    <h3 class="card-title">Total Incomes</h3>
+                    <h1 class="card-value">$66,023</h1>
+                  </div>
+                  <div class="card-progress incomes">
+                    <svg>
+                      <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="card-progress-number">
+                      <p>56%</p>
+                    </div>
                   </div>
                 </div>
+                <small class="text-muted">Last 24 hours</small>
               </div>
-              <small class="text-muted">Last 24 hours</small>
             </div>
-          </div>
-          <div class="order">
-            <div class="order-top">
-              <h2 class="order-title fw-6">Recent orders</h2>
+            <div class="order home">
+              <div class="order-top">
+                <h2 class="order-title fw-6">Recent orders</h2>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="order-row">
+                    <td>1234</td>
+                    <td class="order-customer-name">
+                      <p>Roronoa Zoro Monkey D Luffy</p>
+                    </td>
+                    <td class="order-date">
+                      <p>21 Sep 2023 12:05</p>
+                    </td>
+                    <td>$1,783</td>
+                    <td>
+                      <span class="order-status pending">New Order</span>
+                    </td>
+                    <td>
+                      <a href="#" class="primary order-detail">Details</a>
+                    </td>
+                    <td>
+                      <div class="dropdown oder-dropdown">
+                        <button
+                          type="button"
+                          class="dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          <p class="order-dropdown-text">Edit</p>
+                        </button>
+                        <ul class="dropdown-menu order-dropdown-list">
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link primary"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-check order-dropdown-icon"
+                              ></i>
+                              Accept order</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link danger"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-xmark order-dropdown-icon"
+                              ></i>
+                              Reject order</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="order-row">
+                    <td>1234</td>
+                    <td class="order-customer-name">
+                      <p>Roronoa Zoro Monkey D Luffy</p>
+                    </td>
+                    <td class="order-date">
+                      <p>21 Sep 2023 12:05</p>
+                    </td>
+                    <td>$1,783</td>
+                    <td>
+                      <span class="order-status pending">New Order</span>
+                    </td>
+                    <td>
+                      <a href="#" class="primary order-detail">Details</a>
+                    </td>
+                    <td>
+                      <div class="dropdown oder-dropdown">
+                        <button
+                          type="button"
+                          class="dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          <p class="order-dropdown-text">Edit</p>
+                        </button>
+                        <ul class="dropdown-menu order-dropdown-list">
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link primary"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-check order-dropdown-icon"
+                              ></i>
+                              Accept order</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link danger"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-xmark order-dropdown-icon"
+                              ></i>
+                              Reject order</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="order-row">
+                    <td>1234</td>
+                    <td class="order-customer-name">
+                      <p>Roronoa Zoro Monkey D Luffy</p>
+                    </td>
+                    <td class="order-date">
+                      <p>21 Sep 2023 12:05</p>
+                    </td>
+                    <td>$1,783</td>
+                    <td>
+                      <span class="order-status pending">New Order</span>
+                    </td>
+                    <td>
+                      <a href="#" class="primary order-detail">Details</a>
+                    </td>
+                    <td>
+                      <div class="dropdown oder-dropdown">
+                        <button
+                          type="button"
+                          class="dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          <p class="order-dropdown-text">Edit</p>
+                        </button>
+                        <ul class="dropdown-menu order-dropdown-list">
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link primary"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-check order-dropdown-icon"
+                              ></i>
+                              Accept order</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link danger"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-xmark order-dropdown-icon"
+                              ></i>
+                              Reject order</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="order-row">
+                    <td>1234</td>
+                    <td class="order-customer-name">
+                      <p>Roronoa Zoro Monkey D Luffy</p>
+                    </td>
+                    <td class="order-date">
+                      <p>21 Sep 2023 12:05</p>
+                    </td>
+                    <td>$1,783</td>
+                    <td>
+                      <span class="order-status pending">New Order</span>
+                    </td>
+                    <td>
+                      <a href="#" class="primary order-detail">Details</a>
+                    </td>
+                    <td>
+                      <div class="dropdown oder-dropdown">
+                        <button
+                          type="button"
+                          class="dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          <p class="order-dropdown-text">Edit</p>
+                        </button>
+                        <ul class="dropdown-menu order-dropdown-list">
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link primary"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-check order-dropdown-icon"
+                              ></i>
+                              Accept order</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link danger"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-xmark order-dropdown-icon"
+                              ></i>
+                              Reject order</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="order-row">
+                    <td>1234</td>
+                    <td class="order-customer-name">
+                      <p>Roronoa Zoro Monkey D Luffy</p>
+                    </td>
+                    <td class="order-date">
+                      <p>21 Sep 2023 12:05</p>
+                    </td>
+                    <td>$1,783</td>
+                    <td>
+                      <span class="order-status pending">New Order</span>
+                    </td>
+                    <td>
+                      <a href="#" class="primary order-detail">Details</a>
+                    </td>
+                    <td>
+                      <div class="dropdown oder-dropdown">
+                        <button
+                          type="button"
+                          class="dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                        >
+                          <p class="order-dropdown-text">Edit</p>
+                        </button>
+                        <ul class="dropdown-menu order-dropdown-list">
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link primary"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-check order-dropdown-icon"
+                              ></i>
+                              Accept order</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item order-dropdown-link danger"
+                              href="#"
+                            >
+                              <i
+                                class="fa-regular fa-circle-xmark order-dropdown-icon"
+                              ></i>
+                              Reject order</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Customer</th>
-                  <th>Date</th>
-                  <th>Price</th>
-                  <th>Status</th>
-                  <th>Details</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="order-row">
-                  <td>1234</td>
-                  <td class="order-customer-name">
-                    <p>Roronoa Zoro Monkey D Luffy</p>
-                  </td>
-                  <td class="order-date">
-                    <p>21 Sep 2023 12:05</p>
-                  </td>
-                  <td>$1,783</td>
-                  <td>
-                    <span class="order-status pending">New Order</span>
-                  </td>
-                  <td>
-                    <a href="#" class="primary order-detail">Details</a>
-                  </td>
-                  <td>
-                    <div class="dropdown oder-dropdown">
-                      <button
-                        type="button"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <p class="order-dropdown-text">Edit</p>
-                      </button>
-                      <ul class="dropdown-menu order-dropdown-list">
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link primary"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-check order-dropdown-icon"
-                            ></i>
-                            Accept order</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link danger"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-xmark order-dropdown-icon"
-                            ></i>
-                            Reject order</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="order-row">
-                  <td>1234</td>
-                  <td class="order-customer-name">
-                    <p>Phan Phuc Nghi</p>
-                  </td>
-                  <td class="order-date">
-                    <p>21 Sep 2023 12:05</p>
-                  </td>
-                  <td>$1,783</td>
-                  <td>
-                    <span class="order-status completed">Completed</span>
-                  </td>
-                  <td>
-                    <a href="#" class="primary order-detail">Details</a>
-                  </td>
-                  <td>
-                    <div class="dropdown oder-dropdown">
-                      <button
-                        type="button"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <p class="order-dropdown-text">Edit</p>
-                      </button>
-                      <ul class="dropdown-menu order-dropdown-list">
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link primary"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-check order-dropdown-icon"
-                            ></i>
-                            Accept order</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link danger"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-xmark order-dropdown-icon"
-                            ></i>
-                            Reject order</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="order-row">
-                  <td>1234</td>
-                  <td class="order-customer-name">
-                    <p>Roronoa Zoro Monkey D Luffy</p>
-                  </td>
-                  <td class="order-date">
-                    <p>21 Sep 2023 12:05</p>
-                  </td>
-                  <td>$1,783</td>
-                  <td>
-                    <span class="order-status delivered">Delivered</span>
-                  </td>
-                  <td>
-                    <a href="#" class="primary order-detail">Details</a>
-                  </td>
-                  <td>
-                    <div class="dropdown oder-dropdown">
-                      <button
-                        type="button"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <p class="order-dropdown-text">Edit</p>
-                      </button>
-                      <ul class="dropdown-menu order-dropdown-list">
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link primary"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-check order-dropdown-icon"
-                            ></i>
-                            Accept order</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link danger"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-xmark order-dropdown-icon"
-                            ></i>
-                            Reject order</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="order-row">
-                  <td>1234</td>
-                  <td class="order-customer-name">
-                    <p>Roronoa Zoro Monkey D Luffy</p>
-                  </td>
-                  <td class="order-date">
-                    <p>21 Sep 2023 12:05</p>
-                  </td>
-                  <td>$1,783</td>
-                  <td>
-                    <span class="order-status canceled">Canceled</span>
-                  </td>
-                  <td>
-                    <a href="#" class="primary order-detail">Details</a>
-                  </td>
-                  <td>
-                    <div class="dropdown oder-dropdown">
-                      <button
-                        type="button"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                      >
-                        <p class="order-dropdown-text">Edit</p>
-                      </button>
-                      <ul class="dropdown-menu order-dropdown-list">
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link primary"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-check order-dropdown-icon"
-                            ></i>
-                            Accept order</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item order-dropdown-link danger"
-                            href="#"
-                          >
-                            <i
-                              class="fa-regular fa-circle-xmark order-dropdown-icon"
-                            ></i>
-                            Reject order</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="order-show-all d-flex justify-content-center my-3">
-            <a href="#" class="show-all-orders">View all</a>
+            <div class="order-show-all d-flex justify-content-center my-3">
+              <a href="orderSeller.html" class="show-all-orders">View all</a>
+            </div>
           </div>
         </main>
         <!-- End main -->
 
         <!-- Start right -->
         <div class="right">
-          <div class="top">
+          <div class="header-seller">
             <div id="menu-btn" class="menu-bar-btn">
               <button class="top-button">
                 <i class="fa-solid fa-bars"></i>
