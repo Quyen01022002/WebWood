@@ -1,0 +1,155 @@
+@import "color", "table";
+.header-seller {
+    background-color: white;
+}
+.order {
+    &-wrapper {
+        margin-top: 11rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+    &-show {
+        padding-left: 0.5rem;
+        gap: 1rem;
+        align-items: center;
+        &-select {
+            padding: 0.5rem 0.5rem;
+            background-color: $color-light;
+            border-radius: 5px;
+        }
+    }
+    &-accept {
+        &:hover {
+            background-color: rgba(62, 200, 124, 0.263);
+        }
+    }
+    &-cancel {
+        &:hover {
+            background-color: rgba(255, 119, 130, 0.265);
+        }
+    }
+    &-search-btn {
+        height: 4rem;
+        background-color: white;
+        border: 1px solid $color-primary;
+        transition: all 0.3s ease;
+        & span {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        &:hover {
+            background-color: $color-primary;
+            color: white;
+        }
+    }
+}
+.page {
+    &-item.active {
+        & .page-link {
+            background-color: $color-primary;
+            border-color: transparent;
+        }
+    }
+    &-link {
+        color: $color-primary;
+        padding: 0.5rem 1rem;
+    }
+}
+.formfield-group.search {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    align-items: end;
+    & .formfield {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 20rem;
+        & label {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        & input,
+        select {
+            height: 4.2rem;
+            background-color: $color-light;
+            border-radius: $border-radius-1;
+            padding: 0.9rem 1.8rem;
+            color: $color-dark;
+            user-select: none;
+            transition: all 0.3s ease;
+            &:hover {
+                border: 1.3px solid $color-primary;
+            }
+        }
+        & input::-webkit-input-placeholder,
+        ::-moz-placeholder {
+            font-size: 1.5rem;
+            text-align: left;
+            font-weight: 300;
+        }
+        &-price {
+            width: 14rem;
+        }
+    }
+}
+@media screen and (min-width: 1280px) {
+    .grid-wrapper {
+        grid-template-columns: 21rem 1fr;
+        gap: 0;
+    }
+    aside {
+        & .top {
+            justify-content: space-between;
+        }
+        & .logo-title {
+            display: inline-block;
+        }
+        & .sidebar {
+            & h3 {
+                display: inline-block;
+            }
+        }
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+    .grid-wrapper {
+        grid-template-columns: 10.8rem 1fr;
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .header-seller {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 1rem;
+        background-color: $color-white;
+        width: 100%;
+        z-index: 2;
+        box-shadow: 0 1.4rem 2.4rem $color-light;
+        border-radius: 0;
+        & .menu-bar-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 2rem;
+            &:hover {
+                background-color: $color-light;
+            }
+        }
+    }
+    .order-wrapper {
+        padding-inline: 0;
+    }
+}

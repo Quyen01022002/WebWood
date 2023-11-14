@@ -95,6 +95,9 @@ body {
 .text-color-accent {
   color: var(--accent-text);
 }
+.mw-15{
+  max-width: 15rem;
+}
 .text-gray {
   color: var(--gray-text);
 }
@@ -128,6 +131,55 @@ body {
 }
 .obj-po-center {
   object-position: center;
+}
+.dropdown-menu{
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0,0,0,.008);
+  box-shadow: rgba(17, 17, 17, 0.067) 2px 2px 5px;;
+}
+.dropdown-item{
+  padding: 0.5rem 1.5rem;
+}
+#scrollTop-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7380EC;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  rotate: 45deg;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#scrollTop-btn::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5em;
+  line-height: 50px;
+  rotate: -45deg;
+  color: #fff;
+}
+#scrollTop-btn:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#scrollTop-btn:active {
+  background-color: #555;
+}
+#scrollTop-btn.show {
+  opacity: 1;
+  visibility: visible;
 }
 .stardust-button {
   min-width: 15rem;

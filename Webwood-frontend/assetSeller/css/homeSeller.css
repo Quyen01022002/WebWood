@@ -57,18 +57,20 @@ b {
 }
 
 .grid-wrapper {
-  width: 98%;
   display: grid;
   margin: 0 auto;
   gap: 2.5rem;
-  grid-template-columns: 20rem auto 34rem;
+  grid-template-columns: 21rem auto 34rem;
 }
 
 aside {
+  margin-left: 1rem;
   height: 100vh;
   position: sticky;
   top: 0;
   background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(17, 17, 17, 0.068);
+  z-index: 5;
 }
 aside .top {
   display: flex;
@@ -184,7 +186,6 @@ aside .sidebar-link .message-count {
 }
 
 main {
-  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 main h1,
@@ -284,10 +285,9 @@ main .card-progress svg circle {
   stroke-dashoffset: 92;
 }
 main .order {
-  margin-top: 2.5rem;
+  margin-top: 6rem;
 }
 main .order-title {
-  margin-bottom: 2.5rem;
   color: #363949;
 }
 main .order-detail:hover {
@@ -302,6 +302,86 @@ main .order-date p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+main .order-address {
+  max-width: 15rem;
+}
+main .order-customer-name {
+  max-width: 16rem;
+}
+main .order-customer-name p {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .order-dropdown-list {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+}
+main .order-dropdown-list li:not(:last-child) {
+  padding-bottom: 0.6rem;
+}
+main .order-dropdown-link {
+  font-size: 1.5rem;
+  transition: all 0.25s ease;
+}
+main .order-dropdown-link:hover.primary {
+  background-color: rgba(29, 211, 176, 0.3);
+  color: #1dd3b0;
+  border-radius: 6px;
+}
+main .order-dropdown-link:hover.danger {
+  background-color: rgba(255, 119, 130, 0.3);
+  color: #ff7782;
+  border-radius: 6px;
+}
+main .order-dropdown-icon {
+  margin-right: 0.6rem;
+}
+main .order-dropdown-text {
+  display: inline-block;
+  color: #363949;
+}
+main .order table {
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 100%;
+  padding: 2.52rem;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+main .order table thead {
+  background-color: #bfd7ff;
+}
+main .order table thead th {
+  padding: 1rem;
+}
+main .order table tbody td {
+  max-height: 3.8rem;
+  border-bottom: 1px solid rgba(132, 139, 200, 0.18);
+  color: #677483;
+  padding: 1rem;
+}
+main .order table tbody tr:last-child td {
+  border-bottom: none;
+}
+main .order table tbody tr {
+  cursor: default;
+  transition: all 0.25s ease;
+}
+main .order table tbody tr.active {
+  background-color: #ccdbfd;
+}
+main .order table tbody tr.active:hover {
+  background-color: #ccdbfd;
+}
+main .order table tbody tr:hover {
+  background-color: rgba(132, 139, 200, 0.18);
 }
 main .order-status {
   display: inline-block;
@@ -336,83 +416,6 @@ main .order-status.canceled {
   color: #ff7782;
   background-color: rgba(255, 119, 130, 0.3);
 }
-main .order-customer-name {
-  max-width: 16rem;
-}
-main .order-customer-name p {
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-main .order table {
-  background-color: #fff;
-  border-radius: 2rem;
-  width: 100%;
-  padding: 2.52rem;
-  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
-  text-align: center;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-main .order table thead {
-  background-color: #bfd7ff;
-}
-main .order table thead th {
-  padding: 1rem;
-}
-main .order table tbody td {
-  max-height: 3.8rem;
-  border-bottom: 1px solid rgba(132, 139, 200, 0.18);
-  color: #677483;
-  padding: 1rem;
-}
-main .order table tbody tr:last-child td {
-  border-bottom: none;
-}
-main .order table tbody tr {
-  cursor: default;
-  transition: all 0.25s ease;
-}
-main .order table tbody tr.active {
-  background-color: #ccdbfd;
-}
-main .order table tbody tr.active:hover {
-  background-color: #ccdbfd;
-}
-main .order table tbody tr:hover {
-  background-color: rgba(132, 139, 200, 0.18);
-}
-main .order-dropdown-list {
-  border-radius: 1rem;
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
-}
-main .order-dropdown-list li:not(:last-child) {
-  padding-bottom: 0.6rem;
-}
-main .order-dropdown-link {
-  font-size: 1.5rem;
-  transition: all 0.25s ease;
-}
-main .order-dropdown-link:hover.primary {
-  background-color: rgba(29, 211, 176, 0.3);
-  color: #1dd3b0;
-  border-radius: 6px;
-}
-main .order-dropdown-link:hover.danger {
-  background-color: rgba(255, 119, 130, 0.3);
-  color: #ff7782;
-  border-radius: 6px;
-}
-main .order-dropdown-icon {
-  margin-right: 0.6rem;
-}
-main .order-dropdown-text {
-  display: inline-block;
-  color: #363949;
-}
 main .show-all-orders {
   color: #9d4edd;
   font-size: 1.7rem;
@@ -422,106 +425,8 @@ main .show-all-orders:hover {
   text-decoration: underline;
 }
 
-.right .top {
-  height: 8rem;
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: end;
-  gap: 2.4rem;
-  background-color: #f6f6f9;
-  padding: 1.5rem;
-  border-bottom-right-radius: 1.12rem;
-  border-bottom-left-radius: 1.12rem;
-  z-index: 2;
-}
-.right .top .menu-bar-btn {
-  display: none;
-  background-color: transparent;
-  font-size: 2rem;
-  width: 4rem;
-  padding: 5px;
-  border-radius: 10rem;
-  cursor: pointer;
-}
-.right .top .menu-bar-btn i {
-  color: #363949;
-}
-.right .top .theme-toggle {
-  background-color: rgba(132, 139, 200, 0.18);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 2.3rem;
-  width: 7rem;
-  cursor: pointer;
-  border-radius: 0.56rem;
-}
-.right .top .theme-toggle i {
-  font-size: 1.8rem;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #363949;
-}
-.right .top .theme-toggle i.active {
-  background-color: #7380ec;
-  color: #fff;
-  border-radius: 0.56rem;
-}
-.right .top .profile {
-  display: flex;
-  gap: 2.4rem;
-  text-align: right;
-  position: relative;
-  cursor: pointer;
-}
-.right .top .profile:hover .profile-photo-subnav {
-  display: flex;
-}
-.right .top .profile-info-name {
-  display: inline-block;
-  max-width: 6rem;
-}
-.right .top .profile-photo-divide {
-  width: 100%;
-  margin: 0.5rem auto;
-  background-color: #7d8da1;
-}
-.right .top .profile-photo-subnav {
-  padding: 1.5rem 2rem;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 1.12rem;
-  right: 0;
-  flex-direction: column;
-  box-shadow: 0.9rem 1.2rem 2.5rem 0 rgba(45, 45, 45, 0.25);
-  display: none;
-  transition: all 0.3s linear;
-  z-index: 5;
-}
-.right .top .profile-photo-subnav li {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 0.56rem;
-}
-.right .top .profile-photo-subnav li:hover {
-  background-color: rgba(132, 139, 200, 0.18);
-}
-.right .top .profile-photo-subnav li a {
-  display: flex;
-  width: 16rem;
-  height: 3.2rem;
-  padding-block: 2rem;
-  align-items: center;
-  border-radius: 4px;
-  color: #363949;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
 .right .recent-update {
+  margin-right: 1.5rem;
   margin-top: 1.7rem;
 }
 .right .recent-update .update-title {
@@ -555,10 +460,109 @@ main .show-all-orders:hover {
   word-break: break-word;
 }
 
+.header-seller {
+  height: 8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: end;
+  gap: 2.4rem;
+  background-color: #f6f6f9;
+  padding: 1.5rem;
+  z-index: 2;
+}
+.header-seller .menu-bar-btn {
+  display: none;
+  background-color: transparent;
+  font-size: 2rem;
+  width: 4rem;
+  padding: 5px;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+.header-seller .menu-bar-btn i {
+  color: #363949;
+}
+.header-seller .theme-toggle {
+  background-color: rgba(132, 139, 200, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.3rem;
+  width: 7rem;
+  cursor: pointer;
+  border-radius: 0.56rem;
+}
+.header-seller .theme-toggle i {
+  font-size: 1.8rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #363949;
+}
+.header-seller .theme-toggle i.active {
+  background-color: #7380ec;
+  color: #fff;
+  border-radius: 0.56rem;
+}
+.header-seller .profile {
+  display: flex;
+  gap: 2.4rem;
+  text-align: right;
+  position: relative;
+  cursor: pointer;
+}
+.header-seller .profile:hover .profile-photo-subnav {
+  display: flex;
+}
+.header-seller .profile-info-name {
+  display: inline-block;
+  max-width: 6rem;
+}
+.header-seller .profile-photo-divide {
+  width: 100%;
+  margin: 0.5rem auto;
+  background-color: #7d8da1;
+}
+.header-seller .profile-photo-subnav {
+  padding: 1.5rem 2rem;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 1.12rem;
+  right: 0;
+  flex-direction: column;
+  box-shadow: 0.9rem 1.2rem 2.5rem 0 rgba(45, 45, 45, 0.25);
+  display: none;
+  transition: all 0.3s linear;
+  z-index: 5;
+}
+.header-seller .profile-photo-subnav li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.56rem;
+}
+.header-seller .profile-photo-subnav li:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+}
+.header-seller .profile-photo-subnav li a {
+  display: flex;
+  width: 16rem;
+  height: 3.2rem;
+  padding-block: 2rem;
+  align-items: center;
+  border-radius: 4px;
+  color: #363949;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
 @media screen and (max-width: 1280px) {
   .grid-wrapper {
-    width: 98%;
-    grid-template-columns: 9.8rem auto 32rem;
+    grid-template-columns: 10.8rem auto 32rem;
     gap: 1.5rem;
   }
   aside .top {
@@ -574,9 +578,6 @@ main .show-all-orders:hover {
   aside .sidebar-item:last-child {
     position: relative;
     margin-top: 3rem;
-  }
-  aside .sidebar-link {
-    width: 100%;
   }
   aside .sidebar .message-count {
     font-size: 10px;
@@ -594,22 +595,13 @@ main .show-all-orders:hover {
     width: 100%;
     overflow-x: auto;
   }
-  main .order table {
-    box-shadow: none;
-  }
-  main .order table thead tr th:nth-child(2) {
-    display: none;
-  }
-  main .order table tbody tr td:nth-child(2) {
-    display: none;
-  }
 }
 @media screen and (min-width: 992px) and (max-width: 1279px) {
   .grid-wrapper {
-    grid-template-columns: 9.8rem 53rem auto;
+    grid-template-columns: 10.8rem 53rem auto;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   .grid-wrapper {
     width: 100%;
     grid-template-columns: 1fr;
@@ -621,6 +613,7 @@ main .show-all-orders:hover {
     opacity: 1;
   }
   aside {
+    margin-left: 0;
     height: 100vh;
     width: 50%;
     position: fixed;
@@ -662,20 +655,23 @@ main .show-all-orders:hover {
     font-size: 2.2rem;
   }
   main {
-    margin-top: 11rem;
     margin-bottom: 3rem;
     padding: 0 1.4rem;
   }
-  main .order {
+  main#home {
+    margin-top: 11rem;
+  }
+  main .order.home {
     padding: 4.2rem 0 2rem 0;
     max-width: 93vw;
     width: 100%;
   }
-  main .order table {
+  main .order.home table {
     width: 100%;
     margin: 0;
+    margin-top: 2rem;
   }
-  main .order-title {
+  main .order.home-title {
     font-weight: 600;
     font-size: 2rem;
   }
@@ -688,7 +684,7 @@ main .show-all-orders:hover {
     width: 94%;
     margin: 0 auto 4rem;
   }
-  .right .top {
+  .right .header-seller {
     position: fixed;
     top: 0;
     left: 0;
@@ -700,14 +696,14 @@ main .show-all-orders:hover {
     box-shadow: 0 1.4rem 2.4rem rgba(132, 139, 200, 0.18);
     border-radius: 0;
   }
-  .right .top .menu-bar-btn {
+  .right .header-seller .menu-bar-btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     left: 2rem;
   }
-  .right .top .menu-bar-btn:hover {
+  .right .header-seller .menu-bar-btn:hover {
     background-color: rgba(132, 139, 200, 0.18);
   }
   .right .recent-update {
