@@ -122,6 +122,21 @@ table#table {
             color: $color-dark;
         }
     }
+    &-image{
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 0;
+        flex-shrink: 0;
+    }
+    &-bg-none{
+        background-color: transparent !important;
+    }
+    &-td-pd{
+        padding: 1rem 0 !important;
+    }
+    &-th-border{
+        border-bottom: 1px solid $color-light !important;
+    }
     &-action {
         display: flex;
         justify-content: center;
