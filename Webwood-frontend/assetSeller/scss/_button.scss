@@ -1,0 +1,73 @@
+@import "color", "colorBase";
+.avatar {
+    &-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+    &-preview {
+        padding-left: 5rem;
+        & .btn-delete {
+            margin-left: 2rem;
+        }
+    }
+    &-display {
+        width: 10rem;
+        height: 10rem;
+        & .uploaded-image {
+            border-radius: 50%;
+        }
+    }
+    &-upload {
+        position: relative;
+        border: 2px solid transparent;
+        &:hover {
+            border-color: $selection;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+        &-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &-icon {
+            font-size: 2.2rem;
+        }
+        &-input {
+            display: none;
+        }
+    }
+}
+.btn-delete,
+.avatar-upload {
+    min-width: 5rem;
+    font-size: 1.4rem;
+    height: 4rem;
+    border-radius: 5px;
+}
+.btn {
+    &-add {
+        &-effect {
+            padding-block: 0.75rem;
+            &:hover {
+                border: 1px solid $color-primary;
+            }
+        }
+    }
+    &-upload-img {
+        box-shadow: 0 0 0 1px transparent;
+        &:hover {
+            box-shadow: 0 0 0 1px $color-primary;
+            background-color: rgba(158, 79, 222, 0.254);
+        }
+    }
+}

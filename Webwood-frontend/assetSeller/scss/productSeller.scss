@@ -1,4 +1,4 @@
-@import "color", "colorBase";
+@import "color", "colorBase", "breadcrumb", "forms", "button", "table", "modal";
 .table{
     &-product-img{
         width: 5rem;
@@ -6,4 +6,7 @@
         border-radius: 0;
         flex-shrink: 0;
     }
+}
+.product-desc{
+    width: 12.6rem;
 }

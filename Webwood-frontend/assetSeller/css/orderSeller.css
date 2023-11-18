@@ -113,6 +113,21 @@ table#table tbody tr:hover {
   display: inline-block;
   color: #363949;
 }
+.table-image {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+.table-bg-none {
+  background-color: transparent !important;
+}
+.table-td-pd {
+  padding: 1rem 0 !important;
+}
+.table-th-border {
+  border-bottom: 1px solid rgba(132, 139, 200, 0.18) !important;
+}
 .table-action {
   display: flex;
   justify-content: center;
@@ -214,7 +229,7 @@ table#table tbody tr:hover {
 .formfield-group.search {
   display: flex;
   gap: 2rem;
-  margin-top: 1.5rem;
+  margin-top: 3.5rem;
   flex-wrap: wrap;
   align-items: end;
 }

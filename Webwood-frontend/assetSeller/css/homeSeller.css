@@ -63,6 +63,10 @@ b {
   grid-template-columns: 21rem auto 34rem;
 }
 
+.content {
+  padding-block: 2rem;
+}
+
 aside {
   margin-left: 1rem;
   height: 100vh;
@@ -187,6 +191,9 @@ aside .sidebar-link .message-count {
 
 main {
   margin-bottom: 5rem;
+}
+main#home {
+  margin-top: 5rem;
 }
 main h1,
 main h2,
@@ -427,7 +434,7 @@ main .show-all-orders:hover {
 
 .right .recent-update {
   margin-right: 1.5rem;
-  margin-top: 1.7rem;
+  margin-top: 5rem;
 }
 .right .recent-update .update-title {
   margin-bottom: 2rem;
@@ -516,12 +523,12 @@ main .show-all-orders:hover {
   position: relative;
   cursor: pointer;
 }
-.header-seller .profile:hover .profile-photo-subnav {
-  display: flex;
-}
 .header-seller .profile-info-name {
   display: inline-block;
   max-width: 6rem;
+}
+.header-seller .profile-photo:hover .profile-photo-subnav {
+  display: flex;
 }
 .header-seller .profile-photo-divide {
   width: 100%;
