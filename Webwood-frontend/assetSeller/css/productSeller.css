@@ -192,6 +192,24 @@
   background-color: #7380ec;
   box-shadow: 0 0 0 4px white, 0 0 0 6px #7380ec;
 }
+.form-group .formfield .fieldset-input {
+  width: 100%;
+  height: 4.5rem;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  background: #fff;
+  box-shadow: 0px 0px 0px 1px #ccc;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  font-size: 1.5rem;
+}
+.form-group .formfield .fieldset-input:hover {
+  box-shadow: 0px 0px 0px 1.5px rgba(17, 17, 17, 0.4);
+}
+.form-group .formfield .fieldset-input:focus {
+  box-shadow: 0px 0px 0px 1.5px #111;
+}
 
 @media screen and (max-width: 767px) {
   .form-card {

@@ -1,4 +1,4 @@
-@import "color", "table";
+@import "color", "table", "breadcrumb", "forms", "button", "modal","progressbar";
 .header-seller {
     background-color: white;
 }
@@ -46,6 +46,109 @@
         &:hover {
             background-color: $color-primary;
             color: white;
+        }
+    }
+    &-item {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        background-color: #fff;
+        &-wrap{
+            padding: 0 1.2rem ;
+        }
+        &-top {
+            padding-bottom: 1rem;
+        }
+    }           
+    &-product {
+        &-item {
+            display: flex;
+            word-wrap: break-word;
+            padding: 1.2rem 0;
+            align-items: center;
+            flex-wrap: nowrap;
+            color: $black-text;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            &:first-child{
+                padding-bottom: 0;
+            }
+        }
+        &-left {
+            display: flex;
+            align-items: flex-start;
+            padding-right: 1.2rem;
+            flex: 1;
+            flex-wrap: nowrap;
+            word-wrap: break-word;
+        }
+        &-image {
+            width: 8rem;
+            height: 8rem;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid #e1e1e1;
+            background: #e1e1e1;
+        }
+        &-info{
+            padding-left: 1.2rem;
+            flex-direction: column;
+        }
+        &-name{
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            margin: 0 0 5px;
+            font-size: 16px;
+            line-height: 22px;
+            max-height: 48px;
+        }
+        &-variation{
+            margin-bottom: 5px;
+            color: $gray-text;
+            font-size: 1.4rem;
+        }
+        &-quantity{
+            font-size: 1.4rem;
+        }
+    }
+    &-total{
+        padding-top: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        &-value{
+            font-size: 2.2rem;
+        } 
+        &-text{
+            font-size: 1.4rem;
+            color: #111;
+        }
+    }
+    &-state {
+        line-height: 24px;
+        color: $black-text;
+        font-size: 1.5rem;
+        text-align: right;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    &-text-title {
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    &-info{
+        &-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5rem;
+            padding-top: 1rem;
+        }
+        &-wrap{
+            padding-bottom: 2.5rem;
         }
     }
 }
