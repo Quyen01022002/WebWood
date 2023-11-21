@@ -286,12 +286,40 @@ body {
 }
 .theme-btn-1:hover {
   background-color: #3ec87c;
+  opacity: 0.8;
 }
+.theme-btn-2 {
+  background-color: #ff595e;
+  color: white;
+}
+.theme-btn-2,
+.theme-btn-3,
+.theme-btn-4:hover {
+  opacity: 0.8;
+}
+.theme-btn-3 {
+  background-color: #0466c8;
+  color: white;
+}
+
+.theme-btn-4 {
+  background-color: #7380ec;
+  color: white;
+}
+
 .w-24 {
   width: 24px;
 }
 .h-24 {
   height: 24px;
+}
+.divide {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+.divide-vertical {
+  border-left: 1.5px solid #111;
+  width: 1.5px;
+  height: 2rem;
 }
 /* Start header */
 .header.hide-header {

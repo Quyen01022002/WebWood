@@ -5,7 +5,8 @@ const modalAddVariant = $$('#modalAddVariant')
 const modalTitle = $('.modal-title')
 
 btnAddVariant.onclick = () => {
-    modalTitle.textContent = `New Variant`
+    if(modalTitle)
+        modalTitle.textContent = `New Variant`
 }
 btnEditVariant.forEach((btn, index) => {
     btn.onclick = function () {
