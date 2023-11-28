@@ -1,6 +1,7 @@
 const Product=require('../../models/Product')
 const Category=require('../../models/Category')
-const { mutipleMongooseToObject,mongooseToObject } =require('../../util/mongoose')
+const { mutipleMongooseToObject,mongooseToObject } =require('../../util/mongoose');
+const { HttpStatusCode } = require('axios');
 class Categorycontroller{
     index(req, res) {
       const fetchData = async () => {
@@ -23,7 +24,7 @@ class Categorycontroller{
         } catch (error) {
           console.error(error);
           // Xử lý lỗi ở đây nếu cần
-          res.status(500).send('Lỗi khi lấy dữ liệu');
+          res.status(HttpStatusCode.InternalServerError).send('Lỗi khi lấy dữ liệu');
         }
       };
     

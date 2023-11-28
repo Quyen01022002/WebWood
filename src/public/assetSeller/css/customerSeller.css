@@ -1,0 +1,43 @@
+.customer-order-history {
+  max-width: 22rem;
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: end;
+}
+.customer-order-id {
+  color: #757575;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.customer-name {
+  color: #172238;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.customer-province {
+  color: #7f9bff;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.customer-image {
+  width: 15rem;
+  height: 15rem;
+  margin-bottom: 2rem;
+}
+.customer-image img {
+  border-radius: 50%;
+}
+.customer-right {
+  padding-left: 5rem;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: 36rem 45rem;
+  gap: 10rem;
+}
+
+/*# sourceMappingURL=customerSeller.css.map */

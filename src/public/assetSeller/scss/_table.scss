@@ -1,0 +1,186 @@
+@import "color", "colorBase";
+$screen-width: 100%;
+$sidebar-width: 21rem;
+table#table {
+    margin-top: 2rem;
+    background-color: $color-white;
+    border-radius: 1rem;
+    width: 100%;
+    padding: $card-padding;
+    box-shadow: $box-shadow;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-collapse: collapse;
+    & thead {
+        background-color: #bfd7ff;
+    }
+    & thead th {
+        padding: 1rem;
+    }
+    & tbody td {
+        max-height: 3.8rem;
+        border-bottom: 1px solid $color-light;
+        color: $color-dark-variant;
+        padding: 1rem 0;
+        &:first-child {
+            padding-left: 1rem;
+        }
+    }
+    & tbody tr:last-child td {
+        border-bottom: none;
+    }
+    & tbody tr {
+        cursor: default;
+        transition: all 0.25s ease;
+        &.active {
+            background-color: $color-tr-active;
+            &:hover {
+                background-color: $color-tr-active;
+            }
+        }
+        &:hover {
+            background-color: $color-light;
+        }
+    }
+}
+.table {
+    &-title {
+        color: $color-dark;
+    }
+    &-detail {
+        &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+        }
+    }
+    &-date {
+        max-width: 16rem;
+        & p {
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    &-address {
+        max-width: 15rem;
+    }
+    &-customer {
+        &-name {
+            display: flex;
+            gap: 1rem;
+            font-weight: 400;
+            justify-content: center;
+            align-items: center;
+            & p,
+            span {
+                max-width: 16rem;
+                color: #111;
+                text-align: left;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        &-avatar {
+            width: 4rem;
+            height: 4rem;
+            object-fit: cover;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+    }
+    &-dropdown {
+        &-list {
+            border-radius: 1rem;
+            padding: 1rem;
+            background-color: $color-white;
+            box-shadow: $box-shadow;
+            & li:not(:last-child) {
+                padding-bottom: 0.6rem;
+            }
+        }
+        &-link {
+            font-size: 1.5rem;
+            transition: all 0.25s ease;
+            &:hover.primary {
+                background-color: rgba($color-success, 0.3);
+                color: $color-success;
+                border-radius: 6px;
+            }
+            &:hover.danger {
+                background-color: rgba($color-danger, 0.3);
+                color: $color-danger;
+                border-radius: 6px;
+            }
+        }
+        &-icon {
+            margin-right: 0.6rem;
+        }
+        &-text {
+            display: inline-block;
+            color: $color-dark;
+        }
+    }
+    &-image{
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 0;
+        flex-shrink: 0;
+    }
+    &-bg-none{
+        background-color: transparent !important;
+    }
+    &-td-pd{
+        padding: 1rem 0 !important;
+    }
+    &-th-border{
+        border-bottom: 1px solid $color-light !important;
+    }
+    &-action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        &-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            padding: 6px;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 4px;
+            &:hover {
+                background-color: rgba($gray-text, 0.15);
+            }
+        }
+        &-icon {
+            font-size: 1.8rem;
+        }
+    }
+    &-span-time {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: $gray-text;
+    }
+    &-status {
+        font-weight: 500;
+        &.active {
+            color: $color-complete;
+        }
+        &.disable {
+            color: $color-danger;
+        }
+    }
+}
+@media screen and (max-width: 1440px) {
+}
+@media screen and (max-width: 1280px) {
+    .table{
+        &-wrapper{
+            max-width: 96vw;
+            overflow-x: auto;
+        }
+    }
+}

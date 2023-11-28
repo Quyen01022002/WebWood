@@ -1,0 +1,140 @@
+$primary-color: white;
+$black-text: #111;
+$gray-text: #757575;
+$gray-1: #f5f5f5;
+$gray-2: #e5e5e5;
+$new-text: #9e3500;
+$accent-text: #ff5000;
+$discount-text: #38b524;
+$default-font: "Be Vietnam Pro", sans-serif;
+
+@mixin object-fit($object-fit) {
+    width: 100%;
+    height: 100%;
+    object-fit: $object-fit;
+}
+.product {
+    &-pre-wrapper {
+        margin-top: 10rem;
+    }
+    &-container {
+        margin-bottom: 2rem;
+    }
+    &-content {
+        max-width: 28.3rem;
+    }
+    &-image {
+        &__list {
+            margin-top: 3rem;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        &__item {
+            width: calc(33.3333% - 1.5rem);
+            height: 75px;
+        }
+    }
+    &-name {
+        font-size: 2.7rem;
+    }
+    &-main-image {
+        height: 53.6rem;
+    }
+    &-desc {
+        padding-block: 1.5rem 3rem;
+        color: $gray-text;
+        text-align: left;
+    }
+    &-size {
+        &__list {
+            padding-top: 1rem;
+            color: $gray-text;
+        }
+    }
+    &-right__wrapper {
+        width: 100%;
+    }
+    &-price {
+        line-height: 1.8;
+        padding-block: 1rem;
+    }
+    &-rating {
+        width: 100%;
+        &__link {
+            &:hover {
+                color: $black-text;
+            }
+        }
+        &__wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        &__average-stars {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        &__average {
+            margin-right: 1.5rem;
+        }
+        &__stars {
+            width: 11rem;
+            display: flex;
+            gap: 3px;
+            justify-content: space-between;
+        }
+        &__star {
+            width: calc(20% - 2.4px);
+        }
+    }
+    &-quantity {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        &__title {
+            padding-bottom: 1rem;
+        }
+        &__group {
+            display: flex;
+            gap: 6px;
+        }
+        &__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3.1rem;
+            height: 2.1rem;
+            border-radius: 3px;
+            background-color: black;
+            cursor: pointer;
+            user-select: none;
+        }
+        &__input {
+            width: 2.7rem;
+            height: 2.1rem;
+            outline: none;
+            border: none;
+            text-align: center;
+        }
+    }
+    &-color {
+        padding-bottom: 2rem;
+        &__group {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1.5rem;
+        }
+        &_item {
+            width: calc(25% - 1rem);
+            height: 70px;
+            cursor: pointer;
+        }
+    }
+    &-action {
+        padding-top: 3rem;
+    }
+}
+
