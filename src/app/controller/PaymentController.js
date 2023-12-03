@@ -107,6 +107,7 @@ class PaymentController {
         phone:req.body.phone,
         Total:total,
         Status:"PendingConfirmation",
+        penddingDate: new Date(),
         Address:req.body.diachi,
         Method:"Tiền mặt",
         products:productList,
@@ -138,7 +139,7 @@ class PaymentController {
             const updateOrder = await Order.findOneAndUpdate(
               {_id: orderid},
               {Status: 'Confirmation',
-              packingDate: new Date()},
+              confirmDate: new Date()},
               {new: true});
           }
  
