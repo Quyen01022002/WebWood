@@ -576,5 +576,7 @@ table#table tbody tr:hover {
 .product-desc {
   width: 12.6rem;
 }
-
+.error-input {
+  border: 1px solid red;
+}
 /*# sourceMappingURL=productSeller.css.map */

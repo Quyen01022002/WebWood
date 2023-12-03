@@ -38,7 +38,12 @@ const Order = new mongoose.Schema({
       },
     },
   ],
-
+  penddingDate: Date,
+  confirmDate: Date, 
+  packingDate: Date,
+  shippingDate: Date,
+  completeDate: Date,
+  cancelDate: Date,
 });
 
 const order = mongoose.model("order", Order);

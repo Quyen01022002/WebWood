@@ -45,6 +45,8 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
@@ -60,7 +62,7 @@
         <aside>
           <div class="top">
             <div class="logo ms-3">
-              <a href="/views/index.html" class="logo-img d-block">
+              <a href="/admin" class="logo-img d-block">
                 <img src="/assets/images/header/header-logo.svg" alt="" />
               </a>
               <h1 class="logo-title lh-base ms-2">Mini</h1>
@@ -112,12 +114,12 @@
                 </a>
               </div>
               <div class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <button class="sidebar-link" onclick="logout()">
                   <div class="sidebar-link-icon">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </div>
                   <h3>Logout</h3>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -140,16 +142,15 @@
               <div class="info">
                 <p class="d-flex align-items-center">
                   Hey,
-                  <b class="text-truncate profile-info-name ms-2">Lucy</b>
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
                 </p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{userAdmin.role}}</small>
               </div>
               <div class="profile-photo">
-                <img src="/assetSeller/images/lucy.jpg" alt="" />
+                <img src="{{userAdmin.avatar}}" alt="" />
                 <ul class="profile-photo-subnav">
                   <li><a href="#">Profile settings</a></li>
                   <hr class="profile-photo-divide" />
-                  <li><a href="">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -158,16 +159,16 @@
             <ul class="nav-state">
               <li class="nav-state-item nav-state-item-current">Orders</li>
             </ul>
-            <div class="formfield-group search">
-              <div class="formfield">
+            <div class="formfield-group search" >
+              <div class="formfield" style="display: none;">
                 <label for="order-id">Order id</label>
                 <input type="text" id="order-id" />
               </div>
-              <div class="formfield">
-                <label for="customer-name">Customer name</label>
-                <input type="text" id="customer-name" />
+              <div class="formfield" style="width: 300px">
+                <label for="customer-name">CustomerName or orderID</label>
+                <input type="text" id="customer-name" value="{{keyword}}" />
               </div>
-              <div class="formfield">
+              <div class="formfield" style="display: none;">
                 <label for="order-status">Status</label>
                 <select class="" name="" id="">
                   <option value="">All</option>
@@ -179,11 +180,11 @@
                   <option value="">Cancelled</option>
                 </select>
               </div>
-              <div class="formfield">
+              <div class="formfield" style="display: none;">
                 <label for="order-date">Date</label>
                 <input type="date" id="order-date" />
               </div>
-              <button class="stardust-button order-search-btn">
+              <button class="stardust-button order-search-btn" id="search-button" onclick="searchOrder()">
                 <span>Search</span>
               </button>
             </div>
@@ -213,24 +214,7 @@
             window.location.href = "/admin/orders?quanlity=" + selectedValue;
           }
         </script>
-                <div class="order-filter">
-                  <button
-                    class="dropdow-select d-flex gap-3 align-items-center"
-                    data-bs-toggle="dropdown"
-                  >
-                    <p class="text-dark fw-5 fz-16">Sort By</p>
-                    <i class="fa-solid fa-angle-down"></i>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item">Newest</a></li>
-                    <li>
-                      <a href="#" class="dropdown-item">Price: High-low</a>
-                    </li>
-                    <li>
-                      <a href="#" class="dropdown-item">Price: Low-high</a>
-                    </li>
-                  </ul>
-                </div>
+                
               </div>
               <div class="table-wrapper">
                 <table id="table">
@@ -243,7 +227,6 @@
                       <th>Price</th>
                       <th>Status</th>
                       <th>Details</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -273,32 +256,7 @@
                       <td>
                         <a href="/admin/orders/{{this._id}}" class="primary table-detail">Details</a>
                       </td>
-                      <td>
-                        <div class="table-action">
-                          <button
-                            class="table-action-btn order-accept"
-                            aria-label="Accept order"
-                            data-microtip-position="top"
-                            role="tooltip"
-                          >
-                            <i
-                              class="fa-regular fa-circle-check table-action-icon"
-                              style="color: #3ec87c"
-                            ></i>
-                          </button>
-                          <button
-                            class="table-action-btn order-cancel"
-                            aria-label="Deny order"
-                            data-microtip-position="top"
-                            role="tooltip"
-                          >
-                            <i
-                              class="fa-solid fa-xmark table-action-icon"
-                              style="color: #ff7782"
-                            ></i>
-                          </button>
-                        </div>
-                      </td>
+                      
                     </tr>
                     {{/each}}
                      </tbody>

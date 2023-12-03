@@ -45,13 +45,15 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assetSeller/css/homeSeller.css" />
     <link rel="stylesheet" href="/assetSeller/css/orderSeller.css" />
     <link rel="stylesheet" href="/assetSeller/css/productSeller.css" />
-    <title>Orders | Order detail</title>
+    <title>Orders | Order detail {{order._id}}</title>
   </head>
   <body>
     <div id="scrollTop-btn"></div>
@@ -61,7 +63,7 @@
         <aside>
           <div class="top">
             <div class="logo ms-3">
-              <a href="/views/index.html" class="logo-img d-block">
+              <a href="/admin" class="logo-img d-block">
                 <img src="/assets/images/header/header-logo.svg" alt="" />
               </a>
               <h1 class="logo-title lh-base ms-2">Mini</h1>
@@ -113,12 +115,12 @@
                 </a>
               </div>
               <div class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <button class="sidebar-link" onclick="logout()">
                   <div class="sidebar-link-icon">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </div>
                   <h3>Logout</h3>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -141,16 +143,15 @@
               <div class="info">
                 <p class="d-flex align-items-center">
                   Hey,
-                  <b class="text-truncate profile-info-name ms-2">Lucy</b>
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
                 </p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{userAdmin.role}}</small>
               </div>
               <div class="profile-photo">
-                <img src="/assetSeller/images/lucy.jpg" alt="" />
+                <img src="{{userAdmin.avatar}}" alt="" />
                 <ul class="profile-photo-subnav">
                   <li><a href="#">Profile settings</a></li>
                   <hr class="profile-photo-divide" />
-                  <li><a href="">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -345,23 +346,49 @@
                             <span class="text-gray">Cash</span>
                           </div>
                         </div>
+                        {{#ifCond order.Status '!==' 'Completed'}}
+                        {{#ifCond order.Status '!==' 'OrderCancellation'}}
                         <div class="d-flex flex-column gap-3">
                           <p class="text-dark fw-5">Set Status</p>
                           <div class="formfield-group search mt-0">
                             <div class="formfield">
-                              <select name="" id="">
-                                <option value="">Order packing</option>
-                                <option value="">Order shipping</option>
-                                <option value="">Order received</option>
-                                <option value="">Order completed</option>
+                              <select name="" id="status_order">
+                                {{!-- <option value="Pending confirmation">Pending confirmation</option>
+                                <option value="Confirmation">Confirmation</option> --}}
+                              {{#ifCondString order.Status '===' 'Confirmation'}}
+                                <option value="Packaging">Packaging</option>
+                                {{/ifCondString}}
+                                {{#ifCondString order.Status '===' 'Packaging'}}
+                                <option value="OnDelivery">On delivery</option>
+                                {{/ifCondString}}
+                                {{#ifCondString order.Status '===' 'OnDelivery'}}
+                                <option value="Completed">Completed</option>
+                                {{/ifCondString}}
+                                {{#ifCond order.Status '!==' 'Completed'}}
+                                <option value="OrderCancellation">Order cancellation</option>
+                                {{/ifCond}}
                               </select>
                             </div>
                           </div>
                         </div>
+                        {{/ifCond}}
+                              {{/ifCond}}
+                              {{#ifCond order.Status '!==' 'Completed'}}
+                                   {{#ifCond order.Status '!==' 'OrderCancellation'}}
                         <div class="d-flex flex-column gap-3">
                           <p class="text-dark fw-5">Save status</p>
-                          <button class="btn-effect theme-btn-3">Save</button>
+                          <button class="btn-effect theme-btn-3" id="save_status" onclick="savestatus('{{order._id}}')">Save</button>
+                        </div>  
+                        {{else}}
+                        <div class="d-flex flex-column gap-3">
+                          <button class="btn-effect theme-btn-2">The order has been cancelled</button>
+                        </div>  
+                                 {{/ifCond}}
+                        {{else}}
+                        <div class="d-flex flex-column gap-3">
+                          <button class="btn-effect theme-btn-1" >Completed</button>
                         </div>
+                        {{/ifCond}}
                       </div>
                     </div>
                   </div>
@@ -424,6 +451,7 @@
       </div>
     </div>
     <script src="/assetSeller/js/homeSeller.js"></script>
+    <script src="/assetSeller/js/orderSeller.js"></script>
     <script src="/tinymce/tinymce.min.js"></script>
     <script src="/assetSeller/js/textEditor.js"></script>
     <script src="/assetSeller/js/addProduct.js"></script>

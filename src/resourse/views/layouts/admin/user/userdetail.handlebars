@@ -58,7 +58,7 @@
     {{!-- <script src="/tinymce/tinymce.min.js"></script> --}}
     <script src="/assetSeller/js/textEditor.js"></script>
     <script src="/assetSeller/js/addProduct.js"></script>
-    <title>Orders | Order detail</title>
+    <title>User | {{user.name}}</title>
   </head>
   <body>
     <div id="scrollTop-btn"></div>
@@ -68,7 +68,7 @@
         <aside>
           <div class="top">
             <div class="logo ms-3">
-              <a href="/views/index.html" class="logo-img d-block">
+              <a href="/admin" class="logo-img d-block">
                 <img src="/assets/images/header/header-logo.svg" alt="" />
               </a>
               <h1 class="logo-title lh-base ms-2">Mini</h1>
@@ -121,12 +121,12 @@
                 </a>
               </div>
               <div class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <button class="sidebar-link" onclick="logout()">
                   <div class="sidebar-link-icon">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </div>
                   <h3>Logout</h3>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -149,16 +149,15 @@
               <div class="info">
                 <p class="d-flex align-items-center">
                   Hey,
-                  <b class="text-truncate profile-info-name ms-2">Lucy</b>
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
                 </p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{userAdmin.role}}</small>
               </div>
               <div class="profile-photo">
-                <img src="/assetSeller/images/lucy.jpg" alt="" />
+                <img src="{{userAdmin.avatar}}" alt="" />
                 <ul class="profile-photo-subnav">
                   <li><a href="#">Profile settings</a></li>
                   <hr class="profile-photo-divide" />
-                  <li><a href="">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -238,7 +237,7 @@
                         <div class="customer-right">
                           <div class="form-group">
                             {{!-- <form> --}}
-                            <form action="/admin/users/{{user.username}}" method="POST">
+                            <form action="/admin/users/{{user._id}}" method="POST">
                             
                               <div class="formfield">
                                 <div class="fieldset">

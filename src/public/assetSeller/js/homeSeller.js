@@ -1,3 +1,5 @@
+const { response } = require("express")
+
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
@@ -98,6 +100,31 @@ function addCategory() {
 
   
 }
+
+function updateCategory(id) {
+  const catename = document.getElementById('catename').value;
+  const imgage = document.getElementById('avatarImagePath').value;
+  axios.post('/admin/categories/'+ id, {
+    _id: id,
+    catename: catename,
+    imgage: imgage,
+    new: true
+    // Thêm các thông tin sản phẩm khác nếu cần
+  })
+  .then(response => {
+    // console.log('Danh mục đã được thêm thành công:', response.data);
+    // alert('Danh mục đã được thêm thành công!');
+    window.location.href ='/admin/categories';
+    // Sau khi thêm thành công, có thể redirect hoặc làm gì đó khác tùy ý
+  })
+  .catch(error => {
+    console.error('Lỗi khi thêm danh mục sản phẩm:', error);
+    alert('Có lỗi xảy ra khi thêm danh mục sản phẩm!');
+    // Xử lý lỗi nếu có
+  });
+
+  
+}
 function deleteCategory(catename) {
   axios.delete('/admin/categories/' + catename)
     .then(response => {
@@ -115,8 +142,8 @@ function deleteCategory(catename) {
     });
 }
 
-function deleteUser(username, status) {
-  axios.put('/admin/users/' + username + '/' + status)
+function deleteUser(userid, status) {
+  axios.put('/admin/users/' + userid + '/' + status)
     .then(response => {
       console.log('Đã xóa sản phẩm thành công:', response.data);
       
@@ -129,6 +156,7 @@ function deleteUser(username, status) {
 }
 
 function updateUser(username) {
+  
   axios.put('/admin/users/' + username)
     .then(response => {
       console.log('Đã xóa sản phẩm thành công:', response.data);
@@ -141,3 +169,69 @@ function updateUser(username) {
     });
 }
 
+  function searchCategory() {
+  const categoryNameInput = document.getElementById('customer-name');
+  const value = categoryNameInput.value;
+  axios.get('/admin/categories?q=' + value)
+    .then(response => {
+      console.log('Đã tìm ra sản phẩm');
+      
+      console.log(value);
+       window.location.href='/admin/categories?q='+value;
+    })
+    .catch(error => {
+      console.error('Lỗi khi xóa sản phẩm:', error);
+    });
+}
+
+function searchProduct() {
+  const categoryNameInput = document.getElementById('customer-name');
+  const value = categoryNameInput.value;
+  axios.get('/admin/products?q=' + value)
+    .then(response => {
+      console.log('Đã tìm ra sản phẩm');
+      
+      console.log(value);
+       window.location.href='/admin/products?q='+value;
+    })
+    .catch(error => {
+      console.error('Lỗi khi xóa sản phẩm:', error);
+    });
+}
+function searchUser() {
+  const categoryNameInput = document.getElementById('customer-name');
+  const value = categoryNameInput.value;
+  axios.get('/admin/users?q=' + value)
+    .then(response => {
+      console.log('Đã tìm ra sản phẩm');
+      
+      console.log(value);
+       window.location.href='/admin/users?q='+value;
+    })
+    .catch(error => {
+      console.error('Lỗi khi xóa sản phẩm:', error);
+    });
+}
+function searchOrder() {
+  const categoryNameInput = document.getElementById('customer-name');
+  const value = categoryNameInput.value;
+  axios.get('/admin/orders?q=' + value)
+    .then(response => {
+      console.log('Đã tìm ra sản phẩm');
+      
+      console.log(value);
+       window.location.href='/admin/orders?q='+value;
+    })
+    .catch(error => {
+      console.error('Lỗi khi xóa sản phẩm:', error);
+    });
+}
+
+function logout(){
+  axios.post('/admin/logout').then(response => {
+    window.location.href='/admin/login';
+  }).catch(error => {
+    console.error('Đăng xuất thất bại');
+  })
+
+}

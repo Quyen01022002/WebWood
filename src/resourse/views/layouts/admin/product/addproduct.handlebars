@@ -45,6 +45,8 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
@@ -61,7 +63,7 @@
         <aside>
           <div class="top">
             <div class="logo ms-3">
-              <a href="/views/index.html" class="logo-img d-block">
+              <a href="/admin" class="logo-img d-block">
                 <img src="/assets/images/header/header-logo.svg" alt="" />
               </a>
               <h1 class="logo-title lh-base ms-2">Mini</h1>
@@ -113,12 +115,12 @@
                 </a>
               </div>
               <div class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <button class="sidebar-link" onclick="logout()">
                   <div class="sidebar-link-icon">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </div>
                   <h3>Logout</h3>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -141,16 +143,15 @@
               <div class="info">
                 <p class="d-flex align-items-center">
                   Hey,
-                  <b class="text-truncate profile-info-name ms-2">Lucy</b>
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
                 </p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{userAdmin.role}}</small>
               </div>
               <div class="profile-photo">
-                <img src="/assetSeller/images/lucy.jpg" alt="" />
+                <img src="{{userAdmin.avatar}}" alt="" />
                 <ul class="profile-photo-subnav">
                   <li><a href="#">Profile settings</a></li>
                   <hr class="profile-photo-divide" />
-                  <li><a href="">Sign out</a></li>
                 </ul>
               </div>
             </div>
@@ -163,7 +164,7 @@
                 >
                   <ul class="nav-state">
                     <li class="nav-state-item">
-                      <a href="productSeller.html" class="nav-state-link"
+                      <a href="/admin/products" class="nav-state-link"
                         >Products</a
                       >
                     </li>
@@ -177,7 +178,7 @@
             <section>
               <div class="row">
                 <div class="col-12">
-                  <form action="" method="post">
+                  {{!-- <form action="" method="post"> --}}
                     <div class="row">
                       <div class="col-12">
                         <div class="p-4">
@@ -201,6 +202,7 @@
                                         name=""
                                         class="textField"
                                         maxlength="255"
+                                        id="name_product"
                                         required
                                       />
                                     </div>
@@ -219,72 +221,70 @@
                                       ></textarea>
                                     </div>
                                   </div>
+                                  <div
+                                    class="row align-items-center form-group-input" style="padding-top: 20px;"
+                                  >
+                                    <div class="col-md-3">
+                                      <p class="form-input-title">
+                                        Brand:
+                                        <span class="text-danger">*</span>
+                                      </p>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="textField"
+                                        maxlength="255"
+                                        id="brand_seller"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                             <div class="form-wrapper">
                               <h3 class="form-wrap-title">
-                                Product specifications
+                                Product prices
                                 <span class="text-gray fz-15 fw-4"
-                                  >(Enter information if available)</span
+                                  >(Enter info price)</span
                                 >
                               </h3>
                               <div class="card form-group form-card">
                                 <div class="card-body">
-                                  <div class="row align-items-center">
-                                    <div class="col-sm-2">
-                                      <p class="form-input-title">
-                                        Select unit:
-                                      </p>
-                                    </div>
-                                    <div class="col-sm-2">
-                                      <select class="textField" name="" id="">
-                                        <option value="">cm</option>
-                                        <option value="">m</option>
-                                        <option value="">inch</option>
-                                        <option value="">feet</option>
-                                      </select>
-                                    </div>
-                                  </div>
                                   <div
                                     class="row gap-5"
                                     style="margin-top: 3rem"
                                   >
                                     <div class="col-md-3">
                                       <div class="d-flex flex-column gap-4">
-                                        <p class="form-input-title">Height:</p>
+                                        <p class="form-input-title">Buy Price:</p>
                                         <input
                                           type="text"
                                           class="textField"
-                                          value="120cm"
+                                          value=""
+                                          id="buy_price"
                                         />
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <div class="d-flex flex-column gap-4">
-                                        <p class="form-input-title">Width:</p>
+                                        <p class="form-input-title">Sell Price:</p>
                                         <input
                                           type="text"
                                           class="textField"
-                                          value="40cm"
+                                          value=""
+                                          id="sell_price"
                                         />
                                       </div>
                                     </div>
-                                    <div class="col-md-3">
-                                      <div class="d-flex flex-column gap-4">
-                                        <p class="form-input-title">Lenght:</p>
-                                        <input
-                                          type="text"
-                                          class="textField"
-                                          value="60cm"
-                                        />
-                                      </div>
-                                    </div>
+                                    
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="form-wrapper">
+                            <div class="form-wrapper" style="display: none;">
                               <h3 class="form-wrap-title">Main Image</h3>
                               <div class="card form-group form-card pt-2">
                                 <div class="card-body">
@@ -334,15 +334,15 @@
                                   </p>
                                   <div class="row align-items-center mt-3">
                                     <div class="col-sm-8">
-                                      <select name="" id="" class="textField">
-                                        <option value="">Chair</option>
-                                        <option value="">Table</option>
-                                        <option value="">Lamp</option>
-                                        <option value="">Bed</option>
+                                      <select name="" id="cate_choose" class="textField">
+                                        {{#each categories}}
+                                        <option value="{{this.catename}}">{{this.catename}}</option>
+                                        {{/each}}
                                       </select>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-2" style="display: none;">
                                       <button
+                                      type="button"
                                         class="btn-effect btn-add-effect"
                                         data-bs-toggle="modal"
                                         data-bs-target="#modalAddCategory"
@@ -368,125 +368,14 @@
                                       class="table-bg-none table-th-border"
                                     >
                                       <tr>
-                                        <th>
-                                          <div>
-                                            <input type="checkbox" />
-                                          </div>
-                                        </th>
                                         <th>Product name</th>
                                         <th>Infomation</th>
                                         <th>Image</th>
-                                        <th></th>
+                                        <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td class="table-td-pd">
-                                          <input type="checkbox" />
-                                        </td>
-                                        <td>
-                                          <div
-                                            class="table-customer-name"
-                                            id="table-product-name"
-                                          >
-                                            <img
-                                              src="/assets/images/wall/product-grid/tablegreen.png"
-                                              alt=""
-                                              class="table-product-img"
-                                            />
-                                            <div
-                                              class="d-flex flex-column align-items-start"
-                                            >
-                                              <p>Low chair Gropius</p>
-                                              <span
-                                                class="fz-15 fw-4"
-                                                style="color: #023047"
-                                                >Green</span
-                                              >
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div
-                                            class="d-flex justify-content-center align-items-center"
-                                          >
-                                            <div
-                                              class="d-flex flex-column gap-3 product-desc"
-                                            >
-                                              <div
-                                                class="d-flex justify-content-between align-items-center"
-                                              >
-                                                <h5 class="text-gray fz-15">
-                                                  Quantity:
-                                                </h5>
-                                                <h4>23</h4>
-                                              </div>
-                                              <div
-                                                class="d-flex justify-content-between align-items-center"
-                                              >
-                                                <h5 class="text-gray fz-15">
-                                                  Price:
-                                                </h5>
-                                                <h4>1500$</h4>
-                                              </div>
-                                              <div
-                                                class="d-flex justify-content-between align-items-center"
-                                              >
-                                                <h5 class="text-gray fz-15">
-                                                  Sale:
-                                                </h5>
-                                                <h4 style="color: #3ec87c">
-                                                  10%
-                                                </h4>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="d-flex flex-column gap-2">
-                                            <span
-                                              class="text-gray fz-15 fst-italic"
-                                              >anh1.jpg</span
-                                            >
-                                            <span
-                                              class="text-gray fz-15 fst-italic"
-                                              >anh2.jpg</span
-                                            >
-                                            <span
-                                              class="text-gray fz-15 fst-italic"
-                                              >anh3.jpg</span
-                                            >
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <div class="table-action">
-                                            <button
-                                              class="table-action-btn btn-edit-variant"
-                                              aria-label="Edit"
-                                              data-microtip-position="top"
-                                              role="tooltip"
-                                              data-bs-toggle="modal"
-                                              data-bs-target="#modalAddVariant"
-                                            >
-                                              <i
-                                                class="fa-solid fa-pen-to-square table-action-icon"
-                                                style="color: #3ec87c"
-                                              ></i>
-                                            </button>
-                                            <button
-                                              class="table-action-btn"
-                                              aria-label="Delete"
-                                              data-microtip-position="top"
-                                              role="tooltip"
-                                            >
-                                              <i
-                                                class="fa-solid fa-trash-can table-action-icon"
-                                                style="color: #ff7782"
-                                              ></i>
-                                            </button>
-                                          </div>
-                                        </td>
-                                      </tr>
+                                    <tbody id="bodyyy">
+                                      
                                     </tbody>
                                   </table>
                                 </div>
@@ -495,9 +384,11 @@
                                     class="d-inline-flex align-items-center justify-content-center mt-3"
                                   >
                                     <button
+                                    type="button"
                                       class="btn-effect btn-add-effect btn-add-variant"
                                       data-bs-toggle="modal"
                                       data-bs-target="#modalAddVariant"
+                                      id="btn-add-variant"
                                     >
                                       <span class="text-gray"
                                         >New variants</span
@@ -531,7 +422,7 @@
                                           <label
                                             for="available"
                                             class="form-label-radio"
-                                            >Available</label
+                                            >Sell</label
                                           >
                                         </div>
                                         <div class="fieldset-radio">
@@ -545,7 +436,7 @@
                                           <label
                                             for="disable"
                                             class="form-label-radio"
-                                            >Disable</label
+                                            >Unsell</label
                                           >
                                         </div>
                                       </div>
@@ -556,7 +447,6 @@
                             </div>
                             <div class="form-add-footer">
                               <div class="form-wrapper">
-                                <form action="#">
                                   <div
                                     class="d-flex align-items-center justify-content-end gap-3"
                                   >
@@ -567,20 +457,21 @@
                                       Save draft
                                     </button>
                                     <button
+                                    
                                       class="stardust-button btn-solid fz-16"
                                       style="width: 11rem; border-radius: 1rem"
+                                      onclick="saveProductFunction()"
                                     >
-                                      Save
+                                      Save Product
                                     </button>
                                   </div>
-                                </form>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </form>
+                  {{!-- </form> --}}
                 </div>
               </div>
             </section>
@@ -593,6 +484,7 @@
       <div class="modal-dialog" style="max-width: 60rem">
         <div class="modal-container" style="max-width: 100%">
           <!-- Modal Header -->
+          <form>
           <div class="modal-content p-0 border-0">
             <div class="modal-header">
               <h2 class="modal-title">New variant</h2>
@@ -600,7 +492,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body mt-4">
+            <div class="modal-body mt-4 add_color_modal">
               <form action="#">
                 <div class="form-field">
                   <div class="row align-items-center form-group-input gap-4">
@@ -608,7 +500,7 @@
                       <p class="form-input-title fw-5">Color picker:</p>
                     </div>
                     <div class="col-md-8">
-                      <input type="color" name="" class="colorField" required />
+                      <input type="color" name="" class="colorField" id="color_code" required />
                     </div>
                   </div>
                 </div>
@@ -623,6 +515,7 @@
                         name=""
                         class="textField"
                         maxlength="255"
+                        id="color_name"
                         required
                       />
                     </div>
@@ -635,69 +528,17 @@
                     </div>
                     <div class="col-md-8">
                       <input
-                        type="text"
+                        type="number"
                         name=""
                         class="textField"
                         maxlength="255"
+                        id="quantity"
                         required
                       />
                     </div>
                   </div>
                 </div>
-                <div class="form-field">
-                  <div class="row align-items-center form-group-input gap-4">
-                    <div class="col-md-3">
-                      <p class="form-input-title fw-5">Price:</p>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="form-input-wrap">
-                        <div class="form-icon-left">$</div>
-                        <input
-                          type="text"
-                          class="form-input-right"
-                          style="width: 100%"
-                          value="2500"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-field">
-                  <div class="row align-items-center form-group-input gap-4">
-                    <div class="col-md-3">
-                      <p class="form-input-title fw-5">Sale by %:</p>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="form-input-wrap">
-                        <div class="form-icon-left">%</div>
-                        <input
-                          type="text"
-                          class="form-input-right"
-                          style="width: 100%"
-                          value="10%"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-field">
-                  <div class="row align-items-center form-group-input gap-4">
-                    <div class="col-md-3">
-                      <p class="form-input-title fw-5">Sale by $:</p>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="form-input-wrap">
-                        <div class="form-icon-left">$</div>
-                        <input
-                          type="text"
-                          class="form-input-right"
-                          style="width: 100%"
-                          value="2000"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
                 <div class="form-field">
                   <div class="row align-items-center form-group-input gap-4">
                     <div class="col-md-3">
@@ -712,6 +553,7 @@
                             type="file"
                             class="avatar-upload-input"
                             id="image1"
+                            onchange="displayImagePath(this,1)"
                           />
                           <label class="avatar-upload-label" for="image1">
                             <img
@@ -725,6 +567,7 @@
                           class="form-input-right"
                           style="width: 100%"
                           placeholder="imag1.jpg"
+                          id="image1FileName" readonly required
                         />
                       </div>
                     </div>
@@ -744,6 +587,7 @@
                             type="file"
                             class="avatar-upload-input"
                             id="image2"
+                            onchange="displayImagePath(this,2)"
                           />
                           <label class="avatar-upload-label" for="image2">
                             <img
@@ -757,6 +601,7 @@
                           class="form-input-right"
                           style="width: 100%"
                           placeholder="imag2.jpg"
+                          id="image2FileName" readonly
                         />
                       </div>
                     </div>
@@ -776,6 +621,7 @@
                             type="file"
                             class="avatar-upload-input"
                             id="image3"
+                            onchange="displayImagePath(this,3)"
                           />
                           <label class="avatar-upload-label" for="image3">
                             <img
@@ -789,6 +635,7 @@
                           class="form-input-right"
                           style="width: 100%"
                           placeholder="imag3.jpg"
+                          id="image3FileName" readonly
                         />
                       </div>
                     </div>
@@ -813,6 +660,8 @@
                     type="button"
                     class="btn-base btn-solid"
                     style="height: auto"
+                    id="add_color"
+                    {{!-- onclick="addColor()" --}}
                   >
                     <span class="fz-16">Save</span>
                   </button>
@@ -820,6 +669,7 @@
               </form>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -934,5 +784,13 @@
     <script src="/tinymce/tinymce.min.js"></script>
     <script src="/assetSeller/js/textEditor.js"></script>
     <script src="/assetSeller/js/addProduct.js"></script>
+    
+<script>
+ // const product_name = document.getElementById('name_product').value;
+  
+
+
+
+</script>
   </body>
 </html>

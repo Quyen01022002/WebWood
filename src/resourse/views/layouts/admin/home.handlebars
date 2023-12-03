@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{{#if isAdmin}}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -48,6 +49,9 @@
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assetSeller/css/homeSeller.css" />
+    
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Home | Admin Site</title>
   </head>
   <body>
@@ -58,7 +62,7 @@
         <aside>
           <div class="top">
             <div class="logo ms-3">
-              <a href="/views/index.html" class="logo-img d-block">
+              <a href="/admin" class="logo-img d-block">
                 <img src="/assets/images/header/header-logo.svg" alt="" />
               </a>
               <h1 class="logo-title lh-base ms-2">Mini</h1>
@@ -110,12 +114,12 @@
                 </a>
               </div>
               <div class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <button class="sidebar-link" onclick="logout()">
                   <div class="sidebar-link-icon">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                   </div>
                   <h3>Logout</h3>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -125,7 +129,7 @@
         <!-- Start main -->
         <main id="home">
           <div class="mt-5">
-            <h1 class="fw-6">Dashboard</h1>
+            <h1 class="fw-6">Home</h1>
             <div class="d-flex justify-content-start">
               <div class="date">
                 <input type="date" class="text-center" />
@@ -138,19 +142,19 @@
                 >
                 <div class="card-content">
                   <div class="card-left">
-                    <h3 class="card-title">Total Sales</h3>
-                    <h1 class="card-value">$25,024</h1>
+                    <h3 class="card-title">Orders Completed</h3>
+                    <h1 class="card-value">{{countOrderCompleted}}</h1>
                   </div>
                   <div class="card-progress sales">
                     <svg>
                       <circle cx="38" cy="38" r="36"></circle>
                     </svg>
                     <div class="card-progress-number">
-                      <p>81%</p>
+                      <p>{{mul (device countOrderCompleted countOrder) 100}}%</p>
                     </div>
                   </div>
                 </div>
-                <small class="text-muted">Last 24 hours</small>
+                {{!-- <small class="text-muted">Last 24 hours</small> --}}
               </div>
               <div class="card-item">
                 <span class="material-symbols-outlined card-icon expenses"
@@ -159,7 +163,7 @@
                 <div class="card-content">
                   <div class="card-left">
                     <h3 class="card-title">Total Expenses</h3>
-                    <h1 class="card-value">$38,572</h1>
+                    <h1 class="card-value">${{doanhthu}}</h1>
                   </div>
                   <div class="card-progress expenses">
                     <svg>
@@ -170,27 +174,25 @@
                     </div>
                   </div>
                 </div>
-                <small class="text-muted">Last 24 hours</small>
               </div>
-              <div class="card-item">
-                <span class="material-symbols-outlined card-icon incomes"
+              <div class="card-item" >
+                <span class="material-symbols-outlined card-icon incomes" 
                   >stacked_line_chart</span
                 >
-                <div class="card-content">
+                <div class="card-content" style="text-align: center;">
                   <div class="card-left">
-                    <h3 class="card-title">Total Incomes</h3>
-                    <h1 class="card-value">$66,023</h1>
+                    <h3 class="card-title">Customer</h3>
+                    <h1 class="card-value">{{countUser}}</h1>
                   </div>
-                  <div class="card-progress incomes">
+                  <div class="card-progress expenses">
                     <svg>
                       <circle cx="38" cy="38" r="36"></circle>
                     </svg>
                     <div class="card-progress-number">
-                      <p>56%</p>
+                      <p>72%</p>
                     </div>
                   </div>
                 </div>
-                <small class="text-muted">Last 24 hours</small>
               </div>
             </div>
             <div class="order home">
@@ -206,7 +208,6 @@
                     <th>Price</th>
                     <th>Status</th>
                     <th>Details</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -221,46 +222,15 @@
                     </td>
                     <td>{{this.Total}}$</td>
                     <td>
-                      <span class="order-status pending">{{this.Status}}</span>
+                      <span class="order-status pending" style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px; ">{{this.Status}}</span>
                     </td>
                     <td>
-                      <a href="#" class="primary order-detail">Details</a>
+                      <a href="/admin/orders/{{this._id}}" class="primary order-detail">Details</a>
                     </td>
-                    <td>
-                      <div class="dropdown oder-dropdown">
-                        <button
-                          type="button"
-                          class="dropdown-toggle"
-                          data-bs-toggle="dropdown"
-                        >
-                          <p class="order-dropdown-text">Edit</p>
-                        </button>
-                        <ul class="dropdown-menu order-dropdown-list">
-                          <li>
-                            <a
-                              class="dropdown-item order-dropdown-link primary"
-                              href="#"
-                            >
-                              <i
-                                class="fa-regular fa-circle-check order-dropdown-icon"
-                              ></i>
-                              Accept order</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              class="dropdown-item order-dropdown-link danger"
-                              href="#"
-                            >
-                              <i
-                                class="fa-regular fa-circle-xmark order-dropdown-icon"
-                              ></i>
-                              Reject order</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
+                    
                   </tr>
                   {{/each}}
                 </tbody>
@@ -289,21 +259,20 @@
               <div class="info">
                 <p class="d-flex align-items-center">
                   Hey,
-                  <b class="text-truncate profile-info-name ms-2">Lucy</b>
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
                 </p>
-                <small class="text-muted">Admin</small>
+                <small class="text-muted">{{userAdmin.role}}</small>
               </div>
               <div class="profile-photo">
-                <img src="/assetSeller/images/lucy.jpg" alt="" />
+                <img src="{{userAdmin.avatar}}" alt="" />
                 <ul class="profile-photo-subnav">
                   <li><a href="#">Profile settings</a></li>
                   <hr class="profile-photo-divide" />
-                  <li><a href="">Sign out</a></li>
-                </ul>
+                                  </ul>
               </div>
             </div>
           </div>
-          <div class="recent-update">
+          <div class="recent-update" style="display: none;">
             <h2 class="update-title">Recent Updates</h2>
             <div class="update-wrapper">
               <div class="update-list">
@@ -344,3 +313,4 @@
     <script src="/assetSeller/js/homeSeller.js"></script>
   </body>
 </html>
+{{/if}}
