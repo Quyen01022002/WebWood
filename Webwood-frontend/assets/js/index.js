@@ -1,16 +1,13 @@
-// const wallHeader =  document.querySelector(".wall-header")
-// const slideBar =  document.querySelector(".slidebar")
-// var prev = window.scrollY;
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
 
-// window.onscroll = function () {
-//     var current = window.scrollY;
-//     if (prev > current) {
-//         wallHeader.style.top = "60px"
-//         slideBar.style.top = "120px"
-//     } else {
-//         wallHeader.classList.add("header-sticky")
-//         wallHeader.style.top = "0"
-//         slideBar.style.top = "60px"
-//     }
-//     prev = current;
-// }
+const closeFilter = $('#filter-close')
+const filterFullscreen = $('.offcanvas-container')
+const openFilterBtn = $('#open-filter')
+
+openFilterBtn.addEventListener('click', () => {
+    filterFullscreen.classList.remove('closed')
+})
+closeFilter.addEventListener('click', () => {
+    filterFullscreen.classList.add('closed')
+})
