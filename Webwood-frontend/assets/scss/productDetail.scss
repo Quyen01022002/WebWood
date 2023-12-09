@@ -14,6 +14,10 @@ $default-font: "Be Vietnam Pro", sans-serif;
     object-fit: $object-fit;
 }
 .product {
+    &-left{
+        display: flex;
+        justify-content: space-around;
+    }
     &-pre-wrapper {
         margin-top: 10rem;
     }
@@ -27,6 +31,7 @@ $default-font: "Be Vietnam Pro", sans-serif;
         &__list {
             margin-top: 3rem;
             width: 100%;
+            max-width: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
@@ -40,7 +45,7 @@ $default-font: "Be Vietnam Pro", sans-serif;
         font-size: 2.7rem;
     }
     &-main-image {
-        height: 53.6rem;
+        max-height: 53.6rem;
     }
     &-desc {
         padding-block: 1.5rem 3rem;
@@ -62,6 +67,10 @@ $default-font: "Be Vietnam Pro", sans-serif;
     }
     &-rating {
         width: 100%;
+        &__count{
+            display: flex;
+            gap: 0.5rem;
+        }
         &__link {
             &:hover {
                 color: $black-text;
@@ -123,9 +132,11 @@ $default-font: "Be Vietnam Pro", sans-serif;
     &-color {
         padding-bottom: 2rem;
         &__group {
+            max-width: 100%;
             display: flex;
             justify-content: flex-start;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
         &_item {
             width: calc(25% - 1rem);
@@ -137,4 +148,85 @@ $default-font: "Be Vietnam Pro", sans-serif;
         padding-top: 3rem;
     }
 }
-
+@media screen and (max-width: 991px) {
+    .product{
+        &-right__wrapper{
+            margin-top: 4rem;
+        }
+        &-main-image{
+            margin-top: 2rem;
+            max-width: 46rem;
+            max-height: 46rem;
+        }
+        &-quantity{
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            &__container{
+                display: flex;
+                gap: 7rem;
+            }
+        }
+        &-color{
+            &__group{
+                max-width: 100%;
+            }
+            &_item{
+                width: 7rem;
+            }
+        }
+        &-action{
+            display: flex;
+            gap: 3rem;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .product{
+        &-content{
+            max-width: 100%;
+        }
+        &-image{
+            &__item{
+                width: 7.5rem;
+            }
+        }
+        &-main-image{
+            max-width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 575px){
+    .product{
+        &-action{
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        &-left{
+            margin: 0 auto;
+        }
+        &-right{
+            &__wrapper{
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        &-rating{
+            &__wrapper{
+                flex-direction: column;
+                align-items: start;
+                gap: 1.5rem;
+            }
+        }
+        &-quantity{
+            &__container{
+                gap: 3rem;
+            }
+        }
+        &-main-image{
+            max-height: 44rem;
+        }
+    }   
+}
