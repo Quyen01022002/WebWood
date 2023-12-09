@@ -30,6 +30,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assets/css/index.css" />
@@ -39,7 +44,7 @@
     <!-- Start header -->
     <div class="container container-padding">
       <div class="header-pre-wrapper">
-        <header class="header ">
+        <header class="header">
           <div class="wrapper header-wrapper">
             <div class="header-logo">
               <img
@@ -281,8 +286,10 @@
                 />
               </div>
               <div class="wall-header__sort">
-                <div class="wall-sort__select">
-                  <span class="wall-sort__text dropdown__btn-text">Sort By</span>
+                <div class="wall-sort__select drop" data-bs-toggle="dropdown">
+                  <span class="wall-sort__text dropdown__btn-text"
+                    >Sort By</span
+                  >
                   <img
                     src="/assets/images/wall/wall-header/sortby.svg"
                     alt=""
@@ -290,31 +297,24 @@
                   />
                   <span class="dropdown-btn__selected-text"></span>
                 </div>
-                <div class="wall-header__dropdown">
+                <div class="wall-header__dropdown dropdown-menu">
                   <div class="wall-dropdown__list" role="menu">
                     <button
-                      class="wall-dropdown__option"
-                      type="button"
-                      value="feartured"
-                    >
-                      Fearture
-                    </button>
-                    <button
-                      class="wall-dropdown__option"
+                      class="wall-dropdown__option dropdown-item"
                       type="button"
                       value="newest"
                     >
                       Newest
                     </button>
                     <button
-                      class="wall-dropdown__option"
+                      class="wall-dropdown__option dropdown-item"
                       type="button"
                       value="priceDesc"
                     >
                       Price: High-Low
                     </button>
                     <button
-                      class="wall-dropdown__option"
+                      class="wall-dropdown__option dropdown-item"
                       type="button"
                       value="priceAsc"
                     >
@@ -324,9 +324,19 @@
                 </div>
               </div>
             </nav>
+            <div class="wall-header__btn-filter" id="open-filter">
+              <div class="wall-header__filter">
+                <span>Filter</span>
+                <img
+                  src="/assets/images/wall/wall-header/filter.png"
+                  alt=""
+                  class="wall-header__filter_img w-24 h-24"
+                />
+              </div>
+            </div>
           </div>
           <!-- End wall-header -->
-  
+
           <!-- Start wall content -->
           <div class="wall-content">
             <div class="slidebar">
@@ -352,7 +362,9 @@
                       <a href="#" class="slidebar__category-link">Carpet</a>
                     </li>
                     <li class="slidebar__category-item">
-                      <a href="#" class="slidebar__category-link">Accessories</a>
+                      <a href="#" class="slidebar__category-link"
+                        >Accessories</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -655,6 +667,149 @@
       </div>
     </div>
 
+    <!-- Filter category responsive -->
+    <div class="offcanvas-container closed">
+      <div class="text-dark fz-18 fw-4 mt-5 pb-3">Filter</div>
+      <div class="offcanvas-closeBtn" id="filter-close">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="offcanvas-content">
+        <div class="offcanvs-slidebar">
+          <div class="slidebar-wrapper">
+            <div class="sildebar-sort">
+              <h3 class="slidebar-title">Sort by</h3>
+              <ul class="slidebar__sort-list">
+                <div class="form-group">
+                  <div class="formfield">
+                    <div class="fieldset">
+                      <div class="fieldset-radio">
+                        <input
+                          class="form-input"
+                          type="radio"
+                          value=""
+                          name="sort"
+                          id="newest"
+                        />
+                        <label for="newest" class="form-label-radio"
+                          >Newest</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="formfield">
+                    <div class="fieldset">
+                      <div class="fieldset-radio">
+                        <input
+                          class="form-input"
+                          type="radio"
+                          value=""
+                          name="sort"
+                          id="priceZA"
+                        />
+                        <label for="priceZA" class="form-label-radio"
+                          >Price: High-Low</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="formfield">
+                    <div class="fieldset">
+                      <div class="fieldset-radio">
+                        <input
+                          class="form-input"
+                          type="radio"
+                          value=""
+                          name="sort"
+                          id="priceAZ"
+                        />
+                        <label for="priceAZ" class="form-label-radio"
+                          >Price: Low-High</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="slidebar__category">
+              <h3 class="slidebar-title">Category</h3>
+              <ul class="slidebar__category-list">
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Table</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Chair</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Lamp</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Wardrobe</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Bed</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Carpet</a>
+                </li>
+                <li class="slidebar__category-item">
+                  <a href="#" class="slidebar__category-link">Accessories</a>
+                </li>
+              </ul>
+            </div>
+            <div class="slidebar__price">
+              <h2 class="slidebar-title">Shop by Price</h2>
+              <ul class="slidebar__price-list">
+                <div class="slidebar__price-item">
+                  <input
+                    type="checkbox"
+                    class="checkbox-bg-black"
+                    name=""
+                    id="offcanvas-under-1m"
+                  />
+                  <label for="offcanvas-under-1m" class="slidebar__price-label"
+                    >Under 1.000.000đ</label
+                  >
+                </div>
+                <div class="slidebar__price-item">
+                  <input
+                    type="checkbox"
+                    class="checkbox-bg-black"
+                    name=""
+                    id="offcanvas-1m-2m"
+                  />
+                  <label for="offcanvas-1m-2m" class="slidebar__price-label"
+                    >1.000.000đ - 2.000.000đ</label
+                  >
+                </div>
+                <div class="slidebar__price-item">
+                  <input
+                    type="checkbox"
+                    class="checkbox-bg-black"
+                    name=""
+                    id="offcanvas-2m-5m"
+                  />
+                  <label for="offcanvas-2m-5m" class="slidebar__price-label"
+                    >2.000.000đ - 5.000.000đ</label
+                  >
+                </div>
+                <div class="slidebar__price-item">
+                  <input
+                    type="checkbox"
+                    class="checkbox-bg-black"
+                    name=""
+                    id="offcanvas-over-5m"
+                  />
+                  <label for="offcanvas-over-5m" class="slidebar__price-label"
+                    >Over 5.000.000đ</label
+                  >
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="/assets/js/index.js"></script>
     <script src="/common/user/header.js"></script>
   </body>
