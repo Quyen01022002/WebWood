@@ -14,7 +14,7 @@ $default-font: "Be Vietnam Pro", sans-serif;
     object-fit: $object-fit;
 }
 .cart {
-    margin-top: 1rem;
+    margin-top: 9rem;
     &-header {
         & h1 {
             margin-bottom: 5rem;
@@ -46,7 +46,8 @@ $default-font: "Be Vietnam Pro", sans-serif;
     }
     &-item {
         &-img {
-            width: 40%;
+            width: 9.6rem;
+            min-width: 9.6rem;
             position: relative;
         }
         &-link {
@@ -87,6 +88,11 @@ $default-font: "Be Vietnam Pro", sans-serif;
     & .product-quantity {
         padding-top: 1rem;
         padding-bottom: 2rem;
+    }
+    &-total{
+        &-sm{
+            display: none;
+        }
     }
 }
 .summary {
@@ -153,8 +159,8 @@ $default-font: "Be Vietnam Pro", sans-serif;
             background-color: black;
             cursor: pointer;
             user-select: none;
-            &.btn-minus{
-                & span{
+            &.btn-minus {
+                & span {
                     padding-bottom: 2.5px;
                 }
             }
@@ -165,6 +171,24 @@ $default-font: "Be Vietnam Pro", sans-serif;
             outline: none;
             border: none;
             text-align: center;
+        }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .cart {
+        &-item {
+            &-img {
+                width: 33%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+    .cart {
+        &-item {
+            &-img {
+                width: 37%;
+            }
         }
     }
 }
@@ -180,15 +204,74 @@ $default-font: "Be Vietnam Pro", sans-serif;
         }
     }
 }
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .cart {
         &-line-item {
             padding: 2rem 0;
+        }
+        &-item {
+            &-img {
+                width: 17rem;
+            }
         }
     }
     .summary {
         &-order {
             padding-top: 2rem;
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .product {
+        &-quantity {
+            &__container {
+                display: flex;
+                gap: 2rem;
+            }
+        }
+    }
+    .cart {
+        &-line-item {
+            padding: 2rem 0;
+        }
+        &-item {
+            &-img {
+                width: 14rem;
+            }
+        }
+        &-titleLeft{
+            width: 70%;
+        }
+        & .product-quantity{
+            padding-bottom: 1rem;
+        }
+    }
+    .summary{
+        &-order{
+            padding-top: 2rem;
+        }
+    }
+}
+@media screen and (max-width:576px) {
+    .cart{
+        &-total{
+            display: none;
+            &-sm{
+                display: block;
+            }
+        }
+        &-line-item{
+            padding-bottom: 1rem;
+        }
+    }
+    .btn-base{
+        width: 21rem;
+    }
+    .summary{
+        &-action{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 }

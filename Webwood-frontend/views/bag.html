@@ -30,6 +30,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assets/css/bag.css" />
@@ -37,16 +42,26 @@
   </head>
   <body>
     <!-- Start header -->
-    <div class="container container-padding">
-      <div class="header-pre-wrapper">
-        <header class="header is--fixed">
-          <div class="wrapper header-wrapper">
-            <div class="header-logo">
-              <img
-                src="/assets/images/header/header-logo.svg"
-                alt="header-logo"
-                class="header-logo__img"
-              />
+    <div class="header-pre-wrapper">
+      <header class="header">
+        <div class="wrapper header-wrapper">
+          <div class="header-logo">
+            <img
+              src="/assets/images/header/header-logo.svg"
+              alt="header-logo"
+              class="header-logo__img"
+            />
+          </div>
+          <div class="header-right">
+            <div
+              id="menu-btn"
+              class="menu-bar-btn"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#header-sidebar"
+            >
+              <button class="top-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
             </div>
             <nav class="header-nav">
               <ul class="header-nav__list">
@@ -58,9 +73,6 @@
                 </li>
                 <li class="header-nav__item">
                   <a class="header-nav__link" href="#">About us</a>
-                </li>
-                <li class="header-nav__item">
-                  <a class="header-nav__link" href="#">Recruitment</a>
                 </li>
               </ul>
               <div class="header-search">
@@ -81,7 +93,7 @@
               </div>
             </nav>
             <div class="header-group">
-              <div class="header-group__btn">
+              <div class="header-group__btn favorites">
                 <a href="#" title="favorites" class="header-group__link">
                   <img src="/assets/images/header/favorite.svg" alt="" />
                 </a>
@@ -96,13 +108,24 @@
               </div>
             </div>
             <div class="header-login">
-              <a href="#" class="header-login__link">
-                <span class="header-login__text">Join us</span>
-              </a>
-              <span class="header-login__divider">|</span>
-              <a href="#" class="header-login__link">
-                <span class="header-login__text">Sign in</span>
-              </a>
+              <div
+                class="header-group__btn d-flex justify-content-center align-items-center"
+              >
+                <a
+                  href="login.html"
+                  title="login"
+                  class="header-group__link d-inline-block"
+                  style="width: 2.7rem; height: 2.7rem"
+                >
+                  <img
+                    src="/assets/images/header/person.png"
+                    alt=""
+                    class="obj-cover"
+                    class="pre-avatar"
+                  />
+                  <img src="" alt="Avatar" class="avatar-account" />
+                </a>
+              </div>
             </div>
             <div class="header-profile">
               <div class="header-profile__wrapper">
@@ -151,8 +174,87 @@
               </div>
             </div>
           </div>
-        </header>
-      </div>
+          <div class="offcanvas offcanvas-end offcanvas-lg" id="header-sidebar">
+            <div class="offcanvas-header">
+              <div class="d-flex gap-4 align-items-center">
+                <img
+                  src="/assets/images/header/avatar/sulyyoon.jpg"
+                  alt=""
+                  class="header-profile__img"
+                  width="40px"
+                  height="40px"
+                  style="border-radius: 100%; object-fit: cover"
+                />
+                <h3 class="offcanvas-title">Hi, Phan</h3>
+              </div>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="sidebar-list">
+                <div class="sidebar-item">
+                  <a href="index.html" class="sidebar-link">Product</a>
+                </div>
+                <div class="sidebar-item">
+                  <a href="home.html" class="sidebar-link">Home</a>
+                </div>
+              </div>
+              <button
+                class="btn-base btn-solid mt-4"
+                type="button"
+                style="
+                  width: 10rem;
+                  padding: 0.5rem;
+                  height: 3.5rem;
+                  border-radius: 10rem;
+                "
+              >
+                <a href="login.html" class="text-white fz-16">Sign in</a>
+              </button>
+              <div class="sidebar-group">
+                <div class="sidebar-group-item">
+                  <a href="#" class="sidebar-group-link">
+                    <div class="sidebar-group-icon">
+                      <img src="/assets/images/header/favorite.svg" alt="" />
+                    </div>
+                    <p>Favorites</p>
+                  </a>
+                </div>
+                <div class="sidebar-group-item">
+                  <a href="bag.html" class="sidebar-group-link">
+                    <div class="sidebar-group-icon">
+                      <img src="/assets/images/header/bag.svg" alt="" />
+                    </div>
+                    <p>Bags</p>
+                  </a>
+                </div>
+                <div class="sidebar-group-item">
+                  <a href="#" class="sidebar-group-link">
+                    <div class="sidebar-group-icon">
+                      <img
+                        src="/assets/images/payment/delivery-home.svg"
+                        alt=""
+                      />
+                    </div>
+                    <p>Orders</p>
+                  </a>
+                </div>
+                <div class="sidebar-group-item">
+                  <a href="#" class="sidebar-group-link">
+                    <div class="sidebar-group-icon">
+                      <img src="/assets/images/header/help.png" alt="" />
+                    </div>
+                    <p>Help</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     </div>
     <!-- End header -->
 
@@ -183,6 +285,9 @@
                             </a>
                           </div>
                           <div class="cart-info">
+                            <div class="cart-total-sm pb-2">
+                              <span class="cart-total-price fw-6">$1.500</span>
+                            </div>
                             <h3 class="cart-info-title fw-5">
                               <a href="#">Grava Chair</a>
                             </h3>
@@ -264,6 +369,9 @@
                             </a>
                           </div>
                           <div class="cart-info">
+                            <div class="cart-total-sm pb-2">
+                              <span class="cart-total-price fw-6">$1.500</span>
+                            </div>
                             <h3 class="cart-info-title fw-5">
                               <a href="#">Grava Chair</a>
                             </h3>
@@ -351,14 +459,15 @@
                     <hr class="summary-divider" />
                     <div class="summary-action">
                       <div class="summary-btn">
-                        <a href="/views/payment.html" id="" class="btn-base btn-solid fs-3"
+                        <a
+                          href="/views/payment.html"
+                          id=""
+                          class="btn-base btn-solid fs-3"
                           >Checkout</a
                         >
                       </div>
                       <p class="text-end summary-backhome">
-                        <a href="index.html" class="pe-2"
-                          >Continue Shopping</a
-                        >
+                        <a href="index.html" class="pe-2">Continue Shopping</a>
                         <i class="fa-solid fa-arrow-right-long"></i>
                       </p>
                     </div>
@@ -371,5 +480,6 @@
       </div>
     </main>
     <script src="/assets/js/bag.js"></script>
+    <script src="/common/user/header.js"></script>
   </body>
 </html>
