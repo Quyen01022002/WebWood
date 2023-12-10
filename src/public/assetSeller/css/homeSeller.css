@@ -1,0 +1,726 @@
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f6f6f9;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+}
+
+a {
+  color: #363949;
+}
+
+.profile-photo {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+.profile-photo img {
+  border-radius: 50rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-muted {
+  color: #7d8da1;
+}
+
+p {
+  color: #677483;
+}
+
+b {
+  color: #363949;
+}
+
+.primary {
+  color: #7380ec;
+}
+
+.danger {
+  color: #ff7782;
+}
+
+.success {
+  color: #1dd3b0;
+}
+
+.warning {
+  color: #ffbb55;
+}
+
+.grid-wrapper {
+  display: grid;
+  margin: 0 auto;
+  gap: 2.5rem;
+  grid-template-columns: 21rem auto 34rem;
+}
+
+.content {
+  padding-block: 2rem;
+}
+
+aside {
+  margin-left: 1rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(17, 17, 17, 0.068);
+  z-index: 5;
+}
+aside .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.7rem;
+  cursor: pointer;
+}
+aside .logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+aside .logo-img {
+  width: 5rem;
+  height: 5rem;
+  padding: 0.5rem;
+  border-radius: 1.12rem;
+}
+aside .logo-img:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+}
+aside .logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+aside .logo-title {
+  vertical-align: middle;
+}
+aside .close {
+  width: 4rem;
+  padding: 8px;
+  border-radius: 10rem;
+  font-size: 2rem;
+  display: none;
+  color: #363949;
+}
+aside .close:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+  color: #ff7782;
+}
+aside .sidebar {
+  height: 86vh;
+  background-color: #fff;
+  position: relative;
+  top: 4rem;
+}
+aside .sidebar-list {
+  display: flex;
+  flex-direction: column;
+}
+aside .sidebar-item:last-child {
+  position: absolute;
+  bottom: 3.5rem;
+  width: 100%;
+}
+aside .sidebar-item:last-child .sidebar-link:hover .sidebar-link-icon {
+  margin-left: 0;
+}
+aside .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #7d8da1;
+  margin-left: 3rem;
+  height: 4.5rem;
+}
+aside .sidebar-link:hover {
+  color: rgba(115, 128, 236, 0.7);
+}
+aside .sidebar-link:hover .sidebar-link-icon {
+  margin-left: 1rem;
+}
+aside .sidebar-link.active {
+  background-color: rgba(132, 139, 200, 0.18);
+  color: #7380ec;
+  margin-left: 0;
+}
+aside .sidebar-link.active::before {
+  content: "";
+  width: 6px;
+  height: 100%;
+  background-color: #7380ec;
+}
+aside .sidebar-link.active .sidebar-link-icon {
+  color: #7380ec;
+  margin-left: calc(1rem - 1px);
+}
+aside .sidebar-link-icon {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+aside .sidebar-link span {
+  font-weight: 500;
+}
+aside .sidebar-link h3 {
+  font-size: 1.6rem;
+}
+aside .sidebar-link .message-count {
+  background-color: #ff7782;
+  color: #fff;
+  padding: 2px 0.8rem;
+  max-width: 3.3rem;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 5px;
+}
+
+main {
+  margin-bottom: 5rem;
+}
+main#home {
+  margin-top: 5rem;
+}
+main h1,
+main h2,
+main h3 {
+  color: #363949;
+}
+main .date {
+  display: inline-block;
+  background-color: rgba(132, 139, 200, 0.18);
+  border-radius: 0.56rem;
+  padding: 0.7rem 2.4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+main .date input[type=date] {
+  background-color: transparent;
+  color: #363949;
+  user-select: none;
+}
+main .card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+}
+main .card-item {
+  background-color: #fff;
+  padding: 2.52rem;
+  border-radius: 2.8rem;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+  transition: all 0.25s ease;
+}
+main .card-item:hover {
+  box-shadow: none;
+}
+main .card-item small {
+  display: block;
+  margin-top: 2rem;
+}
+main .card-icon {
+  background-color: #7380ec;
+  padding: 0.8rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2.4rem;
+}
+main .card-icon.expenses {
+  background-color: #ff7782;
+}
+main .card-icon.incomes {
+  background-color: #1dd3b0;
+}
+main .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .card-title {
+  margin: 1.4rem 0 0.84rem;
+  font-size: 1.5rem;
+}
+main .card-progress {
+  position: relative;
+  width: 9.2rem;
+  height: 9.2rem;
+  border-radius: 50%;
+}
+main .card-progress-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .card-progress.sales svg circle {
+  stroke-dashoffset: -30;
+  stroke-dasharray: 200;
+}
+main .card-progress.expenses svg circle {
+  stroke-dashoffset: 35;
+  stroke-dasharray: 110;
+}
+main .card-progress svg {
+  width: 9.8rem;
+  height: 9.8rem;
+}
+main .card-progress svg circle {
+  fill: none;
+  stroke: #7380ec;
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 110;
+  stroke-dashoffset: 92;
+}
+main .order {
+  margin-top: 6rem;
+}
+main .order-title {
+  color: #363949;
+}
+main .order-detail:hover {
+  color: #7380ec;
+  text-decoration: underline;
+}
+main .order-date {
+  max-width: 16rem;
+}
+main .order-date p {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .order-address {
+  max-width: 15rem;
+}
+main .order-customer-name {
+  max-width: 16rem;
+}
+main .order-customer-name p {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .order-dropdown-list {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+}
+main .order-dropdown-list li:not(:last-child) {
+  padding-bottom: 0.6rem;
+}
+main .order-dropdown-link {
+  font-size: 1.5rem;
+  transition: all 0.25s ease;
+}
+main .order-dropdown-link:hover.primary {
+  background-color: rgba(29, 211, 176, 0.3);
+  color: #1dd3b0;
+  border-radius: 6px;
+}
+main .order-dropdown-link:hover.danger {
+  background-color: rgba(255, 119, 130, 0.3);
+  color: #ff7782;
+  border-radius: 6px;
+}
+main .order-dropdown-icon {
+  margin-right: 0.6rem;
+}
+main .order-dropdown-text {
+  display: inline-block;
+  color: #363949;
+}
+main .order table {
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 100%;
+  padding: 2.52rem;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+main .order table thead {
+  background-color: #bfd7ff;
+}
+main .order table thead th {
+  padding: 1rem;
+}
+main .order table tbody td {
+  max-height: 3.8rem;
+  border-bottom: 1px solid rgba(132, 139, 200, 0.18);
+  color: #677483;
+  padding: 1rem;
+}
+main .order table tbody tr:last-child td {
+  border-bottom: none;
+}
+main .order table tbody tr {
+  cursor: default;
+  transition: all 0.25s ease;
+}
+main .order table tbody tr.active {
+  background-color: #ccdbfd;
+}
+main .order table tbody tr.active:hover {
+  background-color: #ccdbfd;
+}
+main .order table tbody tr:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+}
+main .order-status {
+  display: inline-block;
+  width: 13rem;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+main .order-status.pending {
+  color: #fea945;
+  background-color: rgba(254, 169, 69, 0.3);
+}
+main .order-status.dispatch {
+  color: #72efdd;
+  background-color: rgba(114, 239, 221, 0.3);
+}
+main .order-status.shipping {
+  color: #52b69a;
+  background-color: rgba(82, 182, 154, 0.3);
+}
+main .order-status.delivered {
+  color: #38b000;
+  background-color: rgba(56, 176, 0, 0.3);
+}
+main .order-status.completed {
+  color: #1dd3b0;
+  background-color: rgba(29, 211, 176, 0.3);
+}
+main .order-status.canceled {
+  color: #ff7782;
+  background-color: rgba(255, 119, 130, 0.3);
+}
+main .show-all-orders {
+  color: #9d4edd;
+  font-size: 1.7rem;
+}
+main .show-all-orders:hover {
+  color: #c77dff;
+  text-decoration: underline;
+}
+
+.right .recent-update {
+  margin-right: 1.5rem;
+  margin-top: 5rem;
+}
+.right .recent-update .update-title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #363949;
+}
+.right .recent-update .update-wrapper {
+  background-color: #fff;
+  padding: 2.52rem;
+  border-radius: 2.8rem;
+  box-shadow: 0 2.8rem 4.2rem rgba(132, 139, 200, 0.18);
+  transition: all 0.3s ease;
+}
+.right .recent-update .update-wrapper:hover {
+  box-shadow: none;
+}
+.right .recent-update .update-item {
+  display: grid;
+  grid-template-columns: 4.8rem auto;
+  gap: 2rem;
+  margin-bottom: 1.4rem;
+}
+.right .recent-update .update-message p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.header-seller {
+  height: 8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: end;
+  gap: 2.4rem;
+  background-color: #f6f6f9;
+  padding: 1.5rem;
+  z-index: 2;
+}
+.header-seller .menu-bar-btn {
+  display: none;
+  background-color: transparent;
+  font-size: 2rem;
+  width: 4rem;
+  padding: 5px;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+.header-seller .menu-bar-btn i {
+  color: #363949;
+}
+.header-seller .theme-toggle {
+  background-color: rgba(132, 139, 200, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.3rem;
+  width: 7rem;
+  cursor: pointer;
+  border-radius: 0.56rem;
+}
+.header-seller .theme-toggle i {
+  font-size: 1.8rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #363949;
+}
+.header-seller .theme-toggle i.active {
+  background-color: #7380ec;
+  color: #fff;
+  border-radius: 0.56rem;
+}
+.header-seller .profile {
+  display: flex;
+  gap: 2.4rem;
+  text-align: right;
+  position: relative;
+  cursor: pointer;
+}
+.header-seller .profile-info-name {
+  display: inline-block;
+  max-width: 6rem;
+}
+.header-seller .profile-photo:hover .profile-photo-subnav {
+  display: flex;
+}
+.header-seller .profile-photo-divide {
+  width: 100%;
+  margin: 0.5rem auto;
+  background-color: #7d8da1;
+}
+.header-seller .profile-photo-subnav {
+  padding: 1.5rem 2rem;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 1.12rem;
+  right: 0;
+  flex-direction: column;
+  box-shadow: 0.9rem 1.2rem 2.5rem 0 rgba(45, 45, 45, 0.25);
+  display: none;
+  transition: all 0.3s linear;
+  z-index: 5;
+}
+.header-seller .profile-photo-subnav li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.56rem;
+}
+.header-seller .profile-photo-subnav li:hover {
+  background-color: rgba(132, 139, 200, 0.18);
+}
+.header-seller .profile-photo-subnav li a {
+  display: flex;
+  width: 16rem;
+  height: 3.2rem;
+  padding-block: 2rem;
+  align-items: center;
+  border-radius: 4px;
+  color: #363949;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+@media screen and (max-width: 1280px) {
+  .grid-wrapper {
+    grid-template-columns: 10.8rem auto 32rem;
+    gap: 1.5rem;
+  }
+  aside .top {
+    justify-content: center;
+  }
+  aside .logo-title {
+    color: #363949;
+    display: none;
+  }
+  aside .sidebar h3 {
+    display: none;
+  }
+  aside .sidebar-item:last-child {
+    position: relative;
+    margin-top: 3rem;
+  }
+  aside .sidebar .message-count {
+    font-size: 10px;
+    position: absolute;
+    right: 1.2rem;
+  }
+  main .card-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  main .order {
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .grid-wrapper {
+    grid-template-columns: 10.8rem 53rem auto;
+  }
+}
+@media screen and (max-width: 991px) {
+  .grid-wrapper {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  body.open-menu aside {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  aside {
+    margin-left: 0;
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    left: 0;
+    transform: translateX(-100%);
+    background-color: #fff;
+    box-shadow: 1.4rem 3rem 4rem rgba(132, 139, 200, 0.18);
+    padding-right: 2.52rem;
+    z-index: 3;
+    transition: all 0.3s ease-out;
+  }
+  aside .top {
+    justify-content: space-between;
+  }
+  aside .logo-title {
+    display: inline-block;
+  }
+  aside .sidebar h3 {
+    display: inline-block;
+  }
+  aside .sidebar .message-count {
+    position: relative;
+    right: 0;
+    font-size: 11px;
+  }
+  aside .sidebar-item:last-child {
+    position: absolute;
+    bottom: 5rem;
+  }
+  aside .sidebar-link {
+    height: 4.5rem;
+    width: 100%;
+  }
+  aside .close {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2.2rem;
+  }
+  main {
+    margin-bottom: 3rem;
+    padding: 0 1.4rem;
+  }
+  main#home {
+    margin-top: 11rem;
+  }
+  main .order.home {
+    padding: 4.2rem 0 2rem 0;
+    max-width: 93vw;
+    width: 100%;
+  }
+  main .order.home table {
+    width: 100%;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  main .order.home-title {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  main .order-show-all {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .right {
+    width: 94%;
+    margin: 0 auto 4rem;
+  }
+  .right .header-seller {
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: #fff;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 1.4rem 2.4rem rgba(132, 139, 200, 0.18);
+    border-radius: 0;
+  }
+  .right .header-seller .menu-bar-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 2rem;
+  }
+  .right .header-seller .menu-bar-btn:hover {
+    background-color: rgba(132, 139, 200, 0.18);
+  }
+  .right .recent-update {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  aside {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=homeSeller.css.map */

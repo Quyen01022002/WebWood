@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/images/favicon/android-chrome-192x192.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assetSeller/css/homeSeller.css" />
+    <link rel="stylesheet" href="/assetSeller/css/orderSeller.css" />
+    <link rel="stylesheet" href="/assetSeller/css/productSeller.css" />
+    <title>Orders | Order detail {{order._id}}</title>
+  </head>
+  <body>
+    <div id="scrollTop-btn"></div>
+    <div class="wrapper">
+      <div class="grid-wrapper">
+        <!-- Start aside -->
+        <aside>
+          <div class="top">
+            <div class="logo ms-3">
+              <a href="/admin" class="logo-img d-block">
+                <img src="/assets/images/header/header-logo.svg" alt="" />
+              </a>
+              <h1 class="logo-title lh-base ms-2">Mini</h1>
+            </div>
+            <div class="close" id="close-btn">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="sidebar">
+            <div class="sidebar-list">
+              <div class="sidebar-item">
+                <a href="/admin" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                  <h3>Home</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/orders" class="sidebar-link active">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                  </div>
+                  <h3>Orders</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/products" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-couch"></i>
+                  </div>
+                  <h3>Products</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/categories" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-list-ul"></i>
+                  </div>
+                  <h3>Categories</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/users" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-person"></i>
+                  </div>
+                  <h3>Users</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <button class="sidebar-link" onclick="logout()">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  </div>
+                  <h3>Logout</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <!-- End aside -->
+
+        <!-- Start main -->
+        <main>
+          <div class="header-seller">
+            <div id="menu-btn" class="menu-bar-btn">
+              <button class="top-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <div class="theme-toggle" id="theme-toggle">
+              <i class="fa-regular fa-lightbulb active"></i>
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="profile">
+              <div class="info">
+                <p class="d-flex align-items-center">
+                  Hey,
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
+                </p>
+                <small class="text-muted">{{userAdmin.role}}</small>
+              </div>
+              <div class="profile-photo">
+                <img src="{{userAdmin.avatar}}" alt="" />
+                <ul class="profile-photo-subnav">
+                  <li><a href="#">Profile settings</a></li>
+                  <hr class="profile-photo-divide" />
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="order-wrapper">
+            <div class="content mb-2">
+              <div class="row">
+                <div
+                  class="col-12 col-md-auto d-flex flex-grow-1 align-items-center justify-content-between"
+                >
+                  <ul class="nav-state">
+                    <li class="nav-state-item">
+                      <a href="orderSeller.html" class="nav-state-link"
+                        >Orders</a
+                      >
+                    </li>
+                    <li class="nav-state-item nav-state-item-current">{{order._id}}</li>
+                  </ul>
+                  <div class="d-flex align-items-center gap-3">
+                    <button class="btn-effect theme-btn-1 fz-15">Accept</button>
+                    <button class="btn-effect theme-btn-2 fz-15">Deny</button>
+                    <button
+                      class="btn-effect theme-btn-3 fz-15 d-flex align-items-center gap-3"
+                    >
+                      <i class="fa-solid fa-print"></i>
+                      <span>Print order</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <section>
+              <div class="row">
+                <div class="content">
+                  <div class="col-12 col-md-auto">
+                    <div class="card form-card">
+                      <div class="card-body">
+                        <div class="order-track">
+                          <div class="order-track-step finish">
+                            <div class="order-track-status">
+                              <span class="order-track-status-dot">
+                                <i
+                                  class="fa-solid fa-receipt order-track-icon"
+                                ></i>
+                              </span>
+                              <span class="order-track-status-line"></span>
+                            </div>
+                            <div class="order-track-text">
+                              <p class="order-track-text-stat">Order Placed</p>
+                              <span class="order-track-text-sub"
+                                >10-10-2023 22:20</span
+                              >
+                            </div>
+                          </div>
+                          <div class="order-track-step finish">
+                            <div class="order-track-status">
+                              <span class="order-track-status-dot">
+                                <i class="fa-solid fa-box order-track-icon"></i>
+                              </span>
+                              <span class="order-track-status-line"></span>
+                            </div>
+                            <div class="order-track-text">
+                              <p class="order-track-text-stat">Order Packing</p>
+                              <span class="order-track-text-sub"
+                                >10-10-2023 22:20</span
+                              >
+                            </div>
+                          </div>
+                          <div class="order-track-step finish">
+                            <div class="order-track-status">
+                              <span class="order-track-status-dot">
+                                <i
+                                  class="fa-solid fa-truck order-track-icon"
+                                ></i>
+                              </span>
+                              <span class="order-track-status-line"></span>
+                            </div>
+                            <div class="order-track-text">
+                              <p class="order-track-text-stat">
+                                Order Shipping
+                              </p>
+                              <span class="order-track-text-sub"
+                                >10-10-2023 22:20</span
+                              >
+                            </div>
+                          </div>
+                          <div class="order-track-step finish">
+                            <div class="order-track-status">
+                              <span class="order-track-status-dot">
+                                <i
+                                  class="fa-solid fa-house order-track-icon"
+                                ></i>
+                              </span>
+                              <span class="order-track-status-line"></span>
+                            </div>
+                            <div class="order-track-text">
+                              <p class="order-track-text-stat">
+                                Order Received
+                              </p>
+                              <span class="order-track-text-sub"
+                                >10-10-2023 22:20</span
+                              >
+                            </div>
+                          </div>
+                          <div class="order-track-step">
+                            <div class="order-track-status">
+                              <span class="order-track-status-dot">
+                                <i
+                                  class="fa-solid fa-star order-track-icon"
+                                ></i>
+                              </span>
+                              <span class="order-track-status-line"></span>
+                            </div>
+                            <div class="order-track-text">
+                              <p class="order-track-text-stat">
+                                Order Completed
+                              </p>
+                              <span class="order-track-text-sub"
+                                >10-10-2023 22:20</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-stretch">
+                <div class="col-12 col-md-8">
+                  <div class="card form-card p-4">
+                    <div class="card-body">
+                      <div class="order-item">
+                        <div class="order-item-wrap">
+                          <div class="order-item-top">
+                            <p class="order-state">Completed</p>
+                          </div>
+                          <div class="divide"></div>
+                          <a href="" class="order-link">
+                            <div>
+                                {{#each listProduct}}
+                              <div class="order-product-item">
+                                <div class="order-product-left">
+                                  <img
+                                    src="{{this.images}}"
+                                    alt=""
+                                    class="order-product-image"
+                                  />
+                                  <div class="order-product-info">
+                                    <span class="order-product-name"
+                                      >{{this.name}}</span
+                                    >
+                                    <div class="order-product-variation">
+                                      Variation: {{this.color}}
+                                    </div>
+                                    <div class="order-product-quantity">x{{this.quantity}}</div>
+                                  </div>
+                                </div>
+                                <div class="order-price">
+                                  <span>{{this.price}}$</span>
+                                </div>
+                              </div>
+                              {{/each}}
+                            </div>
+                          </a>
+                          <div class="divide"></div>
+                          <div class="d-flex flex-column">
+                            <div class="order-total">
+                              <p class="order-total-text">Subtotal:</p>
+                              <div class="order-subtotal-value">{{order.Total}}$</div>
+                            </div>
+                            <div class="order-total">
+                              <p class="order-total-text">Shipping:</p>
+                              <div class="">0$</div>
+                            </div>
+                            <div class="divide mt-3"></div>
+                            <div class="order-total">
+                              <p class="order-total-text fw-5 fz-16">Total:</p>
+                              <div class="order-total-value">{{this.Total}}$</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex mt-5 justify-content-between align-items-center"
+                      >
+                        <div class="d-flex flex-column gap-3">
+                          <p class="text-dark fw-5">Payment method</p>
+                          <div class="d-flex gap-3">
+                            <span class="text-dark fw-5">VNPAY</span>
+                            <div class="divide-vertical"></div>
+                            <span class="text-gray">Cash</span>
+                          </div>
+                        </div>
+                        {{#ifCond order.Status '!==' 'Completed'}}
+                        {{#ifCond order.Status '!==' 'OrderCancellation'}}
+                        <div class="d-flex flex-column gap-3">
+                          <p class="text-dark fw-5">Set Status</p>
+                          <div class="formfield-group search mt-0">
+                            <div class="formfield">
+                              <select name="" id="status_order">
+                                {{!-- <option value="Pending confirmation">Pending confirmation</option>
+                                <option value="Confirmation">Confirmation</option> --}}
+                              {{#ifCondString order.Status '===' 'Confirmation'}}
+                                <option value="Packaging">Packaging</option>
+                                {{/ifCondString}}
+                                {{#ifCondString order.Status '===' 'Packaging'}}
+                                <option value="OnDelivery">On delivery</option>
+                                {{/ifCondString}}
+                                {{#ifCondString order.Status '===' 'OnDelivery'}}
+                                <option value="Completed">Completed</option>
+                                {{/ifCondString}}
+                                {{#ifCond order.Status '!==' 'Completed'}}
+                                <option value="OrderCancellation">Order cancellation</option>
+                                {{/ifCond}}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        {{/ifCond}}
+                              {{/ifCond}}
+                              {{#ifCond order.Status '!==' 'Completed'}}
+                                   {{#ifCond order.Status '!==' 'OrderCancellation'}}
+                        <div class="d-flex flex-column gap-3">
+                          <p class="text-dark fw-5">Save status</p>
+                          <button class="btn-effect theme-btn-3" id="save_status" onclick="savestatus('{{order._id}}')">Save</button>
+                        </div>  
+                        {{else}}
+                        <div class="d-flex flex-column gap-3">
+                          <button class="btn-effect theme-btn-2">The order has been cancelled</button>
+                        </div>  
+                                 {{/ifCond}}
+                        {{else}}
+                        <div class="d-flex flex-column gap-3">
+                          <button class="btn-effect theme-btn-1" >Completed</button>
+                        </div>
+                        {{/ifCond}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="card form-card p-4 h-100">
+                    <div class="card-body">
+                      <div class="d-flex flex-column">
+                        <div class="order-info-wrap">
+                          <div class="order-info-group pb-4">
+                            <h3 class="order-text-title">Customer</h3>
+                            <a href="customerDetail.html" class="d-block">
+                              <div class="profile-photo">
+                                <img
+                                  src="{{user.avatar}}"
+                                  alt=""
+                                />
+                              </div>
+                            </a>
+                          </div>
+                          <div class="order-info-group">
+                            <span>Name:</span>
+                            <span class="text-end">{{user.name}}</span>
+                          </div>
+                          <div class="order-info-group">
+                            <span>ID:</span>
+                            <span class="text-end">{{user._id}}</span>
+                          </div>
+                        </div>
+                        <div class="divide"></div>
+                        <div class="order-info-wrap">
+                          <div class="order-info-group pb-4">
+                            <h3 class="order-text-title">Delivery Address</h3>
+                          </div>
+                          <div class="order-info-group">
+                            <span>Name:</span>
+                            <span class="text-end">{{order.name}}</span>
+                          </div>
+                          <div class="order-info-group">
+                            <span>Phone:</span>
+                            <span class="text-gray fz-14 text-end">{{order.phone}}</span>
+                          </div>
+                          <div class="order-info-group">
+                            <span>Email:</span>
+                            <span class="text-gray fz-14 text-end">{{order.email}}</span>
+                          </div>
+                          <div class="order-info-group align-items-start">
+                            <span>Address:</span>
+                            <span class="text-gray fz-14 text-end">{{order.Address}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="/assetSeller/js/homeSeller.js"></script>
+    <script src="/assetSeller/js/orderSeller.js"></script>
+    <script src="/tinymce/tinymce.min.js"></script>
+    <script src="/assetSeller/js/textEditor.js"></script>
+    <script src="/assetSeller/js/addProduct.js"></script>
+  </body>
+</html>

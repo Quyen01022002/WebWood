@@ -10,6 +10,8 @@ const User = new Schema({
     phone:String,
     avatar:String,
     role:String,
+    status: Boolean
 
   });
+  
   module.exports= mongoose.model('user',User);

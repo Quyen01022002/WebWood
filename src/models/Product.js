@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema({
     {
       name: String,
       code:String,
+      quantity_color: Number,
       images: [
         {url:String }
       ],

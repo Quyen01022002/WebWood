@@ -14,6 +14,7 @@ const port = 3000
 const app = express();
 //sử dụng body
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 //session
 app.use(session({
   secret: 'quyen', 

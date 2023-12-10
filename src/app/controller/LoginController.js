@@ -13,7 +13,7 @@ class Logincontroller{
                         id: user.id
                         
                       };
-                      console.log(user.id);
+                      console.log('đã vào tới đây '+user.id);
                     return res.redirect('/product');
                 } else {
                     console.log('Sai mật khẩu');

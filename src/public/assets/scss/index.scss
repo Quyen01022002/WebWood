@@ -1,0 +1,273 @@
+$primary-color: white;
+$black-text: #111;
+$gray-text: #757575;
+$gray-1: #f5f5f5;
+$gray-2: #e5e5e5;
+$new-text: #9e3500;
+$discount-text: #38b524;
+$default-font: "Be Vietnam Pro", sans-serif;
+
+@mixin object-fit($object-fit) {
+    width: 100%;
+    height: 100%;
+    object-fit: $object-fit;
+}
+@keyframes slidebar-appear {
+    0% {
+        margin-left: -21rem;
+        visibility: visible;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+.containers {
+    padding: 0 5rem 10rem 4rem;
+}
+
+.wall {
+    &-wrapper {
+        width: 100%;
+    }
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        padding-top: 1rem;
+        padding-bottom: 2.5rem;
+        transition: top .3s;
+        &.header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        &__title {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        &__nav {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            cursor: pointer;
+        }
+        &__filter {
+            display: flex;
+            align-items: center;
+        }
+        &__sort {
+            position: relative;
+        }
+        &__dropdown {
+            position: absolute;
+            display: none;
+        }
+    }
+    &-content {
+        display: grid;
+        $column: 4;
+        grid-template-columns: repeat($column, 1fr);
+    }
+
+    &-sort {
+        &__select {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+}
+.slidebar {
+    width: 21rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 6rem;
+    user-select: none;
+    transition: all .2s;
+    &-wrapper {
+        width: 100%;
+        padding: 0 3rem 1rem 1rem;
+
+        & > div:not(:last-child) {
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #ccc;
+        }
+        & > div:not(:first-child) {
+            padding-top: 1.5rem;
+        }
+    }
+    &__category {
+        &-item:not(:last-child) {
+            padding-bottom: 2rem;
+        }
+
+        li a {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+    &__price {
+        &-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding-bottom: 3rem;
+        }
+        &-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        &-item {
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            user-select: none;
+            &:hover {
+                color: $gray-text;
+            }
+            input {
+                margin-right: 6px;
+                display: inline-block;
+                display: none;
+                &:checked + .slidebar__price-label::after {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &:checked + .slidebar__price-label::before {
+                    background-color: $black-text;
+                }
+            }
+        }
+        &-label {
+            font-size: 1.5rem;
+            text-align: left;
+            font-weight: 400;
+            line-height: 1.5;
+            padding-left: 3rem;
+            display: inline-block;
+            word-break: break-word;
+            white-space: normal;
+            cursor: pointer;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background-color: transparent;
+                left: 0;
+                transition: all 0.25s ease;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                left: 0.35rem;
+                width: 1.2rem;
+                height: 0.5rem;
+                transform: rotate(-45deg);
+                border-left: 2.2px solid white;
+                border-bottom: 2.2px solid white;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.2s linear;
+            }
+        }
+    }
+    // Custom thanh trượt
+    &::-webkit-scrollbar {
+        width: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-moz-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 1rem;
+    }
+
+    &::-moz-scrollbar-corner {
+        background-color: transparent;
+    }
+}
+.product-grid {
+    padding-bottom: 10rem;
+    grid-column: 2 / 5;
+    &__list {
+        display: grid;
+        $column: 3;
+        grid-template-columns: repeat($column, 1fr);
+        gap: 2rem;
+    }
+    &__item {
+        padding-bottom: 3rem;
+        background-color: white;
+        cursor: pointer;
+    }
+    &__top {
+        height: 315px;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__content {
+        height: calc(100% - 315px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+        padding-top: 1rem;
+    }
+    &__name,
+    &__isNew,
+    &__price,
+    &__discount {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    &__name {
+        line-height: 1.6;
+    }
+    &__isNew {
+        color: $new-text;
+        line-height: 1.86;
+    }
+    &__desc,
+    &__color_count {
+        color: $gray-text;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    &__desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+    }
+    &__price {
+        margin-top: 2rem;
+        margin-bottom: 5px;
+    }
+    &__discount {
+        color: $discount-text;
+    }
+}
