@@ -41,8 +41,8 @@
     <title>Sign In | Minimalist</title>
   </head>
   <body>
-    <div class="container container-padding">
-      <!-- Start header -->
+    <!-- Start header -->
+    <div class="container container-padding home">
       <div class="header-pre-wrapper">
         <header class="header">
           <div class="wrapper header-wrapper">
@@ -71,9 +71,6 @@
                   </li>
                   <li class="header-nav__item">
                     <a class="header-nav__link" href="#">Product</a>
-                  </li>
-                  <li class="header-nav__item">
-                    <a class="header-nav__link" href="#">About us</a>
                   </li>
                 </ul>
                 <div class="header-search">
@@ -108,73 +105,45 @@
                   </a>
                 </div>
               </div>
+              
+              <!-- Chưa đăng nhập -->
               <div class="header-login">
-                <div
-                  class="header-group__btn d-flex justify-content-center align-items-center"
-                >
-                  <a
-                    href="login.html"
-                    title="login"
-                    class="header-group__link d-inline-block"
-                    style="width: 2.7rem; height: 2.7rem"
-                  >
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Join us</span>
+                </a>
+                <span class="header-login__divider">|</span>
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Sign in</span>
+                </a>
+              </div>
+
+              <!-- Đăng nhập rồi thì hiện cái này -->
+              <div class="header-profile" style="display: none;">
+                <div class="header-profile__content">
+                  <p class="header-profile__name">Hi, <span>Nghi</span></p>
+                  <div class="header-profile__img">
                     <img
-                      src="/assets/images/header/person.png"
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
                       alt=""
                       class="obj-cover"
-                      class="pre-avatar"
                     />
-                    <img src="" alt="Avatar" class="avatar-account" />
-                  </a>
+                  </div>
                 </div>
-              </div>
-              <div class="header-profile">
-                <div class="header-profile__wrapper">
-                  <div href="#" class="header-profile__content">
-                    <a href="" class="header-profile__link">
-                      <p class="header-profile__name">Phan Nghi</p>
-                      <img
-                        src="/assets/images/header/avatar/sulyyoon.jpg"
-                        alt=""
-                        class="header-profile__img"
-                        width="30px"
-                        height="30px"
-                        style="border-radius: 100%"
-                      />
-                    </a>
-                    <div class="header-profile__dropdown">
-                      <div class="header-dropdown__content">
-                        <nav class="header-dropdown__nav">
-                          <ul class="header-dropdown__list">
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Profile</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Order</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Favorite</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Settings</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Logout</a
-                              >
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                    </div>
+                <div class="header-profile__dropdown">
+                  <div class="header-dropdown__content">
+                    <nav class="header-dropdown__nav">
+                      <ul class="header-dropdown__list">
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Profile</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Order</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Logout</a>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -264,157 +233,155 @@
           </div>
         </header>
       </div>
-      <!-- End header -->
-      <div class="container content-wrapper">
-        <div class="login-container active">
-          <div class="login">
-            <div class="login-center">
-              <div class="login-top">
-                <div class="login-brand">
-                  <h1 class="login-brand__title text-center">
-                    YOUR ACCOUNT FOR EVERYTHING MILIST
-                  </h1>
-                </div>
+    </div>
+    <!-- End header -->
+    <div class="container content-wrapper">
+      <div class="login-container active">
+        <div class="login">
+          <div class="login-center">
+            <div class="login-top">
+              <div class="login-brand">
+                <h1 class="login-brand__title text-center">
+                  YOUR ACCOUNT FOR EVERYTHING MILIST
+                </h1>
               </div>
-              <div class="login-form">
-                <div class="login-social">
-                  <img
-                    src="/assets/images/login/icon-google.svg"
-                    alt=""
-                    class="login-social__icon"
-                  />
-                  <span class="login-social__text">Sign in with google</span>
-                </div>
-                <div class="login-divider">
-                  <span class="login-divider__text">or sign in with email</span>
-                </div>
-                <form action="#">
-                  <div class="login-form__group">
-                    <div class="login-form__item">
-                      <label for="name" class="login-form__label"
-                        >Account</label
-                      >
+            </div>
+            <div class="login-form">
+              <div class="login-social">
+                <img
+                  src="/assets/images/login/icon-google.svg"
+                  alt=""
+                  class="login-social__icon"
+                />
+                <span class="login-social__text">Sign in with google</span>
+              </div>
+              <div class="login-divider">
+                <span class="login-divider__text">or sign in with email</span>
+              </div>
+              <form action="#">
+                <div class="login-form__group">
+                  <div class="login-form__item">
+                    <label for="name" class="login-form__label">Account</label>
+                    <input
+                      type="email"
+                      class="login-form__input"
+                      id="name"
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="login-form__item">
+                    <label for="password" class="login-form__label"
+                      >Password</label
+                    >
+                    <div class="login-form__password">
                       <input
-                        type="email"
+                        type="password"
                         class="login-form__input"
-                        id="name"
+                        id="password"
                         autocomplete="off"
                         required
                       />
-                    </div>
-                    <div class="login-form__item">
-                      <label for="password" class="login-form__label"
-                        >Password</label
-                      >
-                      <div class="login-form__password">
-                        <input
-                          type="password"
-                          class="login-form__input"
-                          id="password"
-                          autocomplete="off"
-                          required
-                        />
-                        <img
-                          src="/assets/images/login/icon-eye-off.svg"
-                          class="icon-eye"
-                          onclick="showPassword()"
-                        />
-                      </div>
-                    </div>
-                    <div class="login-form__reset">
-                      <span><a href="#">Forgot password?</a></span>
+                      <img
+                        src="/assets/images/login/icon-eye-off.svg"
+                        class="icon-eye"
+                        onclick="showPassword()"
+                      />
                     </div>
                   </div>
-                  <button class="login-form__submit btn-base btn-solid">
-                    Login
-                  </button>
-                  <span class="login-form__register fz-15 text-gray">
-                    Not a member?
-                    <a href="javascript:void(0);" id="signup">Join us.</a>
-                  </span>
-                </form>
-              </div>
+                  <div class="login-form__reset">
+                    <span><a href="#">Forgot password?</a></span>
+                  </div>
+                </div>
+                <button class="login-form__submit btn-base btn-solid">
+                  Login
+                </button>
+                <span class="login-form__register fz-15 text-gray">
+                  Not a member?
+                  <a href="javascript:void(0);" id="signup">Join us.</a>
+                </span>
+              </form>
             </div>
           </div>
         </div>
-        <div class="signup-container">
-          <div class="signup">
-            <div class="wrapper signup-wrapper">
-              <div class="signup-left">
-                <div class="signup-top">
-                  <h1 class="signup-top__title text-center">
-                    BECOME A MILIST MEMBER
-                  </h1>
-                  <p class="signup-top__text fz-15 fw-4 text-gray">
-                    Create your Milist Member profile and get first access to
-                    the very best of Milist products, inspiration and community.
-                  </p>
-                </div>
-                <form action="#" class="signup-form">
-                  <div class="signup-form__group">
-                    <label for="name" class="signup-form__label">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="signup-form__input"
-                    />
-                  </div>
-                  <div class="signup-form__group">
-                    <label for="phone" class="signup-form__label"
-                      >Phone number</label
-                    >
-                    <input
-                      type="text"
-                      id="phone"
-                      inputmode="numeric"
-                      oninput="onlyInputNumber(this)"
-                      name="phone"
-                      class="signup-form__input"
-                    />
-                  </div>
-                  <div class="signup-form__group">
-                    <label for="email" class="signup-form__label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="signup-form__input"
-                    />
-                  </div>
-                  <div class="signup-form__group">
-                    <label for="password" class="signup-form__label"
-                      >Password</label
-                    >
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      class="signup-form__input"
-                    />
-                  </div>
-                  <div class="signup-form__group">
-                    <label for="password-again" class="signup-form__label"
-                      >Password again</label
-                    >
-                    <input
-                      type="password"
-                      id="password-again"
-                      name="password-again"
-                      class="signup-form__input"
-                    />
-                  </div>
-                  <button class="signup-form__submit btn-base btn-solid">
-                    Register
-                  </button>
-                  <div class="signup-form__register">
-                    <span href="#">
-                      Already have an account?
-                      <a href="javascript:void(0)" id="signin">Sign in</a>
-                    </span>
-                  </div>
-                </form>
+      </div>
+      <div class="signup-container">
+        <div class="signup">
+          <div class="wrapper signup-wrapper">
+            <div class="signup-left">
+              <div class="signup-top">
+                <h1 class="signup-top__title text-center">
+                  BECOME A MILIST MEMBER
+                </h1>
+                <p class="signup-top__text fz-15 fw-4 text-gray">
+                  Create your Milist Member profile and get first access to the
+                  very best of Milist products, inspiration and community.
+                </p>
               </div>
+              <form action="#" class="signup-form">
+                <div class="signup-form__group">
+                  <label for="name" class="signup-form__label">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="signup-form__input"
+                  />
+                </div>
+                <div class="signup-form__group">
+                  <label for="phone" class="signup-form__label"
+                    >Phone number</label
+                  >
+                  <input
+                    type="text"
+                    id="phone"
+                    inputmode="numeric"
+                    oninput="onlyInputNumber(this)"
+                    name="phone"
+                    class="signup-form__input"
+                  />
+                </div>
+                <div class="signup-form__group">
+                  <label for="email" class="signup-form__label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="signup-form__input"
+                  />
+                </div>
+                <div class="signup-form__group">
+                  <label for="password" class="signup-form__label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="signup-form__input"
+                  />
+                </div>
+                <div class="signup-form__group">
+                  <label for="password-again" class="signup-form__label"
+                    >Password again</label
+                  >
+                  <input
+                    type="password"
+                    id="password-again"
+                    name="password-again"
+                    class="signup-form__input"
+                  />
+                </div>
+                <button class="signup-form__submit btn-base btn-solid">
+                  Register
+                </button>
+                <div class="signup-form__register">
+                  <span href="#">
+                    Already have an account?
+                    <a href="javascript:void(0)" id="signin">Sign in</a>
+                  </span>
+                </div>
+              </form>
             </div>
           </div>
         </div>
