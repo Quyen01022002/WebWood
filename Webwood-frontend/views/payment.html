@@ -36,6 +36,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assets/css/payment.css" />
@@ -43,9 +48,9 @@
   </head>
   <body>
     <!-- Start header -->
-    <div class="container container-padding">
+    <div class="container container-padding home">
       <div class="header-pre-wrapper">
-        <header class="header is--fixed">
+        <header class="header">
           <div class="wrapper header-wrapper">
             <div class="header-logo">
               <img
@@ -54,104 +59,179 @@
                 class="header-logo__img"
               />
             </div>
-            <nav class="header-nav">
-              <ul class="header-nav__list">
-                <li class="header-nav__item">
-                  <a class="header-nav__link" href="#">Home</a>
-                </li>
-                <li class="header-nav__item">
-                  <a class="header-nav__link" href="#">Product</a>
-                </li>
-                <li class="header-nav__item">
-                  <a class="header-nav__link" href="#">About us</a>
-                </li>
-                <li class="header-nav__item">
-                  <a class="header-nav__link" href="#">Recruitment</a>
-                </li>
-              </ul>
-              <div class="header-search">
-                <button class="header-search__btn">
-                  <img
-                    src="/assets/images/header/search.svg"
-                    alt="search-icon"
-                    class="header-search__img"
-                  />
+            <div class="header-right">
+              <div
+                id="menu-btn"
+                class="menu-bar-btn"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#header-sidebar"
+              >
+                <button class="top-button">
+                  <i class="fa-solid fa-bars"></i>
                 </button>
-                <input
-                  type="text"
-                  placeholder="Search"
-                  class="header-search__input"
-                  name="search"
-                  id="search"
-                />
               </div>
-            </nav>
-            <div class="header-group">
-              <div class="header-group__btn">
-                <a href="#" title="favorites" class="header-group__link">
-                  <img src="/assets/images/header/favorite.svg" alt="" />
+              <nav class="header-nav">
+                <ul class="header-nav__list">
+                  <li class="header-nav__item">
+                    <a class="header-nav__link" href="#">Home</a>
+                  </li>
+                  <li class="header-nav__item">
+                    <a class="header-nav__link" href="#">Product</a>
+                  </li>
+                </ul>
+                <div class="header-search">
+                  <button class="header-search__btn">
+                    <img
+                      src="/assets/images/header/search.svg"
+                      alt="search-icon"
+                      class="header-search__img"
+                    />
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="header-search__input"
+                    name="search"
+                    id="search"
+                  />
+                </div>
+              </nav>
+              <div class="header-group">
+                <div class="header-group__btn favorites">
+                  <a href="#" title="favorites" class="header-group__link">
+                    <img src="/assets/images/header/favorite.svg" alt="" />
+                  </a>
+                </div>
+                <div class="header-group__btn">
+                  <a href="#" title="Bag item: " class="header-group__link">
+                    <div class="header-group__bag">
+                      <img src="/assets/images/header/bag.svg" alt="" />
+                      <span>9+</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Chưa đăng nhập -->
+              <div class="header-login">
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Join us</span>
+                </a>
+                <span class="header-login__divider">|</span>
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Sign in</span>
                 </a>
               </div>
-              <div class="header-group__btn">
-                <a href="#" title="Bag item: " class="header-group__link">
-                  <div class="header-group__bag">
-                    <img src="/assets/images/header/bag.svg" alt="" />
-                    <span>9+</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="header-login">
-              <a href="#" class="header-login__link">
-                <span class="header-login__text">Join us</span>
-              </a>
-              <span class="header-login__divider">|</span>
-              <a href="#" class="header-login__link">
-                <span class="header-login__text">Sign in</span>
-              </a>
-            </div>
-            <div class="header-profile">
-              <div class="header-profile__wrapper">
-                <div href="#" class="header-profile__content">
-                  <a href="" class="header-profile__link">
-                    <p class="header-profile__name">Phan Nghi</p>
+
+              <!-- Đăng nhập rồi thì hiện cái này -->
+              <div class="header-profile" style="display: none;">
+                <div class="header-profile__content">
+                  <p class="header-profile__name">Hi, <span>Nghi</span></p>
+                  <div class="header-profile__img">
                     <img
                       src="/assets/images/header/avatar/sulyyoon.jpg"
                       alt=""
-                      class="header-profile__img"
-                      width="30px"
-                      height="30px"
-                      style="border-radius: 100%"
+                      class="obj-cover"
                     />
-                  </a>
-                  <div class="header-profile__dropdown">
-                    <div class="header-dropdown__content">
-                      <nav class="header-dropdown__nav">
-                        <ul class="header-dropdown__list">
-                          <li class="header-dropdown__item">
-                            <a href="#" class="header-dropdown__link"
-                              >Profile</a
-                            >
-                          </li>
-                          <li class="header-dropdown__item">
-                            <a href="#" class="header-dropdown__link">Order</a>
-                          </li>
-                          <li class="header-dropdown__item">
-                            <a href="#" class="header-dropdown__link"
-                              >Favorite</a
-                            >
-                          </li>
-                          <li class="header-dropdown__item">
-                            <a href="#" class="header-dropdown__link"
-                              >Settings</a
-                            >
-                          </li>
-                          <li class="header-dropdown__item">
-                            <a href="#" class="header-dropdown__link">Logout</a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
+                  </div>
+                </div>
+                <div class="header-profile__dropdown">
+                  <div class="header-dropdown__content">
+                    <nav class="header-dropdown__nav">
+                      <ul class="header-dropdown__list">
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Profile</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Order</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Logout</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="offcanvas offcanvas-end offcanvas-lg"
+              id="header-sidebar"
+            >
+              <div class="offcanvas-header">
+                <div class="d-flex gap-4 align-items-center">
+                  <img
+                    src="/assets/images/header/avatar/sulyyoon.jpg"
+                    alt=""
+                    class="header-profile__img"
+                    width="40px"
+                    height="40px"
+                    style="border-radius: 100%; object-fit: cover"
+                  />
+                  <h3 class="offcanvas-title">Hi, Phan</h3>
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="sidebar-list">
+                  <div class="sidebar-item">
+                    <a href="index.html" class="sidebar-link">Product</a>
+                  </div>
+                  <div class="sidebar-item">
+                    <a href="home.html" class="sidebar-link">Home</a>
+                  </div>
+                </div>
+                <button
+                  class="btn-base btn-solid mt-4"
+                  type="button"
+                  style="
+                    width: 10rem;
+                    padding: 0.5rem;
+                    height: 3.5rem;
+                    border-radius: 10rem;
+                  "
+                >
+                  <a href="login.html" class="text-white fz-16">Sign in</a>
+                </button>
+                <div class="sidebar-group">
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/favorite.svg" alt="" />
+                      </div>
+                      <p>Favorites</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="bag.html" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/bag.svg" alt="" />
+                      </div>
+                      <p>Bags</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img
+                          src="/assets/images/payment/delivery-home.svg"
+                          alt=""
+                        />
+                      </div>
+                      <p>Orders</p>
+                    </a>
+                  </div>
+                  <div class="sidebar-group-item">
+                    <a href="#" class="sidebar-group-link">
+                      <div class="sidebar-group-icon">
+                        <img src="/assets/images/header/help.png" alt="" />
+                      </div>
+                      <p>Help</p>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -753,5 +833,6 @@
       </div>
     </div>
     <script src="/assets/js/payment.js"></script>
+    <script src="/common/user/header.js"></script>
   </body>
 </html>

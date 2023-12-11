@@ -366,7 +366,6 @@ body {
 .header-logo {
   width: 6rem;
   height: 6rem;
-  margin-right: 21rem;
 }
 .header-logo__img {
   width: 100%;
@@ -476,11 +475,66 @@ body {
   opacity: 0.7;
 }
 .header-profile {
-  display: none;
+  cursor: pointer;
 }
-.avatar-account {
-  display: none;
+.header-profile__content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
+.header-profile__name {
+  font-weight: 500;
+}
+.header-profile__img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.header-profile__img img {
+  border-radius: 50%;
+}
+.header-profile__dropdown{
+  width: 15.4rem;
+  height: 14.3rem;
+  padding: 1.5rem 1.5rem;
+  top: 100%;
+  right: 5rem;
+  border-radius: 7px;
+  background: white;
+  box-shadow: 0.5rem 1rem 1.5rem 0px rgba(17, 17, 17, 0.135);
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+}
+.header-profile__dropdown::before{
+  content: "";
+  position: absolute;
+  height: 3rem;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  transform: translateY(-100%);
+}
+.header-dropdown__item {
+  width: 16rem;
+}
+.header-dropdown__item:not(:last-child){
+  padding-bottom: 1rem;
+}
+.header-dropdown__item a{
+  color: var(--gray-text);
+  transition: all .2s ease;
+}
+.header-dropdown__item a:hover{
+  color: var(--black-text);
+}
+.header-profile:hover > .header-profile__dropdown {
+  display: block;
+}
+
 .offcanvas-header,
 .offcanvas-body {
   padding: 2rem 2rem !important;
@@ -508,9 +562,6 @@ body {
   font-size: 2.2rem;
   font-weight: 500;
 }
-/* .sidebar-item .sidebar-link:hover{
-  text-decoration: underline;
-} */
 /* End header */
 @media screen and (max-width: 575px) {
   .header-search__input {
@@ -537,6 +588,9 @@ body {
   .header-wrapper {
     padding-left: 1rem;
   }
+  .header-profile__name{
+    display: none;
+  }
   .header-nav__list {
     display: none;
   }
@@ -547,13 +601,11 @@ body {
     right: 1rem;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 575px) {
   .header-login {
-    position: absolute;
-    right: 0;
+    display: none;
   }
 }
-
 @media screen and (max-width: 1199px) {
   .header-logo {
     margin-right: 3rem;
@@ -578,8 +630,5 @@ body {
   }
   .header-wrapper {
     padding: 0;
-  }
-  .header-login {
-    position: relative;
   }
 }
