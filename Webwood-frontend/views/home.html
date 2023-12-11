@@ -54,7 +54,7 @@
     <!-- Start header -->
     <div class="container container-padding home">
       <div class="header-pre-wrapper">
-        <header class="header is--fixed">
+        <header class="header">
           <div class="wrapper header-wrapper">
             <div class="header-logo">
               <img
@@ -81,9 +81,6 @@
                   </li>
                   <li class="header-nav__item">
                     <a class="header-nav__link" href="#">Product</a>
-                  </li>
-                  <li class="header-nav__item">
-                    <a class="header-nav__link" href="#">About us</a>
                   </li>
                 </ul>
                 <div class="header-search">
@@ -118,73 +115,45 @@
                   </a>
                 </div>
               </div>
+              
+              <!-- Chưa đăng nhập -->
               <div class="header-login">
-                <div
-                  class="header-group__btn d-flex justify-content-center align-items-center"
-                >
-                  <a
-                    href="login.html"
-                    title="login"
-                    class="header-group__link d-inline-block"
-                    style="width: 2.7rem; height: 2.7rem"
-                  >
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Join us</span>
+                </a>
+                <span class="header-login__divider">|</span>
+                <a href="#" class="header-login__link">
+                  <span class="header-login__text">Sign in</span>
+                </a>
+              </div>
+
+              <!-- Đăng nhập rồi thì hiện cái này -->
+              <div class="header-profile" style="display: none;">
+                <div class="header-profile__content">
+                  <p class="header-profile__name">Hi, <span>Nghi</span></p>
+                  <div class="header-profile__img">
                     <img
-                      src="/assets/images/header/person.png"
+                      src="/assets/images/header/avatar/sulyyoon.jpg"
                       alt=""
                       class="obj-cover"
-                      class="pre-avatar"
                     />
-                    <img src="" alt="Avatar" class="avatar-account" />
-                  </a>
+                  </div>
                 </div>
-              </div>
-              <div class="header-profile">
-                <div class="header-profile__wrapper">
-                  <div href="#" class="header-profile__content">
-                    <a href="" class="header-profile__link">
-                      <p class="header-profile__name">Phan Nghi</p>
-                      <img
-                        src="/assets/images/header/avatar/sulyyoon.jpg"
-                        alt=""
-                        class="header-profile__img"
-                        width="30px"
-                        height="30px"
-                        style="border-radius: 100%"
-                      />
-                    </a>
-                    <div class="header-profile__dropdown">
-                      <div class="header-dropdown__content">
-                        <nav class="header-dropdown__nav">
-                          <ul class="header-dropdown__list">
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Profile</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Order</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Favorite</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Settings</a
-                              >
-                            </li>
-                            <li class="header-dropdown__item">
-                              <a href="#" class="header-dropdown__link"
-                                >Logout</a
-                              >
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                    </div>
+                <div class="header-profile__dropdown">
+                  <div class="header-dropdown__content">
+                    <nav class="header-dropdown__nav">
+                      <ul class="header-dropdown__list">
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Profile</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Order</a>
+                        </li>
+                        <li class="header-dropdown__item">
+                          <a href="#" class="header-dropdown__link">Logout</a>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -223,7 +192,12 @@
                 <button
                   class="btn-base btn-solid mt-4"
                   type="button"
-                  style="width: 10rem; padding: 0.5rem;height: 3.5rem; border-radius: 10rem"
+                  style="
+                    width: 10rem;
+                    padding: 0.5rem;
+                    height: 3.5rem;
+                    border-radius: 10rem;
+                  "
                 >
                   <a href="login.html" class="text-white fz-16">Sign in</a>
                 </button>
@@ -231,7 +205,7 @@
                   <div class="sidebar-group-item">
                     <a href="#" class="sidebar-group-link">
                       <div class="sidebar-group-icon">
-                        <img src="/assets/images/header/favorite.svg" alt="">
+                        <img src="/assets/images/header/favorite.svg" alt="" />
                       </div>
                       <p>Favorites</p>
                     </a>
@@ -239,7 +213,7 @@
                   <div class="sidebar-group-item">
                     <a href="bag.html" class="sidebar-group-link">
                       <div class="sidebar-group-icon">
-                        <img src="/assets/images/header/bag.svg" alt="">
+                        <img src="/assets/images/header/bag.svg" alt="" />
                       </div>
                       <p>Bags</p>
                     </a>
@@ -247,7 +221,10 @@
                   <div class="sidebar-group-item">
                     <a href="#" class="sidebar-group-link">
                       <div class="sidebar-group-icon">
-                        <img src="/assets/images/payment/delivery-home.svg" alt="">
+                        <img
+                          src="/assets/images/payment/delivery-home.svg"
+                          alt=""
+                        />
                       </div>
                       <p>Orders</p>
                     </a>
@@ -255,7 +232,7 @@
                   <div class="sidebar-group-item">
                     <a href="#" class="sidebar-group-link">
                       <div class="sidebar-group-icon">
-                        <img src="/assets/images/header/help.png" alt="">
+                        <img src="/assets/images/header/help.png" alt="" />
                       </div>
                       <p>Help</p>
                     </a>
