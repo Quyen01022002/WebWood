@@ -1,0 +1,145 @@
+<style>
+
+
+    .otp-container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 200px;
+      margin-left: 550px;
+      align-items: center;
+      justify-content: center;
+      max-width: 400px; /* Added max-width for better responsiveness */
+      width: 100%; /* Make sure it takes the full width of its container */
+      text-align: center;
+    }
+
+    .otp-input-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .otp-input {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .otp-input:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    .otp-submit {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(224, 18, 18, 0.2);
+      display: none;
+      z-index: 999;
+    }
+  </style>
+<div id="toastContainer" class="toast-container"></div>
+  <div class="otp-container">
+    <h2>OTP Verification</h2>
+    <p>Enter the 6-digit code sent to your email or phone</p>
+
+    <form id="otp-form" action="#" method="post">
+      <div class="otp-input-container">
+        <input type="text" class="otp-input" maxlength="1" required>
+        <input type="text" class="otp-input" maxlength="1" required>
+        <input type="text" class="otp-input" maxlength="1" required>
+        <input type="text" class="otp-input" maxlength="1" required>
+        <input type="text" class="otp-input" maxlength="1" required>
+        <input type="text" class="otp-input" maxlength="1" required>
+      </div>
+
+      <button type="submit" class="otp-submit">Verify OTP</button>
+    </form>
+  </div>
+  <script>
+    // Get all OTP input elements
+    const otpInputs = document.querySelectorAll('.otp-input');
+
+    // Add event listener to each input
+    otpInputs.forEach((input, index) => {
+      input.addEventListener('input', (event) => {
+        // Move to the next input when a digit is entered
+        if (event.inputType === 'insertText' && /^\d$/.test(event.data)) {
+          if (index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+        }
+
+        // Move to the previous input when backspace is pressed
+        if (event.inputType === 'deleteContentBackward' && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+    });
+     document.getElementById('otp-form').addEventListener('submit', function (event) {
+        // Prevent the form from actually submitting
+        event.preventDefault();
+
+        // Get the values of OTP inputs
+        const otpValues = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value);
+
+        // Join the values to form the OTP
+        const otp = otpValues.join('');
+
+       signUp(otp);
+      });
+  async function signUp(otp) {
+
+  try {
+    let response = await fetch('/login/otp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        otp: otp,
+      }),
+    });
+
+    let result = await response.json();
+
+    if (result.error) {
+      showToast(result.error);
+    } else {
+       window.location.href = '/product';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+  function showToast(message) {
+    var toastContainer = document.getElementById("toastContainer");
+
+    toastContainer.innerText = message;
+    toastContainer.style.display = "block";
+
+    setTimeout(function() {
+      toastContainer.style.display = "none";
+    }, 3000);
+  }
+  </script>

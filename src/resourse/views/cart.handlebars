@@ -1,0 +1,144 @@
+    <main class="cart pb-5">
+      <div id="layout-cart">
+        <div class="cart-wrapper">
+          <div class="container px-4 w-xl-85">
+            <div class="row">
+              <div class="col-12 col-md-12 text-end">
+                <div class="cart-header">
+                  <h1>YOUR CART</h1>
+                </div>
+              </div>
+              <div
+                class="col-lg-8 col-md-12 col-sm-12 col-12 cart-detail_content"
+              >
+                <div class="cart-detail_main">
+                  <div class="cart-list-pageform">
+                    <div class="cart-row">
+                    {{#each carts}}
+                      <div class="cart-line-item line-item">
+                    
+                        <div class="cart-titleLeft">
+                          <div class="cart-item-img">
+                            <a href="#" title="" class="cart-item-link">
+                              <img
+                                src="{{this.images}}"
+                                alt=""
+                              />
+                            </a>
+                          </div>
+                          <div class="cart-info">
+                            <h3 class="cart-info-title fw-5">
+                              <a href="#">{{this.name}}</a>
+                            </h3>
+                            <p class="cart-info-color text-gray fz-15">
+                              Color:
+                              <span class="text-dark fw-5 fz-16">{{this.color}}</span>
+                            </p>
+                            <div class="product-quantity">
+                              <div class="product-quantity__container">
+                                <div
+                                  class="product-quantity__title fz-16 fw-5 text-gray"
+                                >
+                                  Quantity:
+                                </div>
+                                <div class="product-quantity__group">
+                                  <button
+                                    class="product-quantity__button btn-minus"
+                                  >
+                                    <span
+                                      class="fz-20 fw-5"
+                                      style="color: white"
+                                      >-</span
+                                    >
+                                  </button>
+                                  <input
+                                    class="product-quantity__input fz-16 fw-5"
+                                    type="text"
+                                    id="SoLuong"
+                                    data-product-id={{this.productid}}
+                                    data-product-color={{this.color}}
+                                    inputmode="numeric"
+          
+                                    value={{this.quantity}}
+                                  />
+                                  <button
+                                    class="product-quantity__button btn-plus"
+                                  >
+                                    <span
+                                      class="fz-20 fw-5"
+                                      style="color: white"
+                                      >+</span
+                                    >
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="cart-info-button">
+                              <button
+                                name="move-to-favorite-btn"
+                                class="cart-info-favorite"
+                              >
+                                <img
+                                  src="/assets/images/header/favorite.svg"
+                                  alt=""
+                                />
+                              </button>
+                              <button
+                                name="remove-item-btn"
+                                class="cart-info-remove"
+                              >
+                                <img
+                                  src="/assets/images/cart/trash.svg"
+                                  alt=""
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-total fs-3">
+                          Price:
+                          <span class="cart-total-price fw-5">{{this.price}}</span>
+                        </div>
+                      </div>
+                      {{/each}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12 col-12 cart-slidebar">
+                <div class="summary-wrapper">
+                  <div class="summary-order">
+                    <h4 class="summary-title">Summary</h4>
+                    <div
+                      class="summary-total fw-5 d-flex justify-content-between"
+                    >
+                      <p class="fs-3 fw-4">Total</p>
+                      <h2 class="summary-total-value" id="total">1.500</h2>
+                    </div>
+                    <hr class="summary-divider" />
+                    <div class="summary-action">
+                      <div class="summary-btn">
+                        <a href="/payment" id="" class="btn-base btn-solid fs-3"
+                          >Checkout</a
+                        >
+                      </div>
+                      <p class="text-end summary-backhome">
+                        <a href="/views/index-backup.html" class="pe-2"
+                          >Continue Shopping</a
+                        >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/js/bag.js">
+    
+   
+</script>

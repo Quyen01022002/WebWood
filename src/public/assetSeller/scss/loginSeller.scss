@@ -1,0 +1,176 @@
+.signup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1356px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 90px 35px 90px 100px;
+    border-radius: 33px;
+    box-shadow: 0px 20px 70px 0px rgba(69, 69, 69, 0.22);
+    &__left {
+        width: 30%;
+        margin-right: 40px;
+    }
+    &__top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    &__top-logo {
+        max-width: 138px;
+    }
+    &__logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &__text {
+        color: #8e8d8d;
+        text-align: center;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: 400;
+    }
+    .form {
+        &-group{
+            & input[type="text"]:focus,
+            & input[type="text"]:valid,
+            & input[type="password"]:focus,
+            & input[type="password"]:valid {
+                border-color: black; 
+            }
+        }
+        &-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            margin-top: 30px;
+            color: #3e3e3e;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 97.023%;
+        }
+        &-input {
+            display: block;
+            color: #000;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 97.023%;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1.5px solid #ccc;
+            &:hover{
+                border: 1.5px solid #000;
+            }
+
+        }
+        &-password {
+            position: relative;
+            .icon-eye {
+                position: absolute;
+                width: 16.63px;
+                height: 14px;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+        }
+        &-remember {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            color: #3e3e3e;
+            font-size: 16px;
+            font-weight: 600;
+            &__left {
+                display: flex;
+                align-items: center;
+                & span {
+                    display: inline-block;
+                    padding-left: 14px;
+                }
+            }
+            &__right {
+                & a {
+                    color: #000;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .btn-logo {
+        width: 22px;
+        height: auto;
+    }
+    &__right {
+        width: 70%;
+        .right-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__footer {
+        margin-top: 20px;
+        text-align: center;
+        .footer__text {
+            color: #000;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .footer__link {
+            margin-left: 20px;
+            color: #000;
+            font-size: 15px;
+            font-weight: 600;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.btn-submit{
+    display: flex;
+    justify-content: center;
+    & button{
+        border-radius: 1rem;
+        font-size: 1.8rem;
+    }
+}
+@media screen and (min-width: 767.98px) and (max-width: 1024px) {
+    .signup{
+        padding: 90px 35px 90px 70px;
+        max-width: calc(100% - 20px);
+        &__left,
+        &__right{
+            width: 50%;
+        }
+    
+    }
+}
+@media screen and (max-width: 767.98px) {
+    .signup{
+        max-width: calc(100% - 20px);
+        flex-direction: column-reverse;
+        gap: 40px;
+        justify-content: center;
+        align-items: center ;
+        padding: 40px;
+        &__left,
+        &__right{
+            width: 100%;
+        }
+        &__left{
+            margin-left: 40px;
+        }
+      
+    }
+}

@@ -1,0 +1,188 @@
+
+<form action="/cart/{{product.slug}}/{{colors.name}}" method="post">
+<div class="product-pre-wrapper">
+        <div class="wrapper">
+          <div class="product-container">
+            <div class="container p-3">
+              <div class="row">
+                <div class="product-left col-lg-8 col-xxl-9">
+                  <div class="row d-flex justify-content-around">
+                    <div class="product-content col-lg-5">
+                      <h3 class="product-headline fz-15 fw-6">
+                        Products /
+                        <span class="product-category">Chair</span>
+                      </h3>
+                      <div class="product-name fw-5">{{product.name}}</div>
+                      <div class="product-desc fz-15 fw-4">
+                        {{product.description}}
+                      </div>
+                      <div class="product-size">
+                        <h3 class="product-size__title fz-18 fw-5">
+                          Product specifications:
+                        </h3>
+                        <ul class="product-size__list fz-15 fw-4">
+                          <li class="product-size__item">
+                            Height:
+                            <span class="product-size__measure">130</span>cm
+                          </li>
+                          <li class="product-size__item">
+                            Weight:
+                            <span class="product-size__measure">40</span>cm
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="product-image__list">
+                        {{#each colors.images}}
+                        <div class="product-image__item">
+                          <img
+                            src="{{this.url}}"
+                            alt=""
+                            class="obj-cover"
+                          />
+                        </div>
+                       {{/each}}
+                      </div>
+                    </div>
+                    <div class="product-main-image col-lg-7">
+                      <img
+                        src="{{getFirstColorImages colors.images}}"
+                        alt=""
+                        class="obj-cover obj-po-center"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="product-right col-lg-4 col-xxl-3">
+                  <div class="product-right__wrapper">
+                    <span class="fz-16 fw-5 text-color-accent mb-4"
+                      >Best Seller</span
+                    >
+                    <div class="product-price fz-18 fw-5">{{product.SellPrice}}đ</div>
+                    <div class="product-rating">
+                      <a href="#" class="product-rating__link">
+                        <div class="product-rating__wrapper">
+                          <h3 class="product-rating__count mb-0">Reviews (1220)</h3>
+                          <div class="product-rating__average-stars">
+                            <div class="product-rating__average">4.9</div>
+                            <div class="product-rating__stars">
+                              <div class="product-rating__star">
+                                <img
+                                  src="/images/productDetail/star.svg"
+                                  class="obj-cover"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="product-rating__star">
+                                <img
+                                  src="/images/productDetail/star.svg"
+                                  class="obj-cover"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="product-rating__star">
+                                <img
+                                  src="/images/productDetail/star.svg"
+                                  class="obj-cover"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="product-rating__star">
+                                <img
+                                  src="/images/productDetail/star.svg"
+                                  class="obj-cover"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="product-rating__star">
+                                <img
+                                  src="/images/productDetail/star.svg"
+                                  class="obj-cover"
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="product-quantity">
+                      <div class="product-quantity__container">
+                        <div
+                          class="product-quantity__title fz-16 fw-5 text-gray"
+                        >
+                          Quantity:
+                        </div>
+                        <div class="product-quantity__group">
+                          <button type="button" class="product-quantity__button" onclick="decreaseQuantity()">
+                            <span class="fz-20 fw-5" style="color: white"
+                              >-</span
+                            >
+                          </button>
+                          <input
+                          id="productQuantityInput"
+                            class="product-quantity__input fz-16 fw-5"
+                            type="text"
+                            name="soluong"
+                            inputmode="numeric"
+                            min="1"
+                            value="1"
+                          />
+                          <button type="button" class="product-quantity__button" onclick="increaseQuantity()">
+                            <span class="fz-20 fw-5" style="color: white"
+                              >+</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-color">
+                      <div class="product-color__title fz-16 fw-5 text-gray pb-3">Color:</div>
+                      <div class="product-color__group">
+                        {{#each listcolor}}
+                        <div class="product-color_item">
+                          <a href="{{this.name}}">
+                          <img
+                            src="{{getFirstColorImages this.images}}"
+                            alt=""
+                            class="product-color__img obj-cover"
+                          />
+                          </a>
+                        </div>
+                       {{/each}}
+                      </div>
+                    </div>
+                    <div class="product-action">
+                      <button type="submit" class="btn-base btn-solid mb-3">Add to cart</button>
+                      <button class="btn-base btn-white">Favotite</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product-slide"></div>
+        </div>
+</div>
+</form>
+      <script src="/js/productDetail.js">
+     
+      </script>
+      <script>
+  function decreaseQuantity() {
+    const inputElement = document.getElementById("productQuantityInput");
+    let currentValue = parseInt(inputElement.value, 10);
+
+    if (currentValue > 1) {
+      currentValue--;
+      inputElement.value = currentValue;
+    }
+  }
+
+  function increaseQuantity() {
+    const inputElement = document.getElementById("productQuantityInput");
+    let currentValue = parseInt(inputElement.value, 10);
+
+    currentValue++;
+    inputElement.value = currentValue;
+  }
+</script>

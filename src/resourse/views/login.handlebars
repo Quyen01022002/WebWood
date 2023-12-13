@@ -1,0 +1,266 @@
+<style>
+  .password-match {
+    border: 2px solid green; /* Đặt màu xanh cho viền ô input khi mật khẩu khớp */
+  }
+
+  .password-not-match {
+    border: 2px solid red; /* Đặt màu đỏ cho viền ô input khi mật khẩu không khớp */
+  }
+  
+
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(224, 18, 18, 0.2);
+      display: none;
+      z-index: 999;
+    }
+</style>
+<div id="toastContainer" class="toast-container"></div>
+<div class="container content-wrapper">
+        <div class="login-container active">
+          <div class="login">
+            <div class="login-center">
+              <div class="login-top">
+                <div class="login-brand">
+                  <h1 class="login-brand__title text-center">
+                    YOUR ACCOUNT FOR EVERYTHING MILIST
+                  </h1>
+                </div>
+              </div>
+              <div class="login-form">
+                <div class="login-social">
+                  <img
+                    src="/images/login/icon-google.svg"
+                    alt=""
+                    class="login-social__icon"
+                  />
+                  <span class="login-social__text">Sign in with google</span>
+                </div>
+                <div class="login-divider">
+                  <span class="login-divider__text">or sign in with email</span>
+                </div>
+                <form action="" method="post">
+                  <div class="login-form__group">
+                    <div class="login-form__item">
+                      <label for="name" class="login-form__label"
+                        >Account</label
+                      >
+                      <input
+                        type="email"
+                        class="login-form__input"
+                        
+                        name="username"
+                        autocomplete="off"
+                        required
+                      />
+                    </div>
+                    <div class="login-form__item">
+                      <label for="password" class="login-form__label"
+                        >Password</label
+                      >
+                      <div class="login-form__password">
+                        <input
+                          type="password"
+                          class="login-form__input"
+                          name="password"
+                          autocomplete="off"
+                          required
+                        />
+                        <img
+                          src="/images/login/icon-eye-off.svg"
+                          class="icon-eye"
+                          onclick="showPassword()"
+                        />
+                      </div>
+                    </div>
+                    <div class="login-form__reset">
+                      <span><a href="#">Forgot password?</a></span>
+                    </div>
+                  </div>
+                  <button type="submit" class="login-form__submit btn-base btn-solid">
+                    Login
+                  </button>
+                  <span class="login-form__register fz-15 text-gray">
+                    Not a member?
+                    <a href="javascript:void(0);" id="signup">Join us.</a>
+                  </span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="signup-container">
+          <div class="signup">
+            <div class="wrapper signup-wrapper">
+              <div class="signup-left">
+                <div class="signup-top">
+                  <h1 class="signup-top__title text-center">
+                    BECOME A MILIST MEMBER
+                  </h1>
+                  <p class="signup-top__text fz-15 fw-4 text-gray">
+                    Create your Milist Member profile and get first access to
+                    the very best of Milist products, inspiration and community.
+                  </p>
+                </div>
+                <form method="post" class="signup-form">
+                  <div class="signup-form__group">
+                    <label for="name" class="signup-form__label">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="signup-form__input"
+                      required
+                    />
+                  </div>
+                  <div class="signup-form__group">
+                    <label for="phone" class="signup-form__label"
+                      >Phone number</label
+                    >
+                    <input
+                      type="text"
+                      id="phone"
+                      inputmode="numeric"
+                      oninput="onlyInputNumber(this)"
+                      name="phone"
+                      required
+                      class="signup-form__input"
+                    />
+                  </div>
+                  <div class="signup-form__group">
+                    <label for="email" type="email" class="signup-form__label">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="signup-form__input"
+                      required
+                    />
+                  </div>
+                  <div class="signup-form__group">
+                    <label for="password" class="signup-form__label"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="signup-form__input"
+                       onchange="passwordOnChange()"
+                    />
+                  </div>
+                  <div class="signup-form__group">
+                    <label for="password-again" class="signup-form__label"
+                      >Password again</label
+                    >
+                    <input
+                      type="password"
+                      id="password-again"
+                      name="password-again"
+                      class="signup-form__input"
+                       onchange="passwordOnChange()"
+                    />
+                  </div>
+                  <div id="passwordMessage" class="signup-form__password-message"></div>
+                  <button type="button" onclick="signUp()" class="signup-form__submit btn-base btn-solid">
+                    Register
+                  </button>
+                  <div class="signup-form__register">
+                    <span href="#">
+                      Already have an account?
+                      <a href="javascript:void(0)" id="signin">Sign in</a>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <script src="/js/login.js"></script>
+     <script>
+function onlyInputNumber(input) {
+  // Hàm chỉ cho phép nhập số vào ô input số điện thoại
+  input.value = input.value.replace(/\D/g, '');
+}
+
+
+</script>
+<script>
+
+  function passwordOnChange() {
+    var password1 = document.getElementById("password");
+    var password2 = document.getElementById("password-again");
+    var passwordMessage = document.getElementById("passwordMessage");
+
+    if (password1.value === password2.value) {
+      passwordMessage.innerText = "Mật khẩu khớp!";
+       showToast("This is a toast notification", 3000); 
+      // Thêm lớp khi mật khẩu khớp
+      password1.classList.add("password-match");
+      password2.classList.add("password-match");
+      // Loại bỏ lớp khi mật khẩu không khớp
+      password1.classList.remove("password-not-match");
+      password2.classList.remove("password-not-match");
+    } else {
+      passwordMessage.innerText = "Mật khẩu không giống! Vui lòng nhập lại.";
+      // Thêm lớp khi mật khẩu không khớp
+      password1.classList.add("password-not-match");
+      password2.classList.add("password-not-match");
+      // Loại bỏ lớp khi mật khẩu khớp
+      password1.classList.remove("password-match");
+      password2.classList.remove("password-match");
+    }
+  }
+  async function signUp() {
+    console.log("Quyến")
+  try {
+    let response = await fetch('/login/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: document.getElementById('email').value,
+         password: document.getElementById('password').value,
+          phone: document.getElementById('phone').value,
+          name: document.getElementById('name').value,
+      }),
+    });
+
+    let result = await response.json();
+
+    if (result.error) {
+      showToast(result.error);
+    } else {
+       window.location.href = '/login/otp';
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+  function showToast(message) {
+    var toastContainer = document.getElementById("toastContainer");
+
+    toastContainer.innerText = message;
+    toastContainer.style.display = "block";
+
+    setTimeout(function() {
+      toastContainer.style.display = "none";
+    }, 3000);
+  }
+
+
+ 
+</script>
+</script>
+
+

@@ -1,0 +1,182 @@
+<div class="wall">
+        <div class="wrapper wall-wrapper">
+          <!-- Start wall-header -->
+          <div class="wall-header">
+            <h1 class="wall-header__title">
+              List products
+              <span class="wall-header__item_count"> ({{slsp}}) </span>
+            </h1>
+            <nav class="wall-header__nav">
+              <div class="wall-header__filter">
+                <span>Hide Filter</span>
+                <img
+                  src="/images/wall/wall-header/filter.png"
+                  alt=""
+                  class="wall-header__filter_img w-24 h-24"
+                />
+              </div>
+              <div class="wall-header__sort">
+                <div class="wall-sort__select">
+                  <span class="wall-sort__text dropdown__btn-text"
+                    >Sort By</span
+                  >
+                  <img
+                    src="/images/wall/wall-header/sortby.svg"
+                    alt=""
+                    class="dropdown-icon"
+                  />
+                  <span class="dropdown-btn__selected-text"></span>
+                </div>
+                <div class="wall-header__dropdown">
+                  <div class="wall-dropdown__list" role="menu">
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="feartured"
+                    >
+                      Fearture
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="newest"
+                    >
+                      Newest
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="priceDesc"
+                    >
+                      Price: High-Low
+                    </button>
+                    <button
+                      class="wall-dropdown__option"
+                      type="button"
+                      value="priceAsc"
+                    >
+                      Price: Low-High
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <!-- End wall-header -->
+
+          <!-- Start wall content -->
+          <div class="wall-content">
+            <div class="slidebar">
+              <div class="slidebar-wrapper">
+                <div class="slidebar__category">
+                  <ul class="slidebar__category-list">
+                    {{#each category}}
+                    <li class="slidebar__category-item">
+                      <a href="/category/{{this.slug}}" class="slidebar__category-link">{{this.catename}}</a>
+                    </li>
+                    {{/each}}
+                    
+                  </ul>
+                </div>
+                <div class="slidebar__price">
+                  <div class="slidebar__price-select">
+                    <h2 class="slidebar__price-title">Shop by Price</h2>
+                    <img
+                      src="/images/wall/wall-header/sortby.svg"
+                      alt=""
+                      class="dropdown-icon"
+                    />
+                  </div>
+                  <ul class="slidebar__price-list">
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="under-1m"
+                      />
+                      <label for="under-1m" class="slidebar__price-label"
+                        >Under 1.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="1m-2m"
+                      />
+                      <label for="1m-2m" class="slidebar__price-label"
+                        >1.000.000đ - 2.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="2m-5m"
+                      />
+                      <label for="2m-5m" class="slidebar__price-label"
+                        >2.000.000đ - 5.000.000đ</label
+                      >
+                    </div>
+                    <div class="slidebar__price-item">
+                      <input
+                        type="checkbox"
+                        class="checkbox-bg-black"
+                        name=""
+                        id="over-5m"
+                      />
+                      <label for="over-5m" class="slidebar__price-label"
+                        >Over 5.000.000đ</label
+                      >
+                    </div>
+                  </ul>
+                </div>
+                <div class="slidebar__color"></div>
+              </div>
+            </div>
+            <div class="product-grid">
+              <div class="product-grid__wrapper">
+                <div class="product-grid__list">
+                  {{#each product}} 
+                  <a href="/product/{{this.slug}}/{{getFirstColorName this.colors}}">
+                  <div class="product-grid__item">
+                    <div class="product-grid__top">
+                      <img
+                        src="{{this.imgage}}"
+                        alt=""
+                        class="product-grid__img"
+                      />
+                    </div>
+                    <div class="product-grid__content">
+                      <div class="product-grid__info">
+                        <div class="product-grid__isNew">New product</div>
+                        <div class="product-grid__name">{{this.name}}</div>
+                        <div class="product-grid__desc">
+                          White fur, black steel legs
+                        </div>
+                        <div class="product-grid__color_count">{{this.colors.length}} Colour</div>
+                      </div>
+                      <div class="product-grid__price_wrapper">
+                        <div class="product-grid__price">
+                          Price:
+                          <span>{{this.SellPrice}} đ</span>
+                        </div>
+                        <div class="product-grid__discount"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  {{/each}}
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End wall content -->
+        </div>
+      </div>
+    </div>
+   

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/assets/images/favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/images/favicon/android-chrome-192x192.png"
+    />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/microtip/microtip.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assetSeller/css/homeSeller.css" />
+    <link rel="stylesheet" href="/assetSeller/css/orderSeller.css" />
+    <link rel="stylesheet" href="/assetSeller/css/productSeller.css" />
+    <title>Products | Add Product</title>
+  </head>
+  <body>
+    <div id="scrollTop-btn"></div>
+    <div class="wrapper">
+      <div class="grid-wrapper">
+        <!-- Start aside -->
+        <aside>
+          <div class="top">
+            <div class="logo ms-3">
+              <a href="/admin" class="logo-img d-block">
+                <img src="/assets/images/header/header-logo.svg" alt="" />
+              </a>
+              <h1 class="logo-title lh-base ms-2">Mini</h1>
+            </div>
+            <div class="close" id="close-btn">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="sidebar">
+            <div class="sidebar-list">
+              <div class="sidebar-item">
+                <a href="/admin" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                  <h3>Home</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/orders" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                  </div>
+                  <h3>Orders</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/products" class="sidebar-link active">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-couch"></i>
+                  </div>
+                  <h3>Products</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/categories" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-list-ul"></i>
+                  </div>
+                  <h3>Categories</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <a href="/admin/users" class="sidebar-link">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-person"></i>
+                  </div>
+                  <h3>Users</h3>
+                </a>
+              </div>
+              <div class="sidebar-item">
+                <button class="sidebar-link" onclick="logout()">
+                  <div class="sidebar-link-icon">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  </div>
+                  <h3>Logout</h3>
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <!-- End aside -->
+
+        <!-- Start main -->
+        <main>
+          <div class="header-seller">
+            <div id="menu-btn" class="menu-bar-btn">
+              <button class="top-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+            </div>
+            <div class="theme-toggle" id="theme-toggle">
+              <i class="fa-regular fa-lightbulb active"></i>
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="profile">
+              <div class="info">
+                <p class="d-flex align-items-center">
+                  Hey,
+                  <b class="text-truncate profile-info-name ms-2">{{userAdmin.name}}</b>
+                </p>
+                <small class="text-muted">{{userAdmin.role}}</small>
+              </div>
+              <div class="profile-photo">
+                <img src="{{userAdmin.avatar}}" alt="" />
+                <ul class="profile-photo-subnav">
+                  <li><a href="#">Profile settings</a></li>
+                  <hr class="profile-photo-divide" />
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="order-wrapper">
+            <div class="content mb-2">
+              <div class="row">
+                <div
+                  class="col-12 col-md-auto d-flex flex-grow-1 align-items-center"
+                >
+                  <ul class="nav-state">
+                    <li class="nav-state-item">
+                      <a href="/admin/products" class="nav-state-link"
+                        >Products</a
+                      >
+                    </li>
+                    <li class="nav-state-item nav-state-item-current">
+                      Add Product
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <section>
+              <div class="row">
+                <div class="col-12">
+                  {{!-- <form action="" method="post"> --}}
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="p-4">
+                          <div class="content pt-0">
+                            <div class="form-wrapper">
+                              <h3 class="form-wrap-title">Description</h3>
+                              <div class="card form-group form-card">
+                                <div class="card-body">
+                                  <div
+                                    class="row align-items-center form-group-input"
+                                  >
+                                    <div class="col-md-3">
+                                      <p class="form-input-title">
+                                        Product name:
+                                        <span class="text-danger">*</span>
+                                      </p>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="textField"
+                                        maxlength="255"
+                                        id="name_product"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <p class="form-input-title">
+                                        Description:
+                                        <span class="text-danger">*</span>
+                                      </p>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                      <textarea
+                                        name="textarea"
+                                        id="product-desc"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="row align-items-center form-group-input" style="padding-top: 20px;"
+                                  >
+                                    <div class="col-md-3">
+                                      <p class="form-input-title">
+                                        Brand:
+                                        <span class="text-danger">*</span>
+                                      </p>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="textField"
+                                        maxlength="255"
+                                        id="brand_seller"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-wrapper">
+                              <h3 class="form-wrap-title">
+                                Product prices
+                                <span class="text-gray fz-15 fw-4"
+                                  >(Enter info price)</span
+                                >
+                              </h3>
+                              <div class="card form-group form-card">
+                                <div class="card-body">
+                                  <div
+                                    class="row gap-5"
+                                    style="margin-top: 3rem"
+                                  >
+                                    <div class="col-md-3">
+                                      <div class="d-flex flex-column gap-4">
+                                        <p class="form-input-title">Buy Price:</p>
+                                        <input
+                                          type="text"
+                                          class="textField"
+                                          value=""
+                                          id="buy_price"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="d-flex flex-column gap-4">
+                                        <p class="form-input-title">Sell Price:</p>
+                                        <input
+                                          type="text"
+                                          class="textField"
+                                          value=""
+                                          id="sell_price"
+                                        />
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-wrapper" style="display: none;">
+                              <h3 class="form-wrap-title">Main Image</h3>
+                              <div class="card form-group form-card pt-2">
+                                <div class="card-body">
+                                  <p class="form-input-title">
+                                    Enter URL or upload from Device:
+                                    <span class="text-danger">*</span>
+                                  </p>
+                                  <div class="row align-items-center mt-3">
+                                    <div class="col-sm-8">
+                                      <input
+                                        type="text"
+                                        class="textField field-main-image"
+                                        style="max-width: 100%"
+                                        placeholder="https://www.ikea.com/image..."
+                                      />
+                                    </div>
+                                    <div class="col-sm-2">
+                                      <div class="avatar-upload btn btn-light">
+                                        <input
+                                          type="file"
+                                          class="avatar-upload-input"
+                                          name="image"
+                                          id="image"
+                                          accept="image/*"
+                                        />
+                                        <label
+                                          for="image"
+                                          class="avatar-upload-label"
+                                        >
+                                          <i
+                                            class="fa-solid fa-upload avatar-upload-icon"
+                                          ></i>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-wrapper">
+                              <h3 class="form-wrap-title">Category</h3>
+                              <div class="card form-group form-card pt-2">
+                                <div class="card-body">
+                                  <p class="form-input-title">
+                                    Choose a category:
+                                    <span class="text-danger">*</span>
+                                  </p>
+                                  <div class="row align-items-center mt-3">
+                                    <div class="col-sm-8">
+                                      <select name="" id="cate_choose" class="textField">
+                                        {{#each categories}}
+                                        <option value="{{this.catename}}">{{this.catename}}</option>
+                                        {{/each}}
+                                      </select>
+                                    </div>
+                                    <div class="col-sm-2" style="display: none;">
+                                      <button
+                                      type="button"
+                                        class="btn-effect btn-add-effect"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalAddCategory"
+                                      >
+                                        <span>Add</span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-wrapper">
+                              <h3 class="form-wrap-title">
+                                Color, quantity, image & price
+                              </h3>
+                              <div
+                                class="card form-group form-card"
+                                style="padding: 0 1rem 2rem 1rem"
+                              >
+                                <div class="card-body table-responsive">
+                                  <table id="table" class="shadow-none mt-0">
+                                    <thead
+                                      class="table-bg-none table-th-border"
+                                    >
+                                      <tr>
+                                        <th>Product name</th>
+                                        <th>Infomation</th>
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="bodyyy">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <form action="#">
+                                  <div
+                                    class="d-inline-flex align-items-center justify-content-center mt-3"
+                                  >
+                                    <button
+                                    type="button"
+                                      class="btn-effect btn-add-effect btn-add-variant"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#modalAddVariant"
+                                      id="btn-add-variant"
+                                    >
+                                      <span class="text-gray"
+                                        >New variants</span
+                                      >
+                                    </button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="form-wrapper">
+                              <h3 class="form-wrap-title">Product Status</h3>
+                              <div class="card form-group form-card pt-0">
+                                <div class="card-body">
+                                  <div class="formfield">
+                                    <div class="fieldset">
+                                      <label
+                                        for=""
+                                        class="form-label form-input-title required"
+                                        >Choose product status:</label
+                                      >
+                                      <div class="fieldset-radio-wrap">
+                                        <div class="fieldset-radio">
+                                          <input
+                                            class="form-input"
+                                            type="radio"
+                                            value=""
+                                            name="product-status"
+                                            id="available"
+                                            checked
+                                          />
+                                          <label
+                                            for="available"
+                                            class="form-label-radio"
+                                            >Sell</label
+                                          >
+                                        </div>
+                                        <div class="fieldset-radio">
+                                          <input
+                                            class="form-input"
+                                            type="radio"
+                                            value=""
+                                            name="product-status"
+                                            id="disable"
+                                          />
+                                          <label
+                                            for="disable"
+                                            class="form-label-radio"
+                                            >Unsell</label
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-add-footer">
+                              <div class="form-wrapper">
+                                  <div
+                                    class="d-flex align-items-center justify-content-end gap-3"
+                                  >
+                                    <button
+                                      class="stardust-button fz-16"
+                                      style="width: 11rem; border-radius: 1rem"
+                                    >
+                                      Save draft
+                                    </button>
+                                    <button
+                                    
+                                      class="stardust-button btn-solid fz-16"
+                                      style="width: 11rem; border-radius: 1rem"
+                                      onclick="saveProductFunction()"
+                                    >
+                                      Save Product
+                                    </button>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {{!-- </form> --}}
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- Modal add variant -->
+    <div class="modal fade" id="modalAddVariant">
+      <div class="modal-dialog" style="max-width: 60rem">
+        <div class="modal-container" style="max-width: 100%">
+          <!-- Modal Header -->
+          <form>
+          <div class="modal-content p-0 border-0">
+            <div class="modal-header">
+              <h2 class="modal-title">New variant</h2>
+              <div class="btn-close p-3" data-bs-dismiss="modal"></div>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body mt-4 add_color_modal">
+              <form action="#">
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Color picker:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <input type="color" name="" class="colorField" id="color_code" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Color name:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="text"
+                        name=""
+                        class="textField"
+                        maxlength="255"
+                        id="color_name"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Quantity:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="number"
+                        name=""
+                        class="textField"
+                        maxlength="255"
+                        id="quantity"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Image 1:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-input-wrap">
+                        <div
+                          class="form-icon-left position-absolute btn-upload-img"
+                        >
+                          <input
+                            type="file"
+                            class="avatar-upload-input"
+                            id="image1"
+                            onchange="displayImagePath(this,1)"
+                          />
+                          <label class="avatar-upload-label" for="image1">
+                            <img
+                              src="/assetSeller/images/icon-upload.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-input-right"
+                          style="width: 100%"
+                          placeholder="imag1.jpg"
+                          id="image1FileName" readonly required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Image 2:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-input-wrap">
+                        <div
+                          class="form-icon-left position-absolute btn-upload-img"
+                        >
+                          <input
+                            type="file"
+                            class="avatar-upload-input"
+                            id="image2"
+                            onchange="displayImagePath(this,2)"
+                          />
+                          <label class="avatar-upload-label" for="image2">
+                            <img
+                              src="/assetSeller/images/icon-upload.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-input-right"
+                          style="width: 100%"
+                          placeholder="imag2.jpg"
+                          id="image2FileName" readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Image 3:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-input-wrap">
+                        <div
+                          class="form-icon-left position-absolute btn-upload-img"
+                        >
+                          <input
+                            type="file"
+                            class="avatar-upload-input"
+                            id="image3"
+                            onchange="displayImagePath(this,3)"
+                          />
+                          <label class="avatar-upload-label" for="image3">
+                            <img
+                              src="/assetSeller/images/icon-upload.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-input-right"
+                          style="width: 100%"
+                          placeholder="imag3.jpg"
+                          id="image3FileName" readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <form action="#">
+                <div class="d-flex gap-3 modal-footer-btn">
+                  <button
+                    type="button"
+                    class="btn-base btn-white btn-cancel"
+                    style="height: auto"
+                    data-bs-dismiss="modal"
+                  >
+                    <span class="fz-16">Cancel</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-base btn-solid"
+                    style="height: auto"
+                    id="add_color"
+                    {{!-- onclick="addColor()" --}}
+                  >
+                    <span class="fz-16">Save</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal add Category -->
+    <div class="modal fade" id="modalAddCategory">
+      <div class="modal-dialog" style="max-width: 60rem">
+        <div class="modal-container" style="max-width: 100%">
+          <!-- Modal Header -->
+          <div class="modal-content p-0 border-0">
+            <div class="modal-header">
+              <h2 class="modal-title">New Category</h2>
+              <div class="btn-close p-3" data-bs-dismiss="modal"></div>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body mt-4">
+              <form action="#">
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Name:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="text"
+                        name=""
+                        class="textField"
+                        maxlength="255"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Image:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-input-wrap">
+                        <div
+                          class="form-icon-left position-absolute btn-upload-img"
+                        >
+                          <input
+                            type="file"
+                            class="avatar-upload-input"
+                            id="image3"
+                          />
+                          <label class="avatar-upload-label" for="image3">
+                            <img
+                              src="/assetSeller/images/icon-upload.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-input-right"
+                          placeholder="image.jpg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="row align-items-center form-group-input gap-4">
+                    <div class="col-md-3">
+                      <p class="form-input-title fw-5">Preview:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-avatar-preview">
+                        <img
+                          src="/assets/images/wall/product-grid/arai chairs.png"
+                          alt=""
+                          class="obj-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <form action="#">
+                <div class="d-flex gap-3 modal-footer-btn">
+                  <button
+                    type="button"
+                    class="btn-base btn-white btn-cancel"
+                    style="height: auto"
+                    data-bs-dismiss="modal"
+                  >
+                    <span class="fz-16">Cancel</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-base btn-solid"
+                    style="height: auto"
+                  >
+                    <span class="fz-16">Save</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/assetSeller/js/homeSeller.js"></script>
+    <script src="/tinymce/tinymce.min.js"></script>
+    <script src="/assetSeller/js/textEditor.js"></script>
+    <script src="/assetSeller/js/addProduct.js"></script>
+    
+<script>
+ // const product_name = document.getElementById('name_product').value;
+  
+
+
+
+</script>
+  </body>
+</html>
