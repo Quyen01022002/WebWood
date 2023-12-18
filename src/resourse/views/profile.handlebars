@@ -799,6 +799,7 @@
                             Back
                           </a>
                           <div>
+                            <input type="hidden" id="orderIdInput" value="initial_value">
                             <h3 class="order-detail-id">
                               ORDER ID. <span id="order-id"></span>
                             </h3>
@@ -871,7 +872,7 @@
                                   <div class="order-action">
                                     <div class="order-action-group">
                                       <div class="order-action-item">
-                                        <button onclick=updateStatusOnServer("Confirmated") id="xacnhan"
+                                        <button type="button" onclick="updateStatusOnServer()" id="xacnhan"
                                           class="stardust-button stardust-button--primary"
                                         >
                                       
@@ -1073,6 +1074,7 @@
         show = !show;
       };
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/js/profile.js">
     </script>
     <script src="/common/user/header.js"></script>
@@ -1099,5 +1101,32 @@
 
         reader.readAsDataURL(input.files[0]);
       } 
+    }
+    function updateStatusOnServer() {
+        console.log("Quyến");
+
+    
+
+        // Retrieve the order ID from the hidden input
+        var orderId = document.getElementById("orderIdInput").value;
+
+        // Ensure that jQuery is properly loaded before using $.ajax
+        if (typeof jQuery !== 'undefined') {
+            jQuery.ajax({
+                url: '/profile/update', 
+                method: 'POST',
+                  data: JSON.stringify({ orderId: orderId }),
+                success: function(data) {
+                    console.log('Status updated successfully');
+                    // You can handle the success response here
+                },
+                error: function(error) {
+                    console.error('Error updating status:', error);
+                    // You can handle the error response here
+                }
+            });
+        } else {
+            console.error('jQuery is not loaded. Make sure it is included before using $.ajax.');
+        }
     }
   </script>

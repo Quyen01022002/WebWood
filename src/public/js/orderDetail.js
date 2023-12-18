@@ -41,8 +41,8 @@ function DetailOrder(productId) {
     console.log(detail._id);
     
     // Using vanilla JavaScript to set text content
-    document.getElementById('diachi').innerText = detail.Address    ;
-    
+    document.getElementById('diachi').innerText = detail.Address;
+    document.getElementById('orderIdInput').value = detail._id;
     // Using vanilla JavaScript to set text content
     document.getElementById('order-status').innerText = detail.Status;
     document.getElementById('emailnguoinhan').innerText = detail.email;
@@ -118,20 +118,6 @@ function DetailOrder(productId) {
     
     
    // Function to update status on the server
-function updateStatusOnServer() {
-    var orderId = getOrderId(); 
-    $.ajax({
-        url: '/profile/update', 
-        method: 'POST',
-        data: { orderId: orderId, status: newStatus },
-        success: function(data) {
-            console.log('Status updated successfully');
-           
-        },
-        error: function(error) {
-            console.error('Error updating status:', error);
-        }
-    });
-}
+
 
 }

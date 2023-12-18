@@ -106,12 +106,33 @@ class Cartcontroller {
               }
             }
     
-            return res.render('cart', { carts: productList });
+            return res.redirect("/cart");
           }
         }
         else
         {
-          res.status(200).json({ success: false, message: 'Số lượng sản phẩm không đủ' });
+          
+          Product.findOne({slug:req.params.slug}).then((product)=>{
+            let listcolors;
+            product.colors.forEach(item => {
+              if(item.name===req.params.colors)
+              {
+                listcolors=item
+                
+              }
+            });
+            const data = {
+              product: mongooseToObject(product),
+              colors: mongooseToObject(listcolors),
+              listcolor:mutipleMongooseToObject(product.colors),
+              errorMessage: 'Số lượng sản phẩm không đủ'
+            };
+            console.log(data)
+            return res.render('detail',data)
+          }
+           
+            )
+
         }
        
   

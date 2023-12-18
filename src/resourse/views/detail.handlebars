@@ -1,31 +1,18 @@
-<style>
-  .password-match {
-    border: 2px solid green; /* Đặt màu xanh cho viền ô input khi mật khẩu khớp */
-  }
-
-  .password-not-match {
-    border: 2px solid red; /* Đặt màu đỏ cho viền ô input khi mật khẩu không khớp */
-  }
-  
-
-    .toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(224, 18, 18, 0.2);
-      display: none;
-      z-index: 999;
-    }
-</style>
-<div id="toastContainer"></div>
-<div id="cartItems"></div>
 
 <form action="/cart/{{product.slug}}/{{colors.name}}" method="post">
 <div class="product-pre-wrapper">
+  
+{{#if successMessage}}
+  <div id="toastContainer" class="toast-container">
+    {{successMessage}}
+  </div>
+{{/if}}
+
+{{#if errorMessage}}
+  <div class="toast-error">
+    {{errorMessage}}
+  </div>
+{{/if}}
         <div class="wrapper">
           <div class="product-container">
             <div class="container p-3">
@@ -209,24 +196,6 @@
 
     currentValue++;
     inputElement.value = currentValue;
-  }
-</script>
-<script>
-  function handleResponse(response) {
-    const toastContainer = document.getElementById("toastContainer");
-    const cartItemsContainer = document.getElementById("cartItems");
-    console.log(response)
-
-    if (response.success) {
-      // Hiển thị toast thành công
-      showToast(toastContainer, response.message, "toast-success");
-
-      // Hiển thị danh sách sản phẩm
-      displayCartItems(cartItemsContainer, response.data);
-    } else {
-      // Hiển thị toast lỗi
-      showToast(toastContainer, response.message, "toast-error");
-    }
   }
 </script>
 

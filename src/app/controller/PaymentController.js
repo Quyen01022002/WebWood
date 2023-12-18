@@ -132,8 +132,9 @@ class PaymentController {
   async ConfirmOrder(req,res){
     try {
       const user = req.session.user;
-      
-      const orderid = req.params.orderid;
+   
+      const orderid = req.body.orderid;
+  console.log("Dô")
           if (orderid)
           {
             const updateOrder = await Order.findOneAndUpdate(
@@ -141,6 +142,7 @@ class PaymentController {
               {Status: 'Confirmation',
               confirmDate: new Date()},
               {new: true});
+           
           }
  
      } catch (error) {
