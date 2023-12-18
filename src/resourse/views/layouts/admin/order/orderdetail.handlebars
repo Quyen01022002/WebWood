@@ -171,10 +171,11 @@
                     <li class="nav-state-item nav-state-item-current">{{order._id}}</li>
                   </ul>
                   <div class="d-flex align-items-center gap-3">
-                    <button class="btn-effect theme-btn-1 fz-15">Accept</button>
-                    <button class="btn-effect theme-btn-2 fz-15">Deny</button>
+                    <button class="btn-effect theme-btn-1 fz-15" style="display: none;">Accept</button>
+                    <button class="btn-effect theme-btn-2 fz-15" style="display: none;">Deny</button>
                     <button
                       class="btn-effect theme-btn-3 fz-15 d-flex align-items-center gap-3"
+                      onclick="createAndExportWordFile1()"
                     >
                       <i class="fa-solid fa-print"></i>
                       <span>Print order</span>
@@ -190,7 +191,7 @@
                     <div class="card form-card">
                       <div class="card-body">
                         <div class="order-track">
-                          <div class="order-track-step finish">
+                          <div class="order-track-step" id="step1">
                             <div class="order-track-status">
                               <span class="order-track-status-dot">
                                 <i
@@ -200,13 +201,20 @@
                               <span class="order-track-status-line"></span>
                             </div>
                             <div class="order-track-text">
-                              <p class="order-track-text-stat">Order Placed</p>
+                              <p class="order-track-text-stat">Confirmation order</p>
+                             <div style="height: 100px;">
+                              {{#if order.confirmDate}}
                               <span class="order-track-text-sub"
-                                >10-10-2023 22:20</span
+                                >{{order.confirmDate}}</span
                               >
+                              {{else}}
+                                <span class="order-track-text-sub"
+                                >undefined</span
+                              >
+                              {{/if}}</div>
                             </div>
                           </div>
-                          <div class="order-track-step finish">
+                          <div class="order-track-step" id="step2">
                             <div class="order-track-status">
                               <span class="order-track-status-dot">
                                 <i class="fa-solid fa-box order-track-icon"></i>
@@ -215,12 +223,20 @@
                             </div>
                             <div class="order-track-text">
                               <p class="order-track-text-stat">Order Packing</p>
+                              <div style="height: 100px;">
+                              {{#if order.packingDate}}
                               <span class="order-track-text-sub"
-                                >10-10-2023 22:20</span
+                                >{{order.packingDate}}</span
                               >
+                              {{else}}
+                                <span class="order-track-text-sub"
+                                >undefined</span
+                              >
+                              {{/if}}
+                              </div>
                             </div>
                           </div>
-                          <div class="order-track-step finish">
+                          <div class="order-track-step" id="step3">
                             <div class="order-track-status">
                               <span class="order-track-status-dot">
                                 <i
@@ -233,12 +249,19 @@
                               <p class="order-track-text-stat">
                                 Order Shipping
                               </p>
+                              <div style="height: 100px;">
+                              {{#if order.shippingDate}}
                               <span class="order-track-text-sub"
-                                >10-10-2023 22:20</span
+                                >{{order.shippingDate}}</span
                               >
+                              {{else}}
+                                <span class="order-track-text-sub"
+                                >undefined</span
+                              >
+                              {{/if}}</div>
                             </div>
                           </div>
-                          <div class="order-track-step finish">
+                          <div class="order-track-step" id="step4">
                             <div class="order-track-status">
                               <span class="order-track-status-dot">
                                 <i
@@ -251,12 +274,19 @@
                               <p class="order-track-text-stat">
                                 Order Received
                               </p>
+                              <div style="height: 100px;">
+                             {{#if order.completeDate}}
                               <span class="order-track-text-sub"
-                                >10-10-2023 22:20</span
+                                >{{order.completeDate}}</span
                               >
+                              {{else}}
+                                <span class="order-track-text-sub"
+                                >undefined</span
+                              >
+                              {{/if}}</div>
                             </div>
                           </div>
-                          <div class="order-track-step">
+                          <div class="order-track-step" id="step5">
                             <div class="order-track-status">
                               <span class="order-track-status-dot">
                                 <i
@@ -268,10 +298,16 @@
                             <div class="order-track-text">
                               <p class="order-track-text-stat">
                                 Order Completed
-                              </p>
+                              </p><div style="height: 100px;">
+                              {{#if order.completeDate}}
                               <span class="order-track-text-sub"
-                                >10-10-2023 22:20</span
+                                >{{order.completeDate}}</span
                               >
+                              {{else}}
+                                <span class="order-track-text-sub"
+                                >undefined</span
+                              >
+                              {{/if}}</div>
                             </div>
                           </div>
                         </div>
@@ -341,9 +377,7 @@
                         <div class="d-flex flex-column gap-3">
                           <p class="text-dark fw-5">Payment method</p>
                           <div class="d-flex gap-3">
-                            <span class="text-dark fw-5">VNPAY</span>
-                            <div class="divide-vertical"></div>
-                            <span class="text-gray">Cash</span>
+                            <span class="text-dark fw-5">{{order.Method}}</span>
                           </div>
                         </div>
                         {{#ifCond order.Status '!==' 'Completed'}}
@@ -452,8 +486,68 @@
     </div>
     <script src="/assetSeller/js/homeSeller.js"></script>
     <script src="/assetSeller/js/orderSeller.js"></script>
+    <script src="/assetSeller/js/printOrder.js"></script>
     <script src="/tinymce/tinymce.min.js"></script>
     <script src="/assetSeller/js/textEditor.js"></script>
     <script src="/assetSeller/js/addProduct.js"></script>
+    <script>
+
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+      const step3 = document.getElementById('step3');
+      const step4 = document.getElementById('step4');
+      const step5 = document.getElementById('step5');
+        if ("{{order.completeDate}}"){
+            step1.classList.add('finish');
+            step2.classList.add('finish');
+            step3.classList.add('finish');
+            step4.classList.add('finish');
+            step5.classList.add('finish');
+        }
+        else if("{{order.shippingDate}}"){
+          step1.classList.add('finish');
+            step2.classList.add('finish');
+            step3.classList.add('finish');
+        }
+        else if("{{order.packingDate}}"){
+          step1.classList.add('finish');
+            step2.classList.add('finish');
+        }
+        else if("{{order.penddingDate}}"){
+          step1.classList.add('finish');
+        }
+
+    </script>
+    <script>
+      const { Document, Paragraph, Packer } = require('docx');
+function createAndExportWordFile1() {
+    // Dữ liệu hóa đơn của bạn
+    const invoiceData = {
+        customer: 'Tên khách hàng',
+        totalAmount: '$100',
+        // Thêm các thông tin khác của hóa đơn...
+    };
+
+    // Tạo một tài liệu Word mới
+    const doc = new Document();
+    doc.addSection({
+        properties: {},
+        children: [
+            new Paragraph(`Hóa đơn cho: ${invoiceData.customer}`),
+            new Paragraph(`Tổng cộng: ${invoiceData.totalAmount}`),
+            // Thêm các phần khác của hóa đơn vào đây...
+        ],
+    });
+
+    try {
+        const buffer = await Packer.toBuffer(doc);
+        fs.writeFileSync('invoice.docx', buffer);
+        console.log('File Word đã được tạo thành công.');
+    } catch (error) {
+        console.error('Lỗi khi tạo file Word:', error);
+    }
+}
+
+    </script>
   </body>
 </html>

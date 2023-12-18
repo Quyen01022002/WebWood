@@ -237,15 +237,32 @@
                   <tbody>
                     {{#each user}}
                     <tr>
-                      <td>{{this.username}}</td>
+                      <td ><div style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px; ">{{this._id}}</div></td>
                       <td>
-                        <div class="table-customer-name">
+                        <div
+                          class="table-customer-name"
+                          id="table-product-name"
+                          style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 300px;
+  padding-left: 80px "
+                        >
                           <img
                             src="{{this.avatar}}"
                             alt=""
                             class="table-customer-avatar"
                           />
-                          <p>{{this.name}}</p>
+                          <div class="d-flex flex-column align-items-start">
+                          <div style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 180px; ">  <p>{{this.name}}</p></div>
+                            
+                          </div>
                         </div>
                       </td>
                       <td class="table-address text-truncated">

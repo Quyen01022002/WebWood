@@ -101,6 +101,7 @@ logout(req, res,next) {
     var page = req.query.page;
       var quanlity  = req.query.quanlity;
       const keyword = req.query.q;
+      var cate = req.query.category;
         const fetchData = async () => {
           try {
             const user = req.session.user;
@@ -115,11 +116,33 @@ logout(req, res,next) {
             else quanlity = 6;
             var skip = (page - 1)*quanlity;
             let products;
+            let categories;
+            categories = await Category.find({});
+            let cateOne; 
+            if (cate==null)
+            cate ="All";
+            cateOne = await Category.findOne({catename: cate});
             if (keyword != null){
+              if (cate =="All"){
               products = await Product.find({
                 name: { $regex: new RegExp(keyword, 'i') }, 
               }).skip(skip).limit(quanlity);
-              var countPage = Math.ceil((await Product.find({ name: { $regex: new RegExp(keyword, 'i') },})).length/quanlity) ;
+              var countPage = Math.ceil((await Product.find({ name: { $regex: new RegExp(keyword, 'i') },})).length/quanlity) ;}
+              else {
+                products = await Product.find({
+                  $and: [
+                      { name: { $regex: new RegExp(keyword, 'i') } },
+                      { category: cate }
+                  ]
+              }).skip(skip).limit(quanlity);
+              
+              var countPage = Math.ceil((await Product.find({
+                  $and: [
+                      { name: { $regex: new RegExp(keyword, 'i') } },
+                      { category: cate }
+                  ]
+              })).length / quanlity);
+              }
               //console.info(mutipleMongooseToObject(categories));
           }
           if (keyword == null){
@@ -129,13 +152,15 @@ logout(req, res,next) {
             
             const data = {
               product: mutipleMongooseToObject(products),
+              categorylist: mutipleMongooseToObject(categories),
               slsp:products.length,
               isAdmin: isAdmin,
               countPage: countPage,
               pageCurrent: page,
               quanlity: quanlity,
               userAdmin: mongooseToObject(userInfo),
-              keyword: keyword
+              keyword: keyword,
+              catechoose: cate
             };
 
             res.render("layouts/admin/product/products",data);
@@ -197,6 +222,15 @@ logout(req, res,next) {
         const idpro = req.params.productid;
         const productNew = req.body;
         console.log(productNew);
+
+        const ProSlug = await Product.findOne({slug: productNew.slug});
+        console.log(ProSlug._id.toHexString);
+        console.log(idpro);
+          if (ProSlug){
+            if (ProSlug._id.toHexString()!==idpro)
+              return res.status(400).json({ error: "Sản phẩm đã tồn tại!" });
+          }
+
         const updateProduct = await Product.findOneAndUpdate(
           {_id: idpro},
           { name: productNew.name,
@@ -296,7 +330,12 @@ logout(req, res,next) {
           const productNew = req.body;
           console.log(productNew);
           const proAll = await Product.find({});
-          
+
+          const ProSlug = await Product.findOne({slug: productNew.slug});
+          if (ProSlug){
+            return res.status(400).json({ error: "Sản phẩm đã tồn tại!" });
+          }
+        
 
           const newProduct = new Product({
             name: productNew.name,
@@ -622,12 +661,16 @@ console.info(imgages);
                 return res.redirect('/admin/login')}
             const id = req.params.userid;
             const userProfile =await User.findById(id);
+            const userOrder = await Order.find({user_id: id});
+                
+
             const data = {
               isAdmin: true,
               user: mongooseToObject(userProfile),
               messageError: messageError,
-              userAdmin: mongooseToObject(userInfo)
-            };
+              userAdmin: mongooseToObject(userInfo),
+              orderList: mutipleMongooseToObject(userOrder)
+            };  
 
             res.render("layouts/admin/user/userdetail",data);
             

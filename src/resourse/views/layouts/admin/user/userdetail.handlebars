@@ -209,26 +209,10 @@
                             <div class="d-flex justify-content-between">
                               <span class="fw-5">ORDER HISTORY:</span>
                               <ul class="customer-order-history">
+                                {{#each orderList}}
                                 <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
-                                </li>
-                                <li class="customer-order-id">
-                                  <a href="orderDetailSeller.html">#1123</a>
+                                  <a href="/admin/orders/{{this._id}}">{{this._id}}</a>
+                                  {{/each}}
                                 </li>
                               </ul>
                             </div>
@@ -242,7 +226,7 @@
                               <div class="formfield">
                                 <div class="fieldset">
                                   <label for="profile_name" class="form-label"
-                                    >Name{{messageError}}</label
+                                    >Name</label
                                   >
                                   <input
                                     autocomplete="name"
@@ -251,6 +235,7 @@
                                     value="{{user.name}}"
                                     name="profile[name]"
                                     id="profile_name"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -266,6 +251,7 @@
                                     value="{{user.email}}"
                                     name="profile[email]"
                                     id="profile_email"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -281,6 +267,7 @@
                                     value="{{user.phone}}"
                                     name="profile[phone]"
                                     id="profile_phone"
+                                    disabled
                                   />
                                 </div>
                               </div>
@@ -318,6 +305,7 @@
                                     value="{{user.address}}"
                                     name="profile[address]"
                                     id="profile_address"
+                                    disabled
                                   />
                                 </div>
                               </div>

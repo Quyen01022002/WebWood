@@ -232,14 +232,14 @@
                   <tbody>
                     {{#each order}}
                     <tr>
-                      <td>1</td>
+                      <td ><div style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px; ">{{this._id}}</div></td>
+                      
                       <td>
+                        
                         <div class="table-customer-name">
-                          <img
-                            src="/assetSeller/images/shanks.jpg"
-                            alt=""
-                            class="table-customer-avatar"
-                          />
                           <p>{{this.name}}</p>
                         </div>
                       </td>
@@ -251,7 +251,7 @@
                       </td>
                       <td>{{this.Total}}$</td>
                       <td>
-                        <span class="order-status pending">{{this.Status}}</span>
+                        <span class="order-status pending text-truncated">{{this.Status}}</span>
                       </td>
                       <td>
                         <a href="/admin/orders/{{this._id}}" class="primary table-detail">Details</a>

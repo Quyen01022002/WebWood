@@ -196,6 +196,40 @@ function saveProductFunction(){
     const buyPrice = document.getElementById('buy_price').value;
     const sellPrice = document.getElementById('sell_price').value;
      const brand = document.getElementById('brand_seller').value;
+
+
+     const inputs = [
+      { value: product_name, id: 'name_product', label: 'Name Product' }
+      ,
+      { value: brand, id: 'brand_seller', label: 'Brand' },
+      { value: cate, id: 'cate_choose', label: 'Category' },
+      { value: buyPrice, id: 'buy_price', label: 'Buy Price' },
+      { value: sellPrice, id: 'sell_price', label: 'Sell Price' }
+  ];
+  
+let isEmpty = false;
+
+for (const input of inputs) {
+  if (input.value.trim() === '') {
+
+    const element = document.getElementById(input.id);
+    element.style.border = '1px solid red';
+    element.setAttribute('placeholder', `${input.label} not empty`);
+    isEmpty = true;
+    element.focus();
+    break;
+  }
+}
+
+
+
+     if (isEmpty=== false) {
+      console.log("Đã vào trong đây");
+     if (colorList.length ===0)
+     {
+      alert("Color product is empty");
+     }
+     else{
     const availableRadio = document.getElementById('available');
     if (availableRadio.checked){isSell = true}
     let quantity =0;
@@ -219,10 +253,14 @@ function saveProductFunction(){
     axios.post('/admin/products/add-product', productNew)
        .then(response => {
             console.log("thực thi "+ productNew);
+            
+            window.location.href = "/admin/products";
        })
        .catch(error => {
-        console.log("lỗi")
+        console.log("lỗi");
+        alert("Product is existing!");
        });
+      }}
 
 }
 
@@ -235,6 +273,39 @@ function updateProductFunction(idpro){
   const buyPrice = document.getElementById('buy_price').value;
   const sellPrice = document.getElementById('sell_price').value;
    const brand = document.getElementById('brand_seller').value;
+
+   const inputs = [
+    { value: product_name, id: 'name_product', label: 'Name Product' }
+    ,
+    { value: brand, id: 'brand_seller', label: 'Brand' },
+    { value: cate, id: 'cate_choose', label: 'Category' },
+    { value: buyPrice, id: 'buy_price', label: 'Buy Price' },
+    { value: sellPrice, id: 'sell_price', label: 'Sell Price' }
+];
+
+let isEmpty = false;
+
+for (const input of inputs) {
+if (input.value.trim() === '') {
+
+  const element = document.getElementById(input.id);
+  element.style.border = '1px solid red';
+  element.setAttribute('placeholder', `${input.label} not empty`);
+  isEmpty = true;
+  element.focus();
+  break;
+}
+}
+
+
+if (isEmpty=== false) {
+  console.log("Đã vào trong đây");
+ if (colorList.length ===0)
+ {
+  alert("Color product is empty");
+ }
+ else{
+
   const availableRadio = document.getElementById('available');
   if (availableRadio.checked){isSell = true}
   let quantity =0;
@@ -264,9 +335,10 @@ function updateProductFunction(idpro){
            window.location.href = "/admin/products";
       })
      .catch(error => {
-      console.log("lỗi")
+      console.log("lỗi");
+      alert("Product is existing!");
      });
-
+    }}
 }
 function convertToSlug(text) {
   text = text.toLowerCase();
