@@ -281,16 +281,7 @@
                                         />
                                       </div>
                                     </div>
-                                    <script>
-                                      function validateInput(input) {
-                                          // Lấy giá trị nhập vào ô input
-                                          let value = input.value;
-                                          if (isNaN(value) || parseFloat(value) <= 0) {
-                                              
-                                              input.value = value.slice(0, -1);
-                                          }
-                                      }
-                                      </script>
+                                    
                                   </div>
                                 </div>
                               </div>
@@ -539,11 +530,12 @@
                     </div>
                     <div class="col-md-8">
                       <input
-                        type="number"
+                        type="text"
                         name=""
                         class="textField"
                         maxlength="255"
                         id="quantity"
+                        oninput="validateInput(this)"
                         required
                       />
                     </div>
@@ -795,7 +787,16 @@
     <script src="/tinymce/tinymce.min.js"></script>
     <script src="/assetSeller/js/textEditor.js"></script>
     <script src="/assetSeller/js/addProduct.js"></script>
-    
+<script>
+                                      function validateInput(input) {
+                                          // Lấy giá trị nhập vào ô input
+                                          let value = input.value;
+                                          if (isNaN(value) || parseFloat(value) <= 0) {
+                                              
+                                              input.value = value.slice(0, -1);
+                                          }
+                                      }
+                                      </script>    
 <script>
  // const product_name = document.getElementById('name_product').value;
   
