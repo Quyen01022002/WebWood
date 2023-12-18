@@ -50,65 +50,76 @@ class Cartcontroller {
         const product = await Product.findOne({ slug: req.params.slug });
     
         const cartVersion = parseInt(req.body.cartVersion);
-        const addproduct = {
-          product_id: product.id,
-          quantity: req.body.soluong,
-          color: req.params.colors
-        };
-      
-        if (!cart.products) {
-          cart.products = [];
-        }
-        const existingProductIndex = cart.products.findIndex(item => (
-          item.product_id.toString() === addproduct.product_id &&
-          item.color === addproduct.color
-        ));        
-        if (existingProductIndex !== -1) {
-      
-          cart.products[existingProductIndex].quantity =parseInt(cart.products[existingProductIndex].quantity)+ parseInt(addproduct.quantity);
-        } else {
-       
-          cart.products.push(addproduct);
-        }
-    
-        await Cart.updateOne({ _id: cart._id }, { $inc: { __v: 1 }, $set: { products: cart.products } });
-        const Updatecart = await Cart.find({ user_id: user.id }).lean();
-        if (Updatecart) {
-          const productList = [];
-  
-          for (const cart of Updatecart) {
-            if (cart.products && cart.products.length > 0) {
-              for (const productInfo of cart.products) {
-                const product = await Product.findById(productInfo.product_id);
-                const productcart=
-                {
-                  name:product.name,
-                  quantity:productInfo.quantity,
-                  color:productInfo.color,
-                  price:product.SellPrice.toLocaleString(),
-                  images:product.colors.find(item=>item.name==productInfo.color).images[0].url,
-                  productid:productInfo.product_id
-                }
-                
-              
-  
-                if (productcart) {
-                  productList.push(productcart);
-                } else {
-                  console.log(`Không tìm thấy sản phẩm với ID: ${productInfo.product_id}`);
-                }
-              }
-            } else {
-              console.log('Giỏ hàng không có sản phẩm.');
-            }
+        if(req.body.soluong<product.quantity)
+        {
+          console.log("Quyến:"+req.body.soluong+"Số luongj sp"+product.quantity)
+          const addproduct = {
+            product_id: product.id,
+            quantity: req.body.soluong,
+            color: req.params.colors
+          };
+        
+          if (!cart.products) {
+            cart.products = [];
           }
-  
-          return res.render('cart', { carts: productList });
+          const existingProductIndex = cart.products.findIndex(item => (
+            item.product_id.toString() === addproduct.product_id &&
+            item.color === addproduct.color
+          ));        
+          if (existingProductIndex !== -1) {
+        
+            cart.products[existingProductIndex].quantity =parseInt(cart.products[existingProductIndex].quantity)+ parseInt(addproduct.quantity);
+          } else {
+         
+            cart.products.push(addproduct);
+          }
+      
+          await Cart.updateOne({ _id: cart._id }, { $inc: { __v: 1 }, $set: { products: cart.products } });
+          const Updatecart = await Cart.find({ user_id: user.id }).lean();
+          if (Updatecart) {
+            const productList = [];
+    
+            for (const cart of Updatecart) {
+              if (cart.products && cart.products.length > 0) {
+                for (const productInfo of cart.products) {
+                  const product = await Product.findById(productInfo.product_id);
+                  const productcart=
+                  {
+                    name:product.name,
+                    quantity:productInfo.quantity,
+                    color:productInfo.color,
+                    price:product.SellPrice.toLocaleString(),
+                    images:product.colors.find(item=>item.name==productInfo.color).images[0].url,
+                    productid:productInfo.product_id
+                  }
+                  
+                
+    
+                  if (productcart) {
+                    productList.push(productcart);
+                  } else {
+                    console.log(`Không tìm thấy sản phẩm với ID: ${productInfo.product_id}`);
+                  }
+                }
+              } else {
+                console.log('Giỏ hàng không có sản phẩm.');
+              }
+            }
+    
+            return res.render('cart', { carts: productList });
+          }
         }
+        else
+        {
+          res.status(200).json({ success: false, message: 'Số lượng sản phẩm không đủ' });
+        }
+       
   
       } catch (error) {
         res.redirect('/login');
       }
+      
+      
     }
     
     async change(req, res) {
