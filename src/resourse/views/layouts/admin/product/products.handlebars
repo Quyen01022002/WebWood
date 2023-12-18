@@ -186,17 +186,28 @@
                 <input type="text" id="customer-name" value = "{{keyword}}" />
               </div>
               <div class="formfield">
-                <label for="order-status">Category</label>
-                <select class="" name="" id="">
-                  <option value="">All</option>
-                  <option value="">Table</option>
-                  <option value="">Chair</option>
-                  <option value="">Wardrobe</option>
-                  <option value="">Bed</option>
-                  <option value="">Carpet</option>
-                  <option value="">Accessories</option>
+                <label for="order-status">Category {{catechoose}}</label>
+                <select class="" name="showPerCate" id="showPerCate" onchange="changePerCate()">
+                  <option value="All">All</option>
+                  {{#each categorylist}}
+                      <option value="{{this.catename}}">{{this.catename}}</option>
+                  {{/each}}
                 </select>
               </div>
+              <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+            var showPerCate = "{{catechoose}}";
+        var showPerPage = {{quanlity}};
+            if (showPerCate) {
+              document.getElementById("showPerCate").value = showPerCate;
+            }
+            });
+            function changePerCate() {
+            var selectBoxCate = document.getElementById("showPerCate");
+            var selectedValueCate = selectBoxCate.options[selectBoxCate.selectedIndex].value;
+            window.location.href = "/admin/products?q={{keyword}}&category=" + selectedValueCate + "&quanlity={{quanlity}}";
+          }
+        </script>
               <div class="formfield" style="display: none;">
                 <label for="order-status">Status</label>
                 <select class="" name="" id="">
@@ -232,7 +243,7 @@
             function changePerPage() {
             var selectBox = document.getElementById("showPerPage");
             var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-            window.location.href = "/admin/products?q={{keyword}}&quanlity=" + selectedValue;
+            window.location.href = "/admin/products?q={{keyword}}&category={{catechoose}}&quanlity=" + selectedValue;
           }
         </script>
                
@@ -350,7 +361,7 @@
           {{#ifCond pageCurrent "<" (add countPage 1)}}
                         {{#ifCond pageCurrent "!==" 1}}
                         <li class="page-item">
-                          <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent -1}}&quanlity={{quanlity}}" aria-label="Previous">
+                          <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent -1}}&quanlity={{quanlity}}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
                           </a>
@@ -366,27 +377,27 @@
                             {{#ifCond pageCurrent "==" countPage}}
                             {{#ifCond countPage ">" 2}}
                                 <li class="page-item">
-                                  <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent -2}}&quanlity={{quanlity}}">{{add pageCurrent -2}}</a>
+                                  <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent -2}}&quanlity={{quanlity}}">{{add pageCurrent -2}}</a>
                                 </li>
                                 {{/ifCond}}
                             {{/ifCond}}
                             {{#ifCond pageCurrent "!==" 1}}
                             <li class="page-item">
-                              <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent -1}}&quanlity={{quanlity}}">{{add pageCurrent -1}}</a>
+                              <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent -1}}&quanlity={{quanlity}}">{{add pageCurrent -1}}</a>
                             </li>
                             {{/ifCond}}
                             <li class="page-item active">
-                              <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent 0}}&quanlity={{quanlity}}">{{add pageCurrent 0}}</a>
+                              <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent 0}}&quanlity={{quanlity}}">{{add pageCurrent 0}}</a>
                             </li>
                             {{#ifCond pageCurrent "<" countPage}}
                                 <li class="page-item">
-                                  <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent 1}}&quanlity={{quanlity}}">{{add pageCurrent 1}}</a>
+                                  <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent 1}}&quanlity={{quanlity}}">{{add pageCurrent 1}}</a>
                                 </li>
                             {{/ifCond}}
                             {{#ifCond pageCurrent "==" 1}}
                             {{#ifCond countPage ">" 2}}
                                 <li class="page-item">
-                                  <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent 2}}&quanlity={{quanlity}}">{{add pageCurrent 2}}</a>
+                                  <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent 2}}&quanlity={{quanlity}}">{{add pageCurrent 2}}</a>
                                 </li>
                                 {{/ifCond}}
                             {{/ifCond}}
@@ -399,7 +410,7 @@
                             {{/ifCond}}
                        {{#ifCond pageCurrent "!==" countPage}}
                         <li class="page-item">
-                          <a class="page-link" href="/admin/products?q={{keyword}}page={{add pageCurrent 1}}&quanlity={{quanlity}}" aria-label="Next">
+                          <a class="page-link" href="/admin/products?q={{keyword}}&category={{catechoose}}&page={{add pageCurrent 1}}&quanlity={{quanlity}}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                           </a>

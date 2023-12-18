@@ -5,7 +5,7 @@ function savestatus(id){
     const status_order = document.getElementById('status_order').value;
     console.log(status_order);
     axios.post('/admin/orders/'+id, {statusOrder: status_order}).then(response => {
-    
+      window.location.href = "/admin/orders/"+id;
 
       })
       .catch(error => {

@@ -265,6 +265,7 @@
                                           class="textField"
                                           value=""
                                           id="buy_price"
+                                          oninput="validateInput(this)"
                                         />
                                       </div>
                                     </div>
@@ -276,10 +277,20 @@
                                           class="textField"
                                           value=""
                                           id="sell_price"
+                                          oninput="validateInput(this)"
                                         />
                                       </div>
                                     </div>
-                                    
+                                    <script>
+                                      function validateInput(input) {
+                                          // Lấy giá trị nhập vào ô input
+                                          let value = input.value;
+                                          if (isNaN(value) || parseFloat(value) <= 0) {
+                                              
+                                              input.value = value.slice(0, -1);
+                                          }
+                                      }
+                                      </script>
                                   </div>
                                 </div>
                               </div>
