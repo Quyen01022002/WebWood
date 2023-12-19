@@ -503,46 +503,9 @@
                         >
                           <span class="text-truncated">All</span>
                         </a>
-                        <a
-                          href="#"
-                          class="order-tab-item"
-                          id="tab-to-pay"
-                          aria-selected="false"
-                        >
-                          <span class="text-truncated">To Pay</span>
-                        </a>
-                        <a
-                          href="#"
-                          class="order-tab-item"
-                          id="tab-to-ship"
-                          aria-selected="false"
-                        >
-                          <span class="text-truncated">To Ship</span>
-                        </a>
-                        <a
-                          href="#"
-                          class="order-tab-item"
-                          id="tab-to-received"
-                          aria-selected="false"
-                        >
-                          <span class="text-truncated">To Received</span>
-                        </a>
-                        <a
-                          href="#"
-                          class="order-tab-item"
-                          id="tab-completed"
-                          aria-selected="false"
-                        >
-                          <span class="text-truncated">Completed</span>
-                        </a>
-                        <a
-                          href="#"
-                          class="order-tab-item"
-                          id="tab-cancelled"
-                          aria-selected="false"
-                        >
-                          <span class="text-truncated">Cancelled</span>
-                        </a>
+                       
+                    
+                      
                         <div class="order-tab-line"></div>
                       </div>
                       <div class="order-content active" id="all-orders">
@@ -612,176 +575,7 @@
                         {{/each}}
                         </div>
                       </div>
-                      <div class="order-content" id="to-pay-orders">
-                         <div class="order-list">
-                          {{#each orders}}
-                          <div class="order-item">
-                            <div class="order-item-wrap">
-                              <div class="order-item-top">
-                                <p class="order-state">{{this.Status}}</p>
-                              </div>
-                              <div class="divide"></div>
-                              <a id="profileLink" class="order-link" data-id="{{this._id}}">
-                                <div>
-                                  {{#each this.products}}
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src={{this.images}}
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >{{this.name}}</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: {{this.color}}
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x{{this.quantity}}
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>{{this.price}}</span>
-                                    </div>
-                                  </div>
-                                  {{/each}}
-                               
-                                </div>
-                              </a>
-                              <div class="divide"></div>
-                              <div class="order-total">
-                                <p class="fz-14">Order Total:</p>
-                                <div class="order-total-value">{{this.Total}}</div>
-                              </div>
-                              <div class="order-action">
-                                <div class="order-action-group">
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--primary"
-                                    >
-                                     {{this.Status}}
-                                    </button>
-                                  </div>
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--secondary"
-                                    >
-                                      Contact Seller
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        {{/each}}
-                        </div>
-                      </div>
-                      <div class="order-content" id="to-ship-orders">
-                         <div class="order-list">
-                          {{#each ordersToship}}
-                          <div class="order-item">
-                            <div class="order-item-wrap">
-                              <div class="order-item-top">
-                                <p class="order-state">{{this.Status}}</p>
-                              </div>
-                              <div class="divide"></div>
-                              <a href="" class="order-link">
-                                <div>
-                                  {{#each this.products}}
-                                  <div class="order-product-item">
-                                    <div class="order-product-left">
-                                      <img
-                                        src="https://shopgiaysneaker.vn/wp-content/uploads/nike-air-force-1-g-dragon-2-0-13.jpg"
-                                        alt=""
-                                        class="order-product-image"
-                                      />
-                                      <div class="order-product-info">
-                                        <span class="order-product-name"
-                                          >Nike AF1 G.Dragon</span
-                                        >
-                                        <div class="order-product-variation">
-                                          Variation: {{this.color}}
-                                        </div>
-                                        <div class="order-product-quantity">
-                                          x{{this.quantity}}
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="order-price">
-                                      <span>{{this.price}}</span>
-                                    </div>
-                                  </div>
-                                  {{/each}}
-                               
-                                </div>
-                              </a>
-                              <div class="divide"></div>
-                              <div class="order-total">
-                                <p class="fz-14">Order Total:</p>
-                                <div class="order-total-value">{{this.Total}}</div>
-                              </div>
-                              <div class="order-action">
-                                <div class="order-action-group">
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--primary"
-                                    >
-                                      {{this.Status}}
-                                    </button>
-                                  </div>
-                                  <div class="order-action-item">
-                                    <button
-                                      class="stardust-button stardust-button--secondary"
-                                    >
-                                      Contact Seller
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        {{/each}}
-                        </div>
-                      </div>
-                      <div class="order-content" id="to-received-orders">
-                        <div class="order-list">
-                          <div class="order-item">
-                            <div class="order-item-wrap no-orders">
-                              <span class="material-symbols-outlined text-gray">
-                                list_alt
-                              </span>
-                              <h4 class="fw-4 text-gray">No orders yet</h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="order-content" id="completed-orders">
-                        <div class="order-list">
-                          <div class="order-item">
-                            <div class="order-item-wrap no-orders">
-                              <span class="material-symbols-outlined text-gray">
-                                list_alt
-                              </span>
-                              <h4 class="fw-4 text-gray">No orders yet</h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="order-content" id="cancelled-orders">
-                        <div class="order-list">
-                          <div class="order-item">
-                            <div class="order-item-wrap no-orders">
-                              <span class="material-symbols-outlined text-gray">
-                                list_alt
-                              </span>
-                              <h4 class="fw-4 text-gray">No orders yet</h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  
                     </div>
                   </div>
 
@@ -799,6 +593,7 @@
                             Back
                           </a>
                           <div>
+                            <input type="hidden" id="orderIdInput" value="initial_value">
                             <h3 class="order-detail-id">
                               ORDER ID. <span id="order-id"></span>
                             </h3>
@@ -871,7 +666,7 @@
                                   <div class="order-action">
                                     <div class="order-action-group">
                                       <div class="order-action-item">
-                                        <button onclick=updateStatusOnServer("Confirmated") id="xacnhan"
+                                        <button type="button" onclick="updateStatusOnServer()" id="xacnhan"
                                           class="stardust-button stardust-button--primary"
                                         >
                                       
@@ -1073,11 +868,13 @@
         show = !show;
       };
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="/js/profile.js">
     </script>
     <script src="/common/user/header.js"></script>
     <script src="/js/order.js"></script>
     <script src="/js/orderDetail.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- HTML & JavaScript -->
  <script>
     function displaySelectedImage() {
@@ -1100,4 +897,37 @@
         reader.readAsDataURL(input.files[0]);
       } 
     }
+   
+  function updateStatusOnServer() {
+    console.log("Quyến");
+
+    // Retrieve the order ID from the hidden input
+    var orderId = document.getElementById("orderIdInput").value;
+
+    jQuery.ajax({
+        url: '/payment/update',
+        contentType: 'application/json',
+        method: 'POST',
+        data: JSON.stringify({ orderId: orderId }),
+        success: function(data) {
+            console.log('Status updated successfully');
+            Swal.fire({
+                icon: 'success',
+                title: 'Status Updated',
+                text: 'The status has been updated successfully.',
+            });
+            // Bạn cũng có thể xử lý phản hồi thành công ở đây
+        },
+        error: function(error) {
+            console.error('Error updating status:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'There was an error updating the status: ' + error,
+            });
+            // Bạn cũng có thể xử lý phản hồi lỗi ở đây
+        }
+    });
+}
+
   </script>

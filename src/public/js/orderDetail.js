@@ -43,6 +43,7 @@ function DetailOrder(productId) {
     // Using vanilla JavaScript to set text content
     document.getElementById('diachi').innerText = detail.Address    ;
     
+    document.getElementById('orderIdInput').value = detail._id    ;
     // Using vanilla JavaScript to set text content
     document.getElementById('order-status').innerText = detail.Status;
     document.getElementById('emailnguoinhan').innerText = detail.email;

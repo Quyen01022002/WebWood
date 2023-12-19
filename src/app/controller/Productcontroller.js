@@ -44,6 +44,10 @@ class Productcontroller{
     home(req, res,next) {
       Product.findOne({slug:req.params.slug}).then((product)=>{
         let listcolors;
+        let islogin = false;
+        const user = req.session.user;
+        if(user)
+        {islogin=true;}
         product.colors.forEach(item => {
           if(item.name===req.params.colors)
           {

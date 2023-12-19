@@ -7,26 +7,7 @@
               <span class="wall-header__item_count"> ({{slsp}}) </span>
             </h1>
             <nav class="wall-header__nav">
-              <div class="wall-header__filter">
-                <span>Hide Filter</span>
-                <img
-                  src="/images/wall/wall-header/filter.png"
-                  alt=""
-                  class="wall-header__filter_img w-24 h-24"
-                />
-              </div>
-              <div class="wall-header__sort">
-                <div class="wall-sort__select">
-                  <span class="wall-sort__text dropdown__btn-text"
-                    >Sort By</span
-                  >
-                  <img
-                    src="/images/wall/wall-header/sortby.svg"
-                    alt=""
-                    class="dropdown-icon"
-                  />
-                  <span class="dropdown-btn__selected-text"></span>
-                </div>
+                     
                 <div class="wall-header__dropdown">
                   <div class="wall-dropdown__list" role="menu">
                     <button
@@ -145,7 +126,7 @@
                   <div class="product-grid__item">
                     <div class="product-grid__top">
                       <img
-                        src="{{this.imgage}}"
+                        src="{{getFirstColorImagesUrl this.colors}}"
                         alt=""
                         class="product-grid__img"
                       />

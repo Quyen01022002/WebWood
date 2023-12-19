@@ -1,4 +1,5 @@
 const User=require('../../models/User')
+const Cart=require('../../models/Cart')
 const { mutipleMongooseToObject,mongooseToObject } =require('../../util/mongoose')
 
 const nodemailer = require('nodemailer');
@@ -84,36 +85,49 @@ class Logincontroller{
               
     }
     CheckOtp = async (req, res) => {
-      const signUpData = req.session.signUp
-      console.log(req.body.otp);
-      console.log(signUpData.password);
-      if (req.body.otp == signUpData.otp) {
-        const userData = {
-          username: signUpData.username,
-          email: signUpData.username, 
-          password: signUpData.password,
-          name: '',
-          address: '',
-          phone: signUpData.phone,
-          avatar: '',
-          role: 'user',
-          status: true
-        };
-      
-        const newUser = new User(userData);
-      
-        // Save the new user to the database using promises
-        newUser.save()
-          .then(() => {
+      const signUpData = req.session.signUp;
+
+console.log(req.body.otp);
+console.log(signUpData.password);
+
+if (req.body.otp == signUpData.otp) {
+    const userData = {
+        username: signUpData.username,
+        email: signUpData.username,
+        password: signUpData.password,
+        name: '',
+        address: '',
+        phone: signUpData.phone,
+        avatar: '',
+        role: 'user',
+        status: true
+    };
+
+    const newUser = new User(userData);
+
+    // Save the new user to the database using promises
+    newUser.save()
+        .then(savedUser => {
+            // Create a new cart for the user
+            const newCart = new Cart({
+                user_id: savedUser._id,
+                products: []  // You can add products to the cart if needed
+            });
+
+            // Save the new cart to the database
+            return newCart.save();
+        })
+        .then(() => {
             res.status(200).json({ success: 'Đăng ký thành công' });
-          })
-          .catch(err => {
-            console.error('Error saving user:', err);
+        })
+        .catch(err => {
+            console.error('Error saving user or cart:', err);
             res.status(500).json({ error: 'Internal Server Error' });
-          });
-      } else {
-        res.status(400).json({ error: 'Mã OTP không đúng' });
-      }
+        });
+} else {
+    res.status(400).json({ error: 'Mã OTP không đúng' });
+}
+
       
               
     }

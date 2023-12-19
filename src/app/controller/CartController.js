@@ -46,6 +46,7 @@ class Cartcontroller {
       
       try {
         const user = req.session.user;
+        console.log("user"+user)
         const cart = await Cart.findOne({ user_id: user.id }).lean();
         const product = await Product.findOne({ slug: req.params.slug });
     

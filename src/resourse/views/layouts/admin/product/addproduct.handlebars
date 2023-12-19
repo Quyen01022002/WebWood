@@ -261,9 +261,10 @@
                                       <div class="d-flex flex-column gap-4">
                                         <p class="form-input-title">Buy Price:</p>
                                         <input
-                                          type="text"
+                                          type="number"
                                           class="textField"
                                           value=""
+                                           min="0"
                                           id="buy_price"
                                         />
                                       </div>
@@ -272,8 +273,9 @@
                                       <div class="d-flex flex-column gap-4">
                                         <p class="form-input-title">Sell Price:</p>
                                         <input
-                                          type="text"
+                                          type="number"
                                           class="textField"
+                                            min="0"
                                           value=""
                                           id="sell_price"
                                         />
@@ -533,6 +535,7 @@
                         class="textField"
                         maxlength="255"
                         id="quantity"
+                        min="0"
                         required
                       />
                     </div>

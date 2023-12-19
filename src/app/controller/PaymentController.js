@@ -45,6 +45,7 @@ class PaymentController {
   }
   
   async addOrder(req, res) {
+    console.log("ĐX vào")
     try {
       const user = req.session.user;
       const carts = await Cart.find({ user_id: user.id });
@@ -85,7 +86,7 @@ class PaymentController {
                 quantity: product.quantity},
                 {new: true}
               )
-                console.log(updatePro);
+            
                 ////////////////////////////////////
 
               if (productcart) {
@@ -133,9 +134,11 @@ class PaymentController {
     try {
       const user = req.session.user;
       
-      const orderid = req.params.orderid;
+      const orderid = req.body.orderId;
+      console.log("Dax vaof toie")
           if (orderid)
           {
+            console.log("Dax vaof toie")
             const updateOrder = await Order.findOneAndUpdate(
               {_id: orderid},
               {Status: 'Confirmation',
@@ -144,7 +147,7 @@ class PaymentController {
           }
  
      } catch (error) {
-       console.error(error);
+    
        return res.redirect('/login')
      }
 
