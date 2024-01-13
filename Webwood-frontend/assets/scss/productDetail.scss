@@ -143,6 +143,11 @@ $default-font: "Be Vietnam Pro", sans-serif;
             width: calc(25% - 1rem);
             height: 70px;
             cursor: pointer;
+            border-radius: 0.5rem;
+            border: 1.5px solid transparent;
+            & img{
+                border-radius: 0.5rem;
+            }
         }
     }
     &-action {

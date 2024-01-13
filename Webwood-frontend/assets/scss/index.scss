@@ -217,6 +217,7 @@ $default-font: "Be Vietnam Pro", sans-serif;
         gap: 2rem;
     }
     &__item {
+        display: block;
         padding-bottom: 3rem;
         background-color: white;
         cursor: pointer;

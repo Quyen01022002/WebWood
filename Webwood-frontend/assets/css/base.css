@@ -364,6 +364,7 @@ body {
   background-color: var(--gray-2);
 }
 .header-logo {
+  display: block;
   width: 6rem;
   height: 6rem;
 }
