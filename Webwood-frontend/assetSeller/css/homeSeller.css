@@ -17,6 +17,10 @@ a {
   color: #363949;
 }
 
+.wrapper {
+  max-width: 100%;
+}
+
 .profile-photo {
   width: 4.8rem;
   height: 4.8rem;
